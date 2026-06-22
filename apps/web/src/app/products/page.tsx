@@ -91,7 +91,7 @@ function ProductsContent() {
   }, [fetchProducts]);
 
   return (
-    <Container className="py-6 sm:py-8">
+    <Container className="py-6 sm:py-20">
       <SectionHeading
         title="All Dresses"
         subtitle={`${total} piece${total === 1 ? "" : "s"} in our collection`}
