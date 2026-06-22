@@ -3,7 +3,7 @@ import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { CartDrawer } from "@/components/cart/cart-drawer";
+import { CartDrawer } from "@/features/cart/components/cart-drawer";
 import { ContactFab } from "@/components/shared/contact-fab";
 import { SmoothScrolling } from "@/components/layout/smooth-scrolling";
 import { QueryProvider } from "@/providers/query-provider";

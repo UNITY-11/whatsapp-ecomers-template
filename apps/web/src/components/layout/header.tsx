@@ -6,9 +6,9 @@ import { ShoppingBag, Heart, Menu } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { SearchBar } from "@/components/search/search-bar";
-import { useCartStore } from "@/store/cart-store";
-import { useWishlistStore } from "@/store/wishlist-store";
+import { SearchBar } from "@/features/search/components/search-bar";
+import { useCartStore } from "@/features/cart/store/cart-store";
+import { useWishlistStore } from "@/features/wishlist/store/wishlist-store";
 import { NAV_LINKS } from "@/lib/constants";
 import { BrandLogo } from "@/components/shared/brand-logo";
 import { Container } from "@/components/shared/container";
@@ -25,6 +25,7 @@ export function Header() {
   const [mounted, setMounted] = useState(false);
   
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
