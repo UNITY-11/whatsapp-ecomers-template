@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ShoppingBag, Heart, User, Menu } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { SearchBar } from "@/components/search/search-bar";
@@ -22,8 +22,14 @@ export function Header() {
   const setCartOpen = useCartStore((s) => s.setCartOpen);
   const wishlistCount = useWishlistStore((s) => s.items.length);
 
+  const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/90 backdrop-blur-xl supports-backdrop-filter:bg-background/75">
+    <header className="fixed top-0 z-50 w-full border-b border-border/60 bg-background/90 backdrop-blur-xl supports-backdrop-filter:bg-background/75">
       <Container className="px-3 sm:px-6">
         <div className="flex h-14 sm:h-16 md:h-20 items-center justify-between gap-2 sm:gap-4 min-w-0">
           <Link href="/" className="flex items-center shrink-0 min-w-0 max-w-[45%] sm:max-w-none group">
@@ -55,7 +61,7 @@ export function Header() {
             <Button variant="ghost" size="icon" className="relative rounded-full size-8 sm:size-9" asChild>
               <Link href="/wishlist" aria-label="Wishlist">
                 <Heart className="h-4 w-4 sm:h-[1.15rem] sm:w-[1.15rem] stroke-[1.5]" />
-                {wishlistCount > 0 && (
+                {mounted && wishlistCount > 0 && (
                   <span className="absolute -top-0.5 -right-0.5 h-3.5 min-w-3.5 sm:h-4 sm:min-w-4 px-0.5 rounded-full bg-accent text-[9px] sm:text-[10px] text-accent-foreground flex items-center justify-center font-medium">
                     {wishlistCount}
                   </span>
@@ -70,7 +76,7 @@ export function Header() {
               aria-label="Cart"
             >
               <ShoppingBag className="h-4 w-4 sm:h-[1.15rem] sm:w-[1.15rem] stroke-[1.5]" />
-              {itemCount > 0 && (
+              {mounted && itemCount > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 h-3.5 min-w-3.5 sm:h-4 sm:min-w-4 px-0.5 rounded-full bg-accent text-[9px] sm:text-[10px] text-accent-foreground flex items-center justify-center font-medium">
                   {itemCount}
                 </span>
