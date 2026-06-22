@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Heart } from "lucide-react";
 import { Container } from "@/components/shared/container";
-import { ProductCard } from "@/components/products/product-card";
+import { ProductCard } from "@/features/products/components/product-card";
 import { Button } from "@/components/ui/button";
-import { useWishlistStore } from "@/store/wishlist-store";
+import { useWishlistStore } from "@/features/wishlist/store/wishlist-store";
 import { mockProducts } from "@/lib/mock-data";
 import type { Product } from "@/types";
 
@@ -15,6 +15,7 @@ export default function WishlistPage() {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setProducts(mockProducts.filter((p) => wishlistIds.includes(p._id)));
   }, [wishlistIds]);
 
