@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getProductBySlug } from "@/services/product-service";
+import { getProductBySlug } from "@/features/products/services/product-service";
 import { getProductReviews, getRelatedProducts } from "@/services/content-service";
 import { ProductDetail } from "@/features/products/product-detail";
 import { generateProductJsonLd, generateBreadcrumbJsonLd } from "@/utils/seo";

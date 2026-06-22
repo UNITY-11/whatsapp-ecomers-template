@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Minus, Plus, ShoppingBag, Heart, Share2, MessageCircle, Star, Check, X, Ruler } from "lucide-react";
 import { Container } from "@/components/shared/container";
-import { ProductCard } from "@/components/products/product-card";
-import { VariantSelector } from "@/components/products/variant-selector";
+import { ProductCard } from "@/features/products/components/product-card";
+import { VariantSelector } from "@/features/products/components/variant-selector";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -15,9 +15,9 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useCartStore } from "@/store/cart-store";
-import { useWishlistStore } from "@/store/wishlist-store";
-import { createSingleOrderAction } from "@/actions/order-actions";
+import { useCartStore } from "@/features/cart/store/cart-store";
+import { useWishlistStore } from "@/features/wishlist/store/wishlist-store";
+import { createSingleOrderAction } from "@/features/cart/actions/order-actions";
 import { formatPrice, calculateDiscount, getProductImageUrl } from "@/utils/format";
 import { getProductSizes, getVariantStock, productHasVariants } from "@/lib/dress-variants";
 import { cn } from "@/lib/utils";
@@ -56,6 +56,7 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
 
   useEffect(() => {
     if (variantStock > 0 && quantity > variantStock) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setQuantity(variantStock);
     }
   }, [variantStock, quantity]);

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container, SectionHeading } from "@/components/shared/container";
-import { ProductCard } from "@/components/products/product-card";
+import { ProductCard } from "@/features/products/components/product-card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { staggerContainer, fadeIn } from "@/components/shared/motion";

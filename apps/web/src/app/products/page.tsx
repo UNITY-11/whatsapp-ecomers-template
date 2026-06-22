@@ -4,19 +4,19 @@ import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Grid3x3, List, SlidersHorizontal } from "lucide-react";
 import { Container, SectionHeading } from "@/components/shared/container";
-import { ProductCard } from "@/components/products/product-card";
-import { ProductQuickView } from "@/components/products/product-quick-view";
+import { ProductCard } from "@/features/products/components/product-card";
+import { ProductQuickView } from "@/features/products/components/product-quick-view";
 import {
   ProductFilters,
   ActiveFilterChips,
   type ProductFilterState,
-} from "@/components/products/product-filters";
+} from "@/features/products/components/product-filters";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
-import { getProducts } from "@/services/product-service";
+import { getProducts } from "@/features/products/services/product-service";
 import { getCategories, getBrands } from "@/services/content-service";
 import { SORT_OPTIONS, ITEMS_PER_PAGE } from "@/lib/constants";
 import type { Product, Category, Brand } from "@/types";
@@ -86,6 +86,7 @@ function ProductsContent() {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchProducts();
   }, [fetchProducts]);
 
