@@ -92,7 +92,7 @@ export function SearchBar({ inlineResults = false, onNavigate, className }: Sear
     setResults([]);
   };
 
-  const showPanel = open && (inlineResults || !!query || history.length > 0);
+  const showPanel = open && (!!query || history.length > 0);
 
   const resultsPanel = (
     <div
@@ -158,9 +158,7 @@ export function SearchBar({ inlineResults = false, onNavigate, className }: Sear
             </div>
           ))}
         </div>
-      ) : (
-        <div className="p-4 text-sm text-muted-foreground">Start typing to search</div>
-      )}
+      ) : null}
     </div>
   );
 
@@ -174,7 +172,7 @@ export function SearchBar({ inlineResults = false, onNavigate, className }: Sear
         <Input
           type="search"
           placeholder="Search products..."
-          className="pl-9 pr-9 h-10 rounded-full bg-muted/60 border-border/60 text-sm w-full"
+          className="pl-9 pr-9 h-10 rounded-none bg-muted/60 border-border/60 text-sm w-full"
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
