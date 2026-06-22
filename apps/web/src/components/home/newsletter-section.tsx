@@ -36,7 +36,7 @@ export function NewsletterSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#0F4A3A]/10 shadow-xl shadow-[#0F4A3A]/5"
+          className="relative overflow-hidden rounded-none border border-[#0F4A3A]/10 shadow-xl shadow-[#0F4A3A]/5"
         >
           {/* Background layers */}
           <div className="absolute inset-0 bg-[#0F4A3A]" />
@@ -98,7 +98,7 @@ export function NewsletterSection() {
                       placeholder="you@email.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="h-12 sm:h-[3.25rem] rounded-full bg-[#F5F0E8] text-[#0F4A3A] border-0 pl-5 pr-4 text-sm placeholder:text-[#0F4A3A]/45 shadow-inner"
+                      className="h-12 sm:h-[3.25rem] rounded-none bg-[#F5F0E8] text-[#0F4A3A] border-0 pl-5 pr-4 text-sm placeholder:text-[#0F4A3A]/45 shadow-inner"
                       required
                       aria-label="Email address"
                     />
@@ -106,7 +106,7 @@ export function NewsletterSection() {
                   <Button
                     type="submit"
                     disabled={submitted}
-                    className="w-full h-12 sm:h-[3.25rem] rounded-full bg-[#B89A5A] text-[#1a2e28] hover:bg-[#c9ab6b] font-medium tracking-wide shadow-md"
+                    className="w-full h-12 sm:h-[3.25rem] rounded-none bg-[#B89A5A] text-[#1a2e28] hover:bg-[#c9ab6b] font-medium tracking-wide shadow-md"
                   >
                     {submitted ? (
                       <>
