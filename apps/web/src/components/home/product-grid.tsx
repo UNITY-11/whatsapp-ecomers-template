@@ -23,10 +23,19 @@ export function ProductGrid({ products, title, subtitle, label, viewAllHref }: P
   return (
     <section className="py-14 sm:py-20 md:py-24">
       <Container>
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end justify-between mb-10 sm:mb-12 md:mb-14">
-          <SectionHeading title={title} subtitle={subtitle} label={label} align="left" className="mb-0" />
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 sm:mb-12 md:mb-14 gap-4 md:gap-8">
+          <div className="flex flex-col gap-1 sm:gap-2 flex-1">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] leading-none whitespace-nowrap">
+              {title}
+            </h2>
+            {subtitle && (
+              <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-snug max-w-xl">
+                {subtitle}
+              </p>
+            )}
+          </div>
           {viewAllHref && (
-            <Button variant="outline" className="w-full sm:w-auto shrink-0 rounded-full" asChild>
+            <Button variant="outline" className="w-full sm:w-auto shrink-0 rounded-none bg-transparent border-primary text-primary hover:bg-primary/5 hover:text-primary hover:border-primary" asChild>
               <Link href={viewAllHref}>
                 View All <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
               </Link>
