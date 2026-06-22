@@ -77,7 +77,7 @@ export function ProductCard({ product, onQuickView, className, layout = "grid" }
         <div className="flex-1 min-w-0 flex flex-col">
           <Link href={productHref} className="flex-1 min-w-0">
             {product.brand && <p className="label-caps truncate">{product.brand.name}</p>}
-            <h3 className="font-medium text-sm sm:text-base line-clamp-2 mt-1">{product.name}</h3>
+            <h3 className="font-medium text-base sm:text-lg line-clamp-1 mt-1">{product.name}</h3>
             <div className="flex items-baseline gap-2 mt-2">
               <span className="font-semibold text-primary">{formatPrice(product.price)}</span>
               {product.compareAtPrice && (
@@ -141,7 +141,7 @@ export function ProductCard({ product, onQuickView, className, layout = "grid" }
 
       <Link href={productHref} className="mt-2 sm:mt-3 space-y-1 px-0.5 block">
         {product.brand && <p className="label-caps truncate">{product.brand.name}</p>}
-        <h3 className="font-medium text-xs sm:text-sm leading-snug line-clamp-2 text-foreground/90">{product.name}</h3>
+        <h3 className="font-medium text-sm sm:text-base leading-snug line-clamp-1 text-foreground/90">{product.name}</h3>
         <div className="flex items-baseline gap-2 pt-0.5">
           <span className="text-sm font-semibold text-primary">{formatPrice(product.price)}</span>
           {product.compareAtPrice && (
