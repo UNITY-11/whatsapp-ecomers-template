@@ -80,7 +80,7 @@ export function VariantSelector({
                 disabled={!available}
                 onClick={() => onSizeChange(size)}
                 className={cn(
-                  "min-w-[2.75rem] h-10 px-3 rounded-full border text-sm font-medium transition-colors",
+                  "min-w-[2.75rem] h-10 px-3 rounded-none border text-sm font-medium transition-colors",
                   isSelected
                     ? "bg-primary text-primary-foreground border-primary"
                     : "bg-background border-border/80 hover:border-primary/40 text-foreground",
