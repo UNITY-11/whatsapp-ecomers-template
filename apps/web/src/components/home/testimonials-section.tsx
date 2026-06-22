@@ -28,7 +28,7 @@ export function TestimonialsSection({ testimonials }: { testimonials: Testimonia
             <motion.div
               key={testimonial._id}
               variants={fadeIn}
-              className="bg-card rounded-2xl p-7 md:p-8 border border-border/60 shadow-sm hover:shadow-md transition-shadow duration-500"
+              className="bg-card rounded-none p-7 md:p-8 border border-border/60 shadow-sm hover:shadow-md transition-shadow duration-500"
             >
               <div className="flex gap-0.5 mb-5">
                 {Array.from({ length: testimonial.rating || 5 }).map((_, i) => (
