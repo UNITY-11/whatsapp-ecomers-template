@@ -16,17 +16,10 @@ export function ContactFab() {
       aria-label="Quick contact"
     >
       <a
-        href={getTelHref()}
-        className={cn(fabClass, "bg-primary text-primary-foreground shadow-primary/25 focus-visible:ring-primary")}
-        aria-label={`Call us at ${CONTACT_PHONE_DISPLAY}`}
-      >
-        <Phone className="size-5" strokeWidth={2.25} />
-      </a>
-      <a
         href={getWhatsAppHref()}
         target="_blank"
         rel="noopener noreferrer"
-        className={cn(fabClass, "bg-[#25D366] text-white shadow-[#25D366]/30 focus-visible:ring-[#25D366]")}
+        className={cn(fabClass, "bg-primary text-primary-foreground shadow-primary/25 focus-visible:ring-primary")}
         aria-label={`Chat on WhatsApp at ${CONTACT_PHONE_DISPLAY}`}
       >
         <WhatsAppIcon className="size-6" />
