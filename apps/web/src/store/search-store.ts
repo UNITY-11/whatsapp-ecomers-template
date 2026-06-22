@@ -1,0 +1,28 @@
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
+interface SearchState {
+  history: string[];
+  addToHistory: (query: string) => void;
+  clearHistory: () => void;
+  removeFromHistory: (query: string) => void;
+}
+
+export const useSearchStore = create<SearchState>()(
+  persist(
+    (set) => ({
+      history: [],
+      addToHistory: (query) => {
+        if (!query.trim()) return;
+        set((state) => ({
+          history: [query, ...state.history.filter((h) => h !== query)].slice(0, 10),
+        }));
+      },
+      clearHistory: () => set({ history: [] }),
+      removeFromHistory: (query) => {
+        set((state) => ({ history: state.history.filter((h) => h !== query) }));
+      },
+    }),
+    { name: "luxestore-search" }
+  )
+);
