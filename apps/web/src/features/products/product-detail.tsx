@@ -276,10 +276,10 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
       <Separator className="my-12 bg-border/60" />
 
       <Tabs defaultValue="description">
-        <TabsList className="w-full justify-start overflow-x-auto flex-nowrap h-auto p-1 gap-1 bg-secondary/50">
-          <TabsTrigger value="description" className="shrink-0 text-xs sm:text-sm rounded-full">Description</TabsTrigger>
-          <TabsTrigger value="specifications" className="shrink-0 text-xs sm:text-sm rounded-full">Fabric & Fit</TabsTrigger>
-          <TabsTrigger value="reviews" className="shrink-0 text-xs sm:text-sm rounded-full">Reviews ({reviews.length})</TabsTrigger>
+        <TabsList className="w-full grid grid-cols-3 h-auto p-0 bg-secondary/50 rounded-none">
+          <TabsTrigger value="description" className="text-xs sm:text-sm py-4 rounded-none">Description</TabsTrigger>
+          <TabsTrigger value="specifications" className="text-xs sm:text-sm py-4 rounded-none">Fabric & Fit</TabsTrigger>
+          <TabsTrigger value="reviews" className="text-xs sm:text-sm py-4 rounded-none">Reviews ({reviews.length})</TabsTrigger>
         </TabsList>
         <TabsContent value="description" className="mt-6 prose max-w-none">
           <p className="text-muted-foreground leading-relaxed">{product.description}</p>
