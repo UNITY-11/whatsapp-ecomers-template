@@ -11,10 +11,12 @@ import type {
   User,
   Coupon,
   ProductColor,
+  SanityImage,
 } from "@/types";
 import { DRESS_SIZES } from "@/lib/dress-variants";
 
 const slug = (s: string) => ({ _type: "slug" as const, current: s });
+const image = (url: string): SanityImage => ({ _type: "image", asset: { _ref: url, _type: "reference" } });
 
 function buildVariantStock(sizes: string[], colors: ProductColor[], baseStock = 4) {
   return sizes.flatMap((size) =>
@@ -90,6 +92,12 @@ export const mockProducts: Product[] = [
     description: "Make an entrance in fluid champagne satin. This evening gown features a sculpted bodice, open back with crossover straps, and a gentle train for red-carpet moments.",
     price: 14999, compareAtPrice: 18999, stock: 12, status: "active", featured: true, isBestSeller: true,
     imageUrl: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800",
+    images: [
+      image("https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800"),
+      image("https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800"),
+      image("https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800"),
+      image("https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800")
+    ],
     category: mockCategories[0], brand: mockBrands[1],
     sizes, colors: [dressColors.champagne, dressColors.gold, dressColors.ivory],
     variantStock: buildVariantStock(sizes, [dressColors.champagne, dressColors.gold, dressColors.ivory], 3),
