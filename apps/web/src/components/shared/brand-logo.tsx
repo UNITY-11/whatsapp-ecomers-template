@@ -25,15 +25,6 @@ export function BrandLogo({
       >
         {BRAND_NAME}
       </span>
-      <span
-        className={cn(
-          "label-caps text-[0.55rem] sm:text-[0.6rem] tracking-[0.28em]",
-          variant === "light" ? "text-white/70" : "text-accent",
-          taglineClassName
-        )}
-      >
-        {BRAND_TAGLINE}
-      </span>
     </span>
   );
 }
