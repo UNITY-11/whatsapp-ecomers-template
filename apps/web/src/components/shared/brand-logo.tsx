@@ -18,12 +18,13 @@ export function BrandLogo({
     <span className={cn("flex flex-col leading-none gap-0.5", className)}>
       <span
         className={cn(
-          "font-heading text-xl sm:text-2xl md:text-[1.85rem] font-semibold tracking-[0.04em]",
-          variant === "light" ? "text-white" : "text-primary",
+          "font-bold tracking-wider uppercase",
+          variant === "light" ? "text-white" : "text-[#1a2e28]",
           nameClassName
         )}
       >
         {BRAND_NAME}
+        <span className="text-[#B89A5A] drop-shadow-[0_0_8px_rgba(184,154,90,0.3)]">.</span>
       </span>
     </span>
   );
