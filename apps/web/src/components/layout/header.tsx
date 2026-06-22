@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ShoppingBag, Heart, User, Menu } from "lucide-react";
+import { ShoppingBag, Heart, Menu } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -37,7 +37,7 @@ export function Header() {
           <div className="flex items-center gap-2 sm:gap-4 flex-1">
             <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
               <SheetTrigger className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "rounded-full size-10 sm:size-11")}>
-                <Menu className="h-6 w-6 sm:h-7 sm:w-7 stroke-[1.5]" />
+                <Menu className="size-5 sm:size-6 stroke-[1.5]" />
               </SheetTrigger>
               <SheetContent side="left" className="w-full max-w-[min(100vw,20rem)] sm:max-w-xs border-r border-border/60 p-4 sm:p-6 overflow-y-auto flex flex-col">
                 <div className="flex flex-col gap-6 sm:gap-8 mt-4 sm:mt-8 pb-4 flex-1">
@@ -90,7 +90,7 @@ export function Header() {
           <div className="flex items-center justify-end gap-1 sm:gap-2 flex-1 shrink-0">
             <Button variant="ghost" size="icon" className="relative rounded-full size-10 sm:size-11" asChild>
               <Link href="/wishlist" aria-label="Wishlist">
-                <Heart className="h-6 w-6 sm:h-7 sm:w-7 stroke-[1.25]" />
+                <Heart className="size-5 sm:size-6 stroke-[1.25]" />
                 {mounted && wishlistCount > 0 && (
                   <span className="absolute top-0 right-0 h-4 min-w-4 sm:h-5 sm:min-w-5 px-1 rounded-full bg-accent text-[10px] sm:text-[11px] text-accent-foreground flex items-center justify-center font-medium">
                     {wishlistCount}
@@ -105,17 +105,12 @@ export function Header() {
               onClick={() => setCartOpen(true)}
               aria-label="Cart"
             >
-              <ShoppingBag className="h-6 w-6 sm:h-7 sm:w-7 stroke-[1.25]" />
+              <ShoppingBag className="size-5 sm:size-6 stroke-[1.25]" />
               {mounted && itemCount > 0 && (
                 <span className="absolute top-0 right-0 h-4 min-w-4 sm:h-5 sm:min-w-5 px-1 rounded-full bg-accent text-[10px] sm:text-[11px] text-accent-foreground flex items-center justify-center font-medium">
                   {itemCount}
                 </span>
               )}
-            </Button>
-            <Button variant="ghost" size="icon" className="rounded-full size-10 sm:size-11 hidden sm:inline-flex" asChild>
-              <Link href="/account" aria-label="Account">
-                <User className="h-6 w-6 sm:h-7 sm:w-7 stroke-[1.25]" />
-              </Link>
             </Button>
           </div>
         </div>
