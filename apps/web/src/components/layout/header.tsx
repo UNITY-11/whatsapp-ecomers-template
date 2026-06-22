@@ -88,7 +88,7 @@ export function Header() {
           </div>
 
           {/* Right: Actions */}
-          <div className="flex items-center justify-end gap-1 sm:gap-2 flex-1 shrink-0">
+          <div className="flex items-center justify-end flex-1 shrink-0">
             <Button variant="ghost" size="icon" className="relative rounded-full size-10 sm:size-11" asChild>
               <Link href="/wishlist" aria-label="Wishlist">
                 <Heart className="size-[18px] sm:size-5 stroke-[1.25]" />
