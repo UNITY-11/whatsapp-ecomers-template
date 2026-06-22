@@ -58,7 +58,7 @@ export const mockCategories: Category[] = [
   { _id: "cat-2", name: "Midi Dresses", slug: slug("midi-dresses"), description: "Effortless mid-length silhouettes", featured: true, order: 2, productCount: 10, imageUrl: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600" },
   { _id: "cat-3", name: "Maxi Dresses", slug: slug("maxi-dresses"), description: "Flowing floor-length elegance", featured: true, order: 3, productCount: 7, imageUrl: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600" },
   { _id: "cat-4", name: "Cocktail Dresses", slug: slug("cocktail-dresses"), description: "Chic dresses for celebrations", featured: true, order: 4, productCount: 6, imageUrl: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600" },
-  { _id: "cat-5", name: "Wedding Guest", slug: slug("wedding-guest"), description: "Graceful looks for ceremonies", featured: false, order: 5, productCount: 5, imageUrl: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600" },
+  { _id: "cat-5", name: "Wedding Guest", slug: slug("wedding-guest"), description: "Graceful looks for ceremonies", featured: true, order: 5, productCount: 5, imageUrl: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600" },
   { _id: "cat-6", name: "Party Wear", slug: slug("party-wear"), description: "Sparkle-ready party dresses", featured: false, order: 6, productCount: 6, imageUrl: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600" },
 ];
 
@@ -113,7 +113,7 @@ export const mockProducts: Product[] = [
     _id: "prod-4", name: "Noir Cocktail Slip Dress", slug: slug("noir-cocktail-slip-dress"),
     shortDescription: "Minimal slip dress with lace trim",
     description: "Understated glamour for cocktail hour. A sleek slip silhouette in matte crepe with delicate lace trim at the hem and adjustable spaghetti straps.",
-    price: 5499, compareAtPrice: 6999, stock: 20, status: "active", isBestSeller: true,
+    price: 5499, compareAtPrice: 6999, stock: 20, status: "active", isBestSeller: true, featured: true,
     imageUrl: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800",
     category: mockCategories[3], brand: mockBrands[0],
     sizes, colors: [dressColors.noir, dressColors.emerald, dressColors.gold],
@@ -135,7 +135,7 @@ export const mockProducts: Product[] = [
     _id: "prod-6", name: "Blush Pleated Wedding Guest Dress", slug: slug("blush-pleated-wedding-guest"),
     shortDescription: "Pleated midi with bow-detail shoulders",
     description: "Soft pleats and bow-tie shoulders make this blush midi perfect for weddings and daytime celebrations. Fully lined with a hidden back zip.",
-    price: 7299, compareAtPrice: 8999, stock: 18, status: "active", isNewArrival: true,
+    price: 7299, compareAtPrice: 8999, stock: 18, status: "active", isNewArrival: true, featured: true,
     imageUrl: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800",
     category: mockCategories[4], brand: mockBrands[2],
     sizes, colors: [dressColors.blush, dressColors.champagne, dressColors.ivory],
@@ -146,7 +146,7 @@ export const mockProducts: Product[] = [
     _id: "prod-7", name: "Ivory Lace Column Dress", slug: slug("ivory-lace-column-dress"),
     shortDescription: "Column silhouette in French lace",
     description: "Refined and timeless — a column dress crafted from French lace over silk charmeuse. Perfect for rehearsal dinners and elegant brunches.",
-    price: 9999, compareAtPrice: 12999, stock: 14, status: "active", isBestSeller: true,
+    price: 9999, compareAtPrice: 12999, stock: 14, status: "active", isBestSeller: true, featured: true,
     imageUrl: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800",
     category: mockCategories[4], brand: mockBrands[0],
     sizes, colors: [dressColors.ivory, dressColors.champagne],
@@ -206,6 +206,12 @@ export const mockBanners: Banner[] = [
     description: "Order your perfect size and colour — our stylists confirm fit before dispatch.",
     imageUrl: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=1200",
     type: "promotional", active: true, order: 1,
+  },
+  {
+    _id: "banner-4", title: "Autumn Elegance", subtitle: "New Arrivals",
+    description: "Rich jewel tones and structured silhouettes for the new season.",
+    imageUrl: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1600",
+    link: "/products?sort=newest", buttonText: "Discover More", type: "hero", active: true, order: 3,
   },
 ];
 
