@@ -9,7 +9,7 @@ import {
   cartToOrderItems,
   generateOrderNumber,
 } from "@/utils/whatsapp";
-import { orderCustomerSchema } from "@/validations/order";
+import { orderCustomerSchema } from "@/features/cart/validations/order";
 import type { CartItem } from "@/types";
 import { APP_URL } from "@/lib/constants";
 import { mockOrders } from "@/lib/mock-data";

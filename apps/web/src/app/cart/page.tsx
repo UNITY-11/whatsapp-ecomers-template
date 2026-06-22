@@ -6,7 +6,7 @@ import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft } from "lucide-react";
 import { Container } from "@/components/shared/container";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { useCartStore } from "@/store/cart-store";
+import { useCartStore } from "@/features/cart/store/cart-store";
 import { formatPrice } from "@/utils/format";
 import { motion, AnimatePresence } from "framer-motion";
 

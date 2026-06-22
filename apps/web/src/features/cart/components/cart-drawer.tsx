@@ -6,7 +6,7 @@ import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
 import { PRODUCT_IMAGE_FALLBACK } from "@/lib/images";
-import { useCartStore } from "@/store/cart-store";
+import { useCartStore } from "@/features/cart/store/cart-store";
 import { formatPrice } from "@/utils/format";
 import { motion, AnimatePresence } from "framer-motion";
 
