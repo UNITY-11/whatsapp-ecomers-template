@@ -15,7 +15,7 @@ export function BrandsSection() {
     <section className="py-10 sm:py-14 bg-background border-b border-border/30">
       <Container>
         <p className="text-center text-xs uppercase tracking-[0.3em] font-medium text-muted-foreground mb-8">
-          Curating the World's Finest Brands
+          Curating the World&apos;s Finest Brands
         </p>
         <div className="flex flex-wrap justify-center items-center gap-x-12 sm:gap-x-16 md:gap-x-24 gap-y-8 opacity-60">
           {BRANDS.map((brand) => (

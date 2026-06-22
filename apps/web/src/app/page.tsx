@@ -1,12 +1,12 @@
-import { HeroBanner } from "@/components/home/hero-banner";
-import { ProductGrid } from "@/components/home/product-grid";
-import { CategoriesSection } from "@/components/home/categories-section";
-import { LastChanceBanner } from "@/components/home/last-chance-banner";
-import { TestimonialsSection } from "@/components/home/testimonials-section";
-import { FAQSection } from "@/components/home/faq-section";
-import { NewsletterSection } from "@/components/home/newsletter-section";
-import { FeaturesMarquee } from "@/components/home/features-marquee";
-import { BrandsSection } from "@/components/home/brands-section";
+import { HeroBanner } from "@/features/home/components/hero-banner";
+import { ProductGrid } from "@/features/products/components/product-grid";
+import { CategoriesSection } from "@/features/home/components/categories-section";
+import { LastChanceBanner } from "@/features/home/components/last-chance-banner";
+import { TestimonialsSection } from "@/features/home/components/testimonials-section";
+import { FAQSection } from "@/features/home/components/faq-section";
+import { NewsletterSection } from "@/features/home/components/newsletter-section";
+import { FeaturesMarquee } from "@/features/home/components/features-marquee";
+import { BrandsSection } from "@/features/home/components/brands-section";
 import {
   getBanners, getCategories, getFeaturedProducts,
   getNewArrivals, getBestSellers, getFAQs, getTestimonials,

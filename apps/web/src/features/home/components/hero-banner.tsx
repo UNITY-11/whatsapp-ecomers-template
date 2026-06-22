@@ -19,6 +19,7 @@ export function HeroBanner({ banners }: { banners: Banner[] }) {
   const totalOriginal = heroBanners.length;
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const updateVisible = () => {
       if (window.innerWidth >= 1024) setVisibleCount(3);
