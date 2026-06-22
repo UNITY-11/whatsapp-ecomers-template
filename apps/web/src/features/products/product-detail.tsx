@@ -276,11 +276,11 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
 
       <Separator className="my-12 bg-border/60" />
 
-      <Tabs defaultValue="description">
-        <TabsList className="w-full grid grid-cols-3 h-auto p-0 bg-secondary/50 rounded-none">
-          <TabsTrigger value="description" className="text-xs sm:text-sm py-4 rounded-none">Description</TabsTrigger>
-          <TabsTrigger value="specifications" className="text-xs sm:text-sm py-4 rounded-none">Fabric & Fit</TabsTrigger>
-          <TabsTrigger value="reviews" className="text-xs sm:text-sm py-4 rounded-none">Reviews ({reviews.length})</TabsTrigger>
+      <Tabs defaultValue="description" className="w-full">
+        <TabsList className="flex w-full h-auto p-1.5 items-center bg-secondary/50 rounded-md overflow-hidden">
+          <TabsTrigger value="description" className="text-xs sm:text-sm py-4 sm:py-5 rounded-sm">Description</TabsTrigger>
+          <TabsTrigger value="specifications" className="text-xs sm:text-sm py-4 sm:py-5 rounded-sm border-l border-r border-border/40">Fabric & Fit</TabsTrigger>
+          <TabsTrigger value="reviews" className="text-xs sm:text-sm py-4 sm:py-5 rounded-sm">Reviews ({reviews.length})</TabsTrigger>
         </TabsList>
         <TabsContent value="description" className="mt-6 prose max-w-none">
           <p className="text-muted-foreground leading-relaxed">{product.description}</p>
@@ -299,23 +299,27 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
             <p className="text-muted-foreground">Contact us for detailed measurements.</p>
           )}
         </TabsContent>
-        <TabsContent value="reviews" className="mt-6 space-y-6">
+        <TabsContent value="reviews" className="mt-6">
           {reviews.length === 0 ? (
             <p className="text-muted-foreground">No reviews yet. Be the first to share your experience.</p>
           ) : (
-            reviews.map((review) => (
-              <div key={review._id} className="border-b border-border/50 pb-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="flex">{Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className={`h-3 w-3 ${i < review.rating ? "fill-accent text-accent" : "text-muted"}`} />
-                  ))}</div>
-                  <span className="font-medium text-sm">{review.userName}</span>
-                  {review.verified && <Badge variant="outline" className="text-xs rounded-full">Verified</Badge>}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+              {reviews.map((review) => (
+                <div key={review._id} className="border border-border/50 p-5 rounded-xl bg-secondary/20">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex">{Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className={`h-3.5 w-3.5 ${i < review.rating ? "fill-accent text-accent" : "text-muted"}`} />
+                    ))}</div>
+                    {review.verified && <Badge variant="outline" className="text-[10px] rounded-full px-2 py-0 h-5">Verified</Badge>}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-medium text-sm text-foreground">{review.userName}</span>
+                  </div>
+                  {review.title && <h4 className="font-semibold text-sm mb-1">{review.title}</h4>}
+                  <p className="text-sm text-muted-foreground leading-relaxed">{review.comment}</p>
                 </div>
-                {review.title && <h4 className="font-medium mb-1">{review.title}</h4>}
-                <p className="text-sm text-muted-foreground">{review.comment}</p>
-              </div>
-            ))
+              ))}
+            </div>
           )}
         </TabsContent>
       </Tabs>
