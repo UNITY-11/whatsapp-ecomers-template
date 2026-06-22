@@ -12,7 +12,7 @@ export default async function CategoriesPage() {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {categories.map((cat) => (
           <Link key={cat._id} href={`/products?category=${cat.slug.current}`} className="group">
-            <div className="relative aspect-square overflow-hidden rounded-xl bg-muted">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-none bg-muted">
               {cat.imageUrl && (
                 <Image src={cat.imageUrl} alt={cat.name} fill className="object-cover transition-transform group-hover:scale-105" />
               )}
