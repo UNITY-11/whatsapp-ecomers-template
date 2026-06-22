@@ -5,6 +5,8 @@ import { LastChanceBanner } from "@/components/home/last-chance-banner";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { FAQSection } from "@/components/home/faq-section";
 import { NewsletterSection } from "@/components/home/newsletter-section";
+import { FeaturesMarquee } from "@/components/home/features-marquee";
+import { BrandsSection } from "@/components/home/brands-section";
 import {
   getBanners, getCategories, getFeaturedProducts,
   getNewArrivals, getBestSellers, getFAQs, getTestimonials,
@@ -26,6 +28,8 @@ export default async function HomePage() {
   return (
     <>
       <HeroBanner banners={banners} />
+      <FeaturesMarquee />
+      <BrandsSection />
       <CategoriesSection categories={categories} />
       <ProductGrid products={featured} title="Signature Dresses" subtitle="Handpicked gowns and silhouettes for every occasion" label="Featured" viewAllHref="/products?featured=true" />
       <ProductGrid products={newArrivals} title="Just Arrived" subtitle="Fresh styles from our atelier" label="New Season" viewAllHref="/products?sort=newest" />
