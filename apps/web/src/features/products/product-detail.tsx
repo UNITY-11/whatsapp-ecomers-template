@@ -145,66 +145,42 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
         <span className="text-foreground truncate min-w-0">{product.name}</span>
       </nav>
 
-      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-14 items-start">
-        <div className="lg:sticky lg:top-24 space-y-3">
-          <div className="relative w-full max-h-[min(70vh,520px)] sm:max-h-[min(75vh,600px)] aspect-[3/4] overflow-hidden rounded-lg bg-muted ring-1 ring-border/40 cursor-zoom-in"
-            onClick={() => setZoomOpen(true)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && setZoomOpen(true)}
-          >
-            <Image
-              src={images[selectedImage]}
-              alt={product.name}
-              fill
-              className="object-cover object-top"
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            {discount > 0 && (
-              <Badge className="absolute top-4 left-4 rounded-full bg-accent text-accent-foreground border-0 uppercase tracking-wider text-[10px]">
-                -{discount}%
-              </Badge>
-            )}
+      <div className="grid lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12 items-start">
+        <div className="lg:col-span-3 space-y-4">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3">
+            {images.map((img, i) => (
+              <div
+                key={i}
+                className="relative w-full aspect-[3/4] overflow-hidden rounded-none bg-muted ring-1 ring-border/40 cursor-zoom-in group"
+                onClick={() => { setSelectedImage(i); setZoomOpen(true); }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    setSelectedImage(i);
+                    setZoomOpen(true);
+                  }
+                }}
+              >
+                <Image
+                  src={img}
+                  alt={`${product.name} - view ${i + 1}`}
+                  fill
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  priority={i < 2}
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                />
+                {i === 0 && discount > 0 && (
+                  <Badge className="absolute top-2 left-2 rounded-full bg-accent text-accent-foreground border-0 uppercase tracking-wider text-[10px]">
+                    -{discount}%
+                  </Badge>
+                )}
+              </div>
+            ))}
           </div>
-          {product.colors && product.colors.length > 1 && (
-            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
-              {product.colors.map((color) => (
-                <button
-                  key={color.name}
-                  type="button"
-                  onClick={() => setSelectedColor(color.name)}
-                  className={cn(
-                    "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
-                    selectedColor === color.name ? "border-primary" : "border-transparent"
-                  )}
-                  title={color.name}
-                >
-                  <span
-                    className="h-6 w-6 rounded-full border border-black/10"
-                    style={{ backgroundColor: color.hex }}
-                  />
-                </button>
-              ))}
-            </div>
-          )}
-          {images.length > 1 && (
-            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
-              {images.map((img, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => setSelectedImage(i)}
-                  className={`relative h-16 w-14 sm:h-20 sm:w-16 rounded-md overflow-hidden border-2 transition-colors shrink-0 ${i === selectedImage ? "border-primary" : "border-border/40"}`}
-                >
-                  <Image src={img} alt="" fill className="object-cover" sizes="64px" />
-                </button>
-              ))}
-            </div>
-          )}
         </div>
 
-        <div>
+        <div className="lg:col-span-2 lg:sticky lg:top-24">
           {product.category && (
             <p className="label-caps mb-2 text-accent">{product.category.name}</p>
           )}
@@ -252,32 +228,32 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
 
           <div className="flex items-center gap-3 mb-6">
             <span className="text-sm font-medium label-caps">Qty</span>
-            <Button variant="outline" size="icon" className="h-9 w-9 rounded-full" onClick={() => setQuantity(Math.max(1, quantity - 1))}>
+            <Button variant="ghost" size="icon" className="h-9 w-9 rounded-none" onClick={() => setQuantity(Math.max(1, quantity - 1))}>
               <Minus className="h-3 w-3" />
             </Button>
             <span className="w-8 text-center font-medium">{quantity}</span>
-            <Button variant="outline" size="icon" className="h-9 w-9 rounded-full" onClick={() => setQuantity(Math.min(variantStock, quantity + 1))} disabled={variantStock === 0}>
+            <Button variant="ghost" size="icon" className="h-9 w-9 rounded-none" onClick={() => setQuantity(Math.min(variantStock, quantity + 1))} disabled={variantStock === 0}>
               <Plus className="h-3 w-3" />
             </Button>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 mb-4 sticky bottom-0 sm:static z-20 bg-background/95 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none py-3 sm:py-0 -mx-4 px-4 sm:mx-0 sm:px-0 border-t sm:border-t-0 border-border/60 sm:border-0">
-            <Button size="lg" className="w-full sm:flex-1 h-11 rounded-full" onClick={handleAddToCart} disabled={variantStock === 0}>
+            <Button size="lg" className="w-full sm:flex-1 h-11 rounded-none" onClick={handleAddToCart} disabled={variantStock === 0}>
               <ShoppingBag className="h-4 w-4 mr-2" /> Add to Bag
             </Button>
-            <Button size="lg" variant="outline" className="w-full sm:flex-1 border-primary text-primary hover:bg-primary/5 h-11 rounded-full" onClick={() => setWhatsappOpen(true)} disabled={variantStock === 0}>
+            <Button size="lg" variant="outline" className="w-full sm:flex-1 border-primary text-primary hover:bg-primary/5 h-11 rounded-none" onClick={() => setWhatsappOpen(true)} disabled={variantStock === 0}>
               <MessageCircle className="h-4 w-4 mr-2" /> Order via WhatsApp
             </Button>
           </div>
 
           <div className="flex flex-wrap gap-2 mb-6">
-            <Button variant="outline" size="sm" className="rounded-full" onClick={() => { toggleItem(product._id); toast.success(inWishlist ? "Removed" : "Saved to wishlist"); }}>
+            <Button variant="outline" size="sm" className="rounded-none" onClick={() => { toggleItem(product._id); toast.success(inWishlist ? "Removed" : "Saved to wishlist"); }}>
               <Heart className={`h-4 w-4 mr-1 ${inWishlist ? "fill-accent text-accent" : ""}`} /> Wishlist
             </Button>
-            <Button variant="outline" size="sm" className="rounded-full" onClick={handleShare}>
+            <Button variant="outline" size="sm" className="rounded-none" onClick={handleShare}>
               <Share2 className="h-4 w-4 mr-1" /> Share
             </Button>
-            <Button variant="ghost" size="sm" className="rounded-full text-muted-foreground">
+            <Button variant="ghost" size="sm" className="rounded-none text-muted-foreground">
               <Ruler className="h-4 w-4 mr-1" /> Size Guide
             </Button>
           </div>
@@ -379,7 +355,7 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
               <div><Label>Phone</Label><Input value={customer.phone} onChange={(e) => setCustomer({ ...customer, phone: e.target.value })} className="rounded-xl" /></div>
               <div><Label>Delivery Address</Label><Textarea value={customer.address} onChange={(e) => setCustomer({ ...customer, address: e.target.value })} className="rounded-xl" /></div>
             </div>
-            <Button className="w-full rounded-full bg-primary hover:bg-primary/90" onClick={handleWhatsAppOrder} disabled={ordering}>
+            <Button className="w-full rounded-none bg-primary hover:bg-primary/90" onClick={handleWhatsAppOrder} disabled={ordering}>
               <MessageCircle className="h-4 w-4 mr-2" />
               {ordering ? "Processing..." : "Continue to WhatsApp"}
             </Button>
