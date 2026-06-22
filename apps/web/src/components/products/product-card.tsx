@@ -155,13 +155,13 @@ export function ProductCard({ product, onQuickView, className, layout = "grid" }
         type="button"
         onClick={handleWishlist}
         className={cn(
-          "absolute top-2 right-2 z-10 p-1.5 rounded-full bg-white/90 backdrop-blur-sm shadow-sm",
-          "hidden sm:flex opacity-0 group-hover:opacity-100 transition-opacity",
-          inWishlist && "opacity-100 text-accent"
+          "absolute top-2 right-2 z-10 p-1.5 drop-shadow-md",
+          "hidden sm:flex opacity-0 group-hover:opacity-100 transition-all hover:scale-110",
+          inWishlist ? "opacity-100 text-accent" : "text-white"
         )}
         aria-label="Add to wishlist"
       >
-        <Heart className={cn("h-3.5 w-3.5", inWishlist && "fill-current")} />
+        <Heart className={cn("h-5 w-5", inWishlist && "fill-current")} />
       </button>
     </motion.article>
   );
