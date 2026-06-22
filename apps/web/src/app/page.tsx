@@ -2,6 +2,7 @@ import { HeroBanner } from "@/components/home/hero-banner";
 import { ProductGrid } from "@/components/home/product-grid";
 import { CategoriesSection } from "@/components/home/categories-section";
 import { PromotionalBanners } from "@/components/home/promotional-banners";
+import { LastChanceBanner } from "@/components/home/last-chance-banner";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { FAQSection } from "@/components/home/faq-section";
 import { NewsletterSection } from "@/components/home/newsletter-section";
@@ -31,6 +32,7 @@ export default async function HomePage() {
       <PromotionalBanners banners={banners} />
       <ProductGrid products={newArrivals} title="Just Arrived" subtitle="Fresh styles from our atelier" label="New Season" viewAllHref="/products?sort=newest" />
       <ProductGrid products={bestSellers} title="Most Loved" subtitle="The dresses our clients reach for again and again" label="Bestsellers" viewAllHref="/products?sort=popular" />
+      <LastChanceBanner />
       <TestimonialsSection testimonials={testimonials} />
       <FAQSection faqs={faqs} />
       <NewsletterSection />
