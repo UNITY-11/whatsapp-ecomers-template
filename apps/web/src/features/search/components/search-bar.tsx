@@ -181,7 +181,7 @@ export function SearchBar({ inlineResults = false, onNavigate, className }: Sear
         <Input
           type="search"
           placeholder="Search products..."
-          className="bg-brand-secondary-hover/60 border-brand-border-global/60 h-10 w-full rounded-none pr-9 pl-9 text-sm"
+          className="bg-brand-text/10 border-brand-text/20 text-brand-text placeholder:text-brand-text/60 focus-visible:bg-brand-text/15 h-10 w-full rounded-none pr-9 pl-9 text-sm transition-colors"
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
