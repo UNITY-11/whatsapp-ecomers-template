@@ -28,7 +28,7 @@ export function Header() {
   };
 
   return (
-    <header className="flex h-16 shrink-0 items-center gap-x-4 rounded-global border border-brand-border bg-brand-surface px-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] sm:gap-x-6 sm:px-6 lg:px-8 relative z-20">
+    <header className="flex h-16 shrink-0 items-center gap-x-4 rounded-global border-global border-brand-border-global bg-brand-surface px-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] sm:gap-x-6 sm:px-6 lg:px-8 relative z-20">
       <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
         <form className="relative flex flex-1 items-center" action="#" method="GET">
           <label htmlFor="search-field" className="sr-only">
@@ -41,7 +41,7 @@ export function Header() {
             />
             <input
               id="search-field"
-              className="block h-10 w-full rounded-global border-0 bg-brand-input-bg py-0 pl-10 pr-3 text-brand-text placeholder:text-brand-text/50 focus:ring-2 focus:ring-brand-accent/50 focus:bg-brand-secondary-hover transition-all duration-300 sm:text-sm"
+              className="block h-10 w-full rounded-global border-0 bg-brand-input-bg py-0 pl-10 pr-3 text-brand-text placeholder:text-brand-text/50 focus:ring-2 focus:ring-brand-accent/50 focus:bg-brand-secondary-hover transition-all duration-300 sm:text-brand-body"
               placeholder="Search products, orders..."
               type="search"
               name="search"
@@ -69,7 +69,7 @@ export function Header() {
           </button>
 
           {/* Separator */}
-          <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-brand-border" aria-hidden="true" />
+          <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-brand-border-global" aria-hidden="true" />
 
           {/* Profile dropdown */}
           <div className="flex items-center gap-x-4 cursor-pointer group hover:bg-brand-secondary-hover p-1.5 rounded-global transition-all duration-200">
@@ -79,7 +79,7 @@ export function Header() {
               alt=""
             />
             <span className="hidden lg:flex lg:items-center">
-              <span className="text-sm font-semibold leading-6 text-brand-text group-hover:text-brand-primary transition-colors" aria-hidden="true">
+              <span className="text-brand-body font-semibold leading-6 text-brand-text group-hover:text-brand-primary transition-colors" aria-hidden="true">
                 Admin User
               </span>
             </span>

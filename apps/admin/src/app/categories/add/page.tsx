@@ -65,20 +65,20 @@ export default function AddCategoryPage() {
             >
               <ArrowLeft className="w-5 h-5" />
             </Link>
-            <h1 className="text-3xl font-bold tracking-tight text-brand-text">Add Category</h1>
+            <h1 className="text-brand-h1 font-bold tracking-tight text-brand-text">Add Category</h1>
           </div>
-          <p className="text-brand-text/70 text-lg ml-11">
+          <p className="text-brand-text/70 text-brand-h3 ml-11">
             Create a new category to organize your products.
           </p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="rounded-global border border-brand-border bg-brand-surface p-8 shadow-sm">
+        <div className="rounded-global border-global border-brand-border-global bg-brand-surface p-8 shadow-sm">
           <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
             
             <div className="sm:col-span-full">
-              <label htmlFor="name" className="block text-sm font-medium leading-6 text-brand-text">
+              <label htmlFor="name" className="block text-brand-body font-medium leading-6 text-brand-text">
                 Category Name
               </label>
               <div className="mt-2">
@@ -89,19 +89,19 @@ export default function AddCategoryPage() {
                   value={name}
                   onChange={handleNameChange}
                   required
-                  className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-sm sm:leading-6 transition-all"
+                  className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-brand-body sm:leading-6 transition-all"
                   placeholder="e.g. Evening Gowns"
                 />
               </div>
             </div>
 
             <div className="sm:col-span-full">
-              <label className="block text-sm font-medium leading-6 text-brand-text">
+              <label className="block text-brand-body font-medium leading-6 text-brand-text">
                 Category Image (3:4 Ratio)
               </label>
               <div className="mt-2 flex items-center gap-6">
                 {previewUrl ? (
-                  <div className="relative w-32 aspect-[3/4] rounded-global overflow-hidden border border-brand-border shadow-sm group">
+                  <div className="relative w-32 aspect-[3/4] rounded-global overflow-hidden border-global border-brand-border-global shadow-sm group">
                     <img src={previewUrl} alt="Preview" className="w-full h-full object-cover" />
                     <button
                       type="button"
@@ -115,10 +115,10 @@ export default function AddCategoryPage() {
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
-                    className="flex flex-col items-center justify-center w-32 aspect-[3/4] rounded-global border-2 border-dashed border-brand-border bg-brand-input-bg/50 hover:bg-brand-secondary-hover hover:border-[#B89A5A]/50 transition-all text-brand-text/50 hover:text-brand-text"
+                    className="flex flex-col items-center justify-center w-32 aspect-[3/4] rounded-global border-2 border-dashed border-brand-border-global bg-brand-input-bg/50 hover:bg-brand-secondary-hover hover:border-[#B89A5A]/50 transition-all text-brand-text/50 hover:text-brand-text"
                   >
                     <ImagePlus className="w-8 h-8 mb-2" />
-                    <span className="text-xs font-medium text-center px-2">Upload<br/>Image</span>
+                    <span className="text-brand-small font-medium text-center px-2">Upload<br/>Image</span>
                   </button>
                 )}
                 <div className="flex flex-col justify-center gap-2">
@@ -129,11 +129,11 @@ export default function AddCategoryPage() {
                     ref={fileInputRef}
                     className="hidden"
                   />
-                  <p className="text-xs text-brand-text/60">
+                  <p className="text-brand-small text-brand-text/60">
                     Recommended: 1200x1600px. Max size: 5MB.
                   </p>
                   {error && (
-                    <p className="text-xs text-brand-danger font-medium mt-1">
+                    <p className="text-brand-small text-brand-danger font-medium mt-1">
                       {error}
                     </p>
                   )}
@@ -147,13 +147,13 @@ export default function AddCategoryPage() {
         <div className="flex items-center justify-end gap-x-4">
           <Link
             href="/categories"
-            className="text-sm font-semibold leading-6 text-brand-text/70 hover:text-brand-text"
+            className="text-brand-body font-semibold leading-6 text-brand-text/70 hover:text-brand-text"
           >
             Cancel
           </Link>
           <button
             type="submit"
-            className="flex items-center gap-2 rounded-global bg-brand-primary px-6 py-2.5 text-sm font-semibold text-brand-secondary shadow-sm hover:bg-brand-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-colors"
+            className="flex items-center gap-2 rounded-global bg-brand-primary px-6 py-2.5 text-brand-body font-semibold text-brand-secondary shadow-sm hover:bg-brand-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-colors"
           >
             <Save className="w-4 h-4" />
             Save Category

@@ -29,13 +29,13 @@ export default function CustomerDetail({ id }: { id: string }) {
   return (
     <div className="flex flex-col gap-8 p-8 max-w-7xl mx-auto w-full pb-24">
       {/* Header & Quick Actions */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 bg-white p-8 border border-brand-border shadow-sm">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 bg-white p-8 border-global border-brand-border-global shadow-sm">
         <div className="flex items-start gap-4">
           <Link href="/customers" className="p-2 -ml-2 text-brand-text/50 hover:bg-brand-secondary-hover hover:text-brand-primary transition-colors">
             <ArrowLeft className="w-5 h-5" />
           </Link>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight text-brand-text">{customer.name}</h1>
+            <h1 className="text-brand-h1 font-bold tracking-tight text-brand-text">{customer.name}</h1>
             <p className="text-brand-text/70 mt-1 flex items-center gap-4">
               <span>{customer.phone}</span>
               {customer.email && <span>• {customer.email}</span>}
@@ -46,7 +46,7 @@ export default function CustomerDetail({ id }: { id: string }) {
         <div className="flex flex-wrap items-center gap-3">
           <a 
             href={`tel:${customer.phone}`}
-            className="flex items-center gap-2 rounded-global bg-brand-surface border border-brand-border px-4 py-2.5 text-sm font-semibold text-brand-text hover:bg-brand-secondary-hover transition-colors"
+            className="flex items-center gap-2 rounded-global bg-brand-surface border-global border-brand-border-global px-4 py-2.5 text-brand-body font-semibold text-brand-text hover:bg-brand-secondary-hover transition-colors"
           >
             <Phone className="w-4 h-4 text-brand-primary" />
             Call
@@ -55,7 +55,7 @@ export default function CustomerDetail({ id }: { id: string }) {
             href={`https://wa.me/${customer.phone.replace(/[^0-9+]/g, '')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-global bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#1ebd5a] transition-colors"
+            className="flex items-center gap-2 rounded-global bg-[#25D366] px-4 py-2.5 text-brand-body font-semibold text-white shadow-sm hover:bg-[#1ebd5a] transition-colors"
           >
             <MessageCircle className="w-4 h-4" />
             WhatsApp
@@ -64,15 +64,15 @@ export default function CustomerDetail({ id }: { id: string }) {
       </div>
 
       {/* Orders Section */}
-      <div className="bg-white border border-brand-border shadow-sm">
-        <div className="flex items-center justify-between p-6 border-b border-brand-border bg-brand-surface">
-          <h2 className="text-xl font-bold text-brand-text flex items-center gap-2">
+      <div className="bg-white border-global border-brand-border-global shadow-sm">
+        <div className="flex items-center justify-between p-6 border-b border-brand-border-global bg-brand-surface">
+          <h2 className="text-brand-h2 font-bold text-brand-text flex items-center gap-2">
             <ShoppingBag className="w-5 h-5 text-brand-accent" />
             Order History
           </h2>
           <Link
             href={`/orders/add?customerId=${id}`}
-            className="flex items-center gap-2 rounded-global bg-brand-primary px-4 py-2 text-sm font-semibold text-brand-secondary shadow-sm hover:bg-brand-primary-hover transition-colors"
+            className="flex items-center gap-2 rounded-global bg-brand-primary px-4 py-2 text-brand-body font-semibold text-brand-secondary shadow-sm hover:bg-brand-primary-hover transition-colors"
           >
             <Plus className="w-4 h-4" />
             Add Order
@@ -80,30 +80,30 @@ export default function CustomerDetail({ id }: { id: string }) {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-brand-border">
+          <table className="min-w-full divide-y divide-brand-border-global">
             <thead className="bg-white">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-brand-text uppercase tracking-wider">Order ID</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-brand-text uppercase tracking-wider">Date</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-brand-text uppercase tracking-wider">Items</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-brand-text uppercase tracking-wider">Total</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-brand-text uppercase tracking-wider">Status</th>
+                <th className="px-6 py-3 text-left text-brand-small font-semibold text-brand-text uppercase tracking-wider">Order ID</th>
+                <th className="px-6 py-3 text-left text-brand-small font-semibold text-brand-text uppercase tracking-wider">Date</th>
+                <th className="px-6 py-3 text-left text-brand-small font-semibold text-brand-text uppercase tracking-wider">Items</th>
+                <th className="px-6 py-3 text-left text-brand-small font-semibold text-brand-text uppercase tracking-wider">Total</th>
+                <th className="px-6 py-3 text-left text-brand-small font-semibold text-brand-text uppercase tracking-wider">Status</th>
                 <th className="px-6 py-3 relative"><span className="sr-only">Actions</span></th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-brand-border">
+            <tbody className="bg-white divide-y divide-brand-border-global">
               {orders.map((order) => (
                 <tr key={order.id} className="hover:bg-brand-surface transition-colors">
                   <td className="px-6 py-4 whitespace-nowrap font-medium text-brand-text">
                     {order.id}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text/70">
+                  <td className="px-6 py-4 whitespace-nowrap text-brand-body text-brand-text/70">
                     {order.date}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text/70">
+                  <td className="px-6 py-4 whitespace-nowrap text-brand-body text-brand-text/70">
                     {order.items}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text/70">
+                  <td className="px-6 py-4 whitespace-nowrap text-brand-body text-brand-text/70">
                     ₹{order.total.toFixed(2)}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -120,7 +120,7 @@ export default function CustomerDetail({ id }: { id: string }) {
                       ]}
                     />
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <td className="px-6 py-4 whitespace-nowrap text-right text-brand-body font-medium">
                     <button 
                       onClick={() => handleDeleteOrder(order.id)}
                       className="text-red-500 hover:text-red-700 transition-colors p-1"

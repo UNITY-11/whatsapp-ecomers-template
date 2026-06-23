@@ -53,8 +53,8 @@ export default function CustomSelect({
         onClick={() => setIsOpen(!isOpen)}
         className={`w-full flex items-center justify-between rounded-global border-0 py-2.5 px-3 text-left shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-brand-accent/50 transition-all ${
           disabled 
-            ? "bg-gray-100 text-gray-400 ring-brand-border/50 cursor-not-allowed" 
-            : "bg-white text-brand-text ring-brand-border hover:bg-brand-surface"
+            ? "bg-gray-100 text-gray-400 ring-brand-border-global/50 cursor-not-allowed" 
+            : "bg-white text-brand-text ring-brand-border-global hover:bg-brand-surface"
         }`}
       >
         <span className={`block truncate ${!selectedOption ? "text-brand-text/50" : "font-medium"}`}>
@@ -64,8 +64,8 @@ export default function CustomSelect({
       </button>
 
       {isOpen && !disabled && (
-        <div className="absolute z-10 mt-1 w-full bg-white shadow-lg ring-1 ring-black ring-opacity-5 max-h-60 overflow-auto border border-brand-border">
-          <ul className="py-1 text-sm text-brand-text">
+        <div className="absolute z-10 mt-1 w-full bg-white shadow-lg ring-1 ring-black ring-opacity-5 max-h-60 overflow-auto border-global border-brand-border-global">
+          <ul className="py-1 text-brand-body text-brand-text">
             {options.length === 0 ? (
               <li className="px-3 py-2 text-brand-text/50 italic">No options available</li>
             ) : (

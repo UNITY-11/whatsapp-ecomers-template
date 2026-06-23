@@ -23,7 +23,7 @@ export default function RootLayout({
           <Sidebar />
           <div className="flex flex-1 flex-col overflow-hidden gap-4">
             <Header />
-            <main className="flex-1 overflow-y-auto rounded-global bg-brand-surface border border-brand-border shadow-sm relative">
+            <main className="flex-1 overflow-y-auto rounded-global bg-brand-surface border-global border-brand-border-global shadow-sm relative">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-brand-primary/5 blur-[100px] pointer-events-none" />
               <div className="relative z-10 h-full">
                 {children}

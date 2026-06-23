@@ -17,6 +17,15 @@
   --brand-danger: #b54545;
   
   --global-radius: 0px;
+  --global-border-width: 1px;
+
+  /* Typography - Fluid responsive sizes */
+  --font-size-base: 1rem;
+  --font-size-h1: clamp(1.875rem, 4vw, 2.25rem);
+  --font-size-h2: clamp(1.5rem, 3vw, 1.875rem);
+  --font-size-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --font-size-body: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+  --font-size-small: 0.875rem;
 }
 
 @theme inline {
@@ -37,6 +46,13 @@
   --color-brand-danger: var(--brand-danger);
 
   --radius-global: var(--global-radius);
+  --border-width-global: var(--global-border-width);
+
+  --text-brand-h1: var(--font-size-h1);
+  --text-brand-h2: var(--font-size-h2);
+  --text-brand-h3: var(--font-size-h3);
+  --text-brand-body: var(--font-size-body);
+  --text-brand-small: var(--font-size-small);
 }
 
 @media (prefers-color-scheme: dark) {

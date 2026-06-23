@@ -18,15 +18,15 @@ export default async function ProductsDashboard() {
     <div className="p-8 max-w-7xl mx-auto">
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
-          <h1 className="text-3xl font-bold tracking-tight text-brand-text">Products</h1>
-          <p className="mt-2 text-lg text-brand-text/70">
+          <h1 className="text-brand-h1 font-bold tracking-tight text-brand-text">Products</h1>
+          <p className="mt-2 text-brand-h3 text-brand-text/70">
             A list of all the products in your store including their name, price, status, and category.
           </p>
         </div>
         <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
           <Link
             href="/products/add"
-            className="flex items-center gap-2 rounded-global bg-brand-primary px-4 py-2.5 text-center text-sm font-semibold text-brand-secondary shadow-sm hover:bg-brand-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-colors"
+            className="flex items-center gap-2 rounded-global bg-brand-primary px-4 py-2.5 text-center text-brand-body font-semibold text-brand-secondary shadow-sm hover:bg-brand-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-colors"
           >
             <Plus className="h-4 w-4" />
             Add product
@@ -36,8 +36,8 @@ export default async function ProductsDashboard() {
       <div className="mt-8 flow-root">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-            <div className="overflow-hidden shadow-[0_2px_10px_rgb(0,0,0,0.02)] ring-1 ring-brand-border/50 sm:rounded-global bg-white">
-              <table className="min-w-full divide-y divide-brand-border/50">
+            <div className="overflow-hidden shadow-[0_2px_10px_rgb(0,0,0,0.02)] ring-1 ring-brand-border-global/50 sm:rounded-global bg-white">
+              <table className="min-w-full divide-y divide-brand-border-global/50">
                 <thead>
                   <tr>
                     <th scope="col" className="py-4 pl-4 pr-3 text-left text-[0.65rem] uppercase tracking-[0.2em] font-semibold text-brand-text/50 sm:pl-6">Name</th>
@@ -46,10 +46,10 @@ export default async function ProductsDashboard() {
                     <th scope="col" className="px-3 py-4 text-left text-[0.65rem] uppercase tracking-[0.2em] font-semibold text-brand-text/50">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-brand-border/50 bg-transparent">
+                <tbody className="divide-y divide-brand-border-global/50 bg-transparent">
                   {products.length === 0 ? (
                     <tr>
-                      <td colSpan={4} className="py-12 text-center text-sm text-brand-text/50">
+                      <td colSpan={4} className="py-12 text-center text-brand-body text-brand-text/50">
                         {sanityClient.config().projectId === "placeholder" 
                           ? "Database not connected. Add your NEXT_PUBLIC_SANITY_PROJECT_ID to .env.local"
                           : "No products found."}
@@ -58,11 +58,11 @@ export default async function ProductsDashboard() {
                   ) : (
                     products.map((product: Record<string, any>) => (
                       <tr key={product._id} className="hover:bg-brand-surface/80 transition-colors group">
-                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-brand-text sm:pl-6">{product.name}</td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-brand-text/80">${product.price}</td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-brand-text/80">{product.category || "Uncategorized"}</td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm text-brand-text/80">
-                          <span className={`inline-flex items-center rounded-global px-2 py-1 text-xs font-medium ring-1 ring-inset ${
+                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-brand-body font-medium text-brand-text sm:pl-6">{product.name}</td>
+                        <td className="whitespace-nowrap px-3 py-4 text-brand-body text-brand-text/80">${product.price}</td>
+                        <td className="whitespace-nowrap px-3 py-4 text-brand-body text-brand-text/80">{product.category || "Uncategorized"}</td>
+                        <td className="whitespace-nowrap px-3 py-4 text-brand-body text-brand-text/80">
+                          <span className={`inline-flex items-center rounded-global px-2 py-1 text-brand-small font-medium ring-1 ring-inset ${
                             product.status === "active" ? "bg-brand-primary/10 text-brand-primary ring-brand-primary/20" : "bg-[#1a2e28]/10 text-brand-text/70 ring-[#1a2e28]/20"
                           }`}>
                             {product.status || "draft"}
