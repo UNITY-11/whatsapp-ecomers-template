@@ -19,6 +19,11 @@
   --global-radius: 0px;
   --global-border-width: 1px;
 
+  /* Global Layout & Motion */
+  --global-container-width: 80rem; /* max-w-7xl equivalent */
+  --global-transition-duration: 300ms;
+  --global-focus-ring-color: color-mix(in srgb, var(--brand-accent) 50%, transparent);
+
   /* Typography - Fluid responsive sizes */
   --font-size-base: 1rem;
   --font-size-h1: clamp(1.875rem, 4vw, 2.25rem);
@@ -70,6 +75,11 @@
   --shadow-brand-header: var(--global-shadow-header);
   --shadow-brand-active: var(--global-shadow-active);
   --drop-shadow-brand: var(--global-drop-shadow);
+
+  /* Layout, Motion, Focus */
+  --container-brand: var(--global-container-width);
+  --default-transition-duration: var(--global-transition-duration);
+  --color-brand-focus-ring: var(--global-focus-ring-color);
 }
 
 @media (prefers-color-scheme: dark) {

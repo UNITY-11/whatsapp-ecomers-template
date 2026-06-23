@@ -1,5 +1,5 @@
-import CustomersDashboard from "@/features/customers/components/CustomersDashboard";
+import CustomersDashboard from"@/features/customers/components/CustomersDashboard";
 
 export default function CustomersPage() {
-  return <CustomersDashboard />;
+ return <CustomersDashboard />;
 }

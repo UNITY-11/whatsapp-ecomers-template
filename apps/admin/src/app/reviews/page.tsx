@@ -1,5 +1,5 @@
-import ReviewsDashboard from "@/features/reviews/components/ReviewsDashboard";
+import ReviewsDashboard from"@/features/reviews/components/ReviewsDashboard";
 
 export default function ReviewsPage() {
-  return <ReviewsDashboard />;
+ return <ReviewsDashboard />;
 }
