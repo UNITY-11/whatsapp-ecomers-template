@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, Plus, Trash2, Save } from "lucide-react";
-import { MOCK_CUSTOMERS } from "../../customers/page";
-import CustomSelect from "../../../components/CustomSelect";
+import CustomSelect from "@/shared/components/CustomSelect";
+import { MOCK_CUSTOMERS } from "@/features/customers/data/mock";
 
 const MOCK_PRODUCTS = [
   { id: "P1", name: "Elegant Evening Gown", price: 1500, sizes: ["S", "M", "L"] },
@@ -12,7 +12,7 @@ const MOCK_PRODUCTS = [
   { id: "P3", name: "Summer Dress", price: 800, sizes: ["XS", "S", "M", "L", "XL"] },
 ];
 
-function AddOrderForm() {
+export default function AddOrderForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialCustomerId = searchParams.get("customerId");
@@ -169,13 +169,5 @@ function AddOrderForm() {
         </div>
       </form>
     </div>
-  );
-}
-
-export default function Page() {
-  return (
-    <Suspense fallback={<div className="p-8 text-center text-[#1a2e28]/50">Loading form...</div>}>
-      <AddOrderForm />
-    </Suspense>
   );
 }
