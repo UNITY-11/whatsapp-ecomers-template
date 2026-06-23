@@ -1,9 +1,9 @@
-import { product } from "./product";
-import { category } from "./category";
+import { product } from "../../features/products/schema/product";
+import { category } from "../../features/categories/schema/category";
 import { brand } from "./brand";
-import { customer } from "./customer";
+import { customer } from "../../features/customers/schema/customer";
 import { coupon } from "./coupon";
-import { orderRequest } from "./orderRequest";
+import { orderRequest } from "../../features/orders/schema/orderRequest";
 import { banner } from "./banner";
 import { faq } from "./faq";
 import { testimonial } from "./testimonial";
