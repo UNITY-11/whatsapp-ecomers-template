@@ -1,10 +1,11 @@
-import AddOrderForm from"@/features/orders/components/AddOrderForm";
-import { Suspense} from"react";
+import { Suspense } from "react";
+
+import AddOrderForm from "@/features/orders/components/AddOrderForm";
 
 export default function AddOrderPage() {
- return (
- <Suspense fallback={<div className="p-8 text-center text-brand-text/50">Loading form...</div>}>
- <AddOrderForm />
- </Suspense>
- );
+  return (
+    <Suspense fallback={<div className="text-brand-text/50 p-8 text-center">Loading form...</div>}>
+      <AddOrderForm />
+    </Suspense>
+  );
 }

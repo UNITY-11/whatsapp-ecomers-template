@@ -5,15 +5,15 @@
   --foreground: #171717;
 
   /* Customer Theme Variables */
-  --brand-primary: #0F4A3A;
+  --brand-primary: #0f4a3a;
   --brand-primary-hover: #145242;
-  --brand-secondary: #F5F0E8;
+  --brand-secondary: #f5f0e8;
   --brand-secondary-hover: #ebe4d8;
   --brand-text: #1a2e28;
   --brand-surface: #faf7f2;
   --brand-input-bg: #e8e0d4;
   --brand-border: #ddd5c8;
-  --brand-accent: #B89A5A;
+  --brand-accent: #b89a5a;
   --brand-danger: #b54545;
 
   --global-radius: 0px;

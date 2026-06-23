@@ -1,135 +1,176 @@
 "use client";
 
-import { useState} from"react";
-import Link from"next/link";
-import { Plus, Search, Users, ChevronRight} from"lucide-react";
-import { MOCK_CUSTOMERS} from"../data/mock";
-import { Customer} from"../types";
+import { useState } from "react";
+import Link from "next/link";
+import { ChevronRight, Plus, Search, Users } from "lucide-react";
+
+import { MOCK_CUSTOMERS } from "../data/mock";
+import { Customer } from "../types";
 
 export default function CustomersDashboard() {
- const [customers, setCustomers] = useState<Customer[]>(MOCK_CUSTOMERS);
- const [isAdding, setIsAdding] = useState(false);
- const [search, setSearch] = useState("");
+  const [customers, setCustomers] = useState<Customer[]>(MOCK_CUSTOMERS);
+  const [isAdding, setIsAdding] = useState(false);
+  const [search, setSearch] = useState("");
 
- const filteredCustomers = customers.filter(c => 
- c.name.toLowerCase().includes(search.toLowerCase()) || 
- c.phone.includes(search)
- );
+  const filteredCustomers = customers.filter(
+    (c) => c.name.toLowerCase().includes(search.toLowerCase()) || c.phone.includes(search)
+  );
 
- return (
- <div className="flex flex-col gap-8 p-8 max-w-brand mx-auto w-full pb-24 min-h-[calc(100vh-64px)]">
- <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
- <div>
- <h1 className="text-brand-h1 font-bold tracking-tight text-brand-text flex items-center gap-3">
- <Users className="w-8 h-8 text-brand-primary"/>
- Customers
- </h1>
- <p className="text-brand-text/70 mt-2">Manage your customers and view their order history.</p>
- </div>
- <button
- onClick={() => setIsAdding(true)}
- className="flex items-center gap-2 rounded-global bg-brand-primary px-6 py-2.5 text-brand-body font-semibold text-brand-secondary shadow-sm hover:bg-brand-primary-hover transition-colors"
- >
- <Plus className="w-4 h-4"/>
- Add Customer
- </button>
- </div>
+  return (
+    <div className="max-w-brand mx-auto flex min-h-[calc(100vh-64px)] w-full flex-col gap-8 p-8 pb-24">
+      <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+        <div>
+          <h1 className="text-brand-h1 text-brand-text flex items-center gap-3 font-bold tracking-tight">
+            <Users className="text-brand-primary h-8 w-8" />
+            Customers
+          </h1>
+          <p className="text-brand-text/70 mt-2">
+            Manage your customers and view their order history.
+          </p>
+        </div>
+        <button
+          onClick={() => setIsAdding(true)}
+          className="rounded-global bg-brand-primary text-brand-body text-brand-secondary hover:bg-brand-primary-hover flex items-center gap-2 px-6 py-2.5 font-semibold shadow-sm transition-colors"
+        >
+          <Plus className="h-4 w-4" />
+          Add Customer
+        </button>
+      </div>
 
- {isAdding && (
- <div className="bg-brand-surface border-global border-brand-border-global p-6 shadow-sm mb-4">
- <h2 className="text-brand-h3 font-semibold text-brand-text mb-4">Add New Customer</h2>
- <form 
- className="grid grid-cols-1 sm:grid-cols-2 gap-4"
- onSubmit={(e) => {
- e.preventDefault();
- const formData = new FormData(e.currentTarget);
- const newCustomer = {
- id: Math.random().toString(36).substr(2, 9),
- name: formData.get("name") as string,
- phone: formData.get("phone") as string,
- email:"",
- orders: 0,
- totalSpent: 0
-};
- setCustomers([...customers, newCustomer]);
- setIsAdding(false);
-}}
- >
- <div>
- <label className="block text-brand-body font-medium text-brand-text">Full Name *</label>
- <input type="text"name="name"required className="mt-1 block w-full rounded-global border-0 bg-white py-2 px-3 text-brand-text shadow-sm ring-1 ring-inset ring-brand-border-global focus:ring-2 focus:ring-brand-focus-ring transition-all"/>
- </div>
- <div>
- <label className="block text-brand-body font-medium text-brand-text">Phone Number *</label>
- <input type="tel"name="phone"required placeholder="+1234567890"className="mt-1 block w-full rounded-global border-0 bg-white py-2 px-3 text-brand-text shadow-sm ring-1 ring-inset ring-brand-border-global focus:ring-2 focus:ring-brand-focus-ring transition-all"/>
- </div>
- <div className="sm:col-span-2 flex justify-end gap-3 mt-2">
- <button type="button"onClick={() => setIsAdding(false)} className="px-4 py-2 text-brand-body font-medium text-brand-text/70 hover:text-brand-text">Cancel</button>
- <button type="submit"className="px-6 py-2 bg-brand-primary text-white text-brand-body font-semibold hover:bg-brand-primary-hover">Save Customer</button>
- </div>
- </form>
- </div>
- )}
+      {isAdding && (
+        <div className="bg-brand-surface border-global border-brand-border-global mb-4 p-6 shadow-sm">
+          <h2 className="text-brand-h3 text-brand-text mb-4 font-semibold">Add New Customer</h2>
+          <form
+            className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const newCustomer = {
+                id: Math.random().toString(36).substr(2, 9),
+                name: formData.get("name") as string,
+                phone: formData.get("phone") as string,
+                email: "",
+                orders: 0,
+                totalSpent: 0,
+              };
+              setCustomers([...customers, newCustomer]);
+              setIsAdding(false);
+            }}
+          >
+            <div>
+              <label className="text-brand-body text-brand-text block font-medium">
+                Full Name *
+              </label>
+              <input
+                type="text"
+                name="name"
+                required
+                className="rounded-global text-brand-text ring-brand-border-global focus:ring-brand-focus-ring mt-1 block w-full border-0 bg-white px-3 py-2 shadow-sm ring-1 transition-all ring-inset focus:ring-2"
+              />
+            </div>
+            <div>
+              <label className="text-brand-body text-brand-text block font-medium">
+                Phone Number *
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                required
+                placeholder="+1234567890"
+                className="rounded-global text-brand-text ring-brand-border-global focus:ring-brand-focus-ring mt-1 block w-full border-0 bg-white px-3 py-2 shadow-sm ring-1 transition-all ring-inset focus:ring-2"
+              />
+            </div>
+            <div className="mt-2 flex justify-end gap-3 sm:col-span-2">
+              <button
+                type="button"
+                onClick={() => setIsAdding(false)}
+                className="text-brand-body text-brand-text/70 hover:text-brand-text px-4 py-2 font-medium"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="bg-brand-primary text-brand-body hover:bg-brand-primary-hover px-6 py-2 font-semibold text-white"
+              >
+                Save Customer
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
 
- <div className="bg-white border-global border-brand-border-global shadow-sm">
- <div className="p-4 border-b border-brand-border-global bg-brand-surface">
- <div className="relative max-w-md">
- <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-text/40"/>
- <input 
- type="text"
- placeholder="Search by name or phone..."
- value={search}
- onChange={(e) => setSearch(e.target.value)}
- className="block w-full rounded-global border-0 bg-white py-2 pl-10 pr-3 text-brand-text shadow-sm ring-1 ring-inset ring-brand-border-global focus:ring-2 focus:ring-brand-focus-ring transition-all"
- />
- </div>
- </div>
- 
- <div className="overflow-x-auto">
- <table className="min-w-full divide-y divide-brand-border-global">
- <thead className="bg-[#f0ece1]">
- <tr>
- <th className="px-6 py-3 text-left text-brand-small font-semibold text-brand-text uppercase tracking-wider">Name</th>
- <th className="px-6 py-3 text-left text-brand-small font-semibold text-brand-text uppercase tracking-wider">Contact</th>
- <th className="px-6 py-3 text-left text-brand-small font-semibold text-brand-text uppercase tracking-wider">Orders</th>
- <th className="px-6 py-3 text-left text-brand-small font-semibold text-brand-text uppercase tracking-wider">Total Spent</th>
- <th className="px-6 py-3 relative"><span className="sr-only">Actions</span></th>
- </tr>
- </thead>
- <tbody className="bg-white divide-y divide-brand-border-global">
- {filteredCustomers.map((customer) => (
- <tr key={customer.id} className="hover:bg-brand-surface transition-colors">
- <td className="px-6 py-4 whitespace-nowrap">
- <div className="font-medium text-brand-text">{customer.name}</div>
- </td>
- <td className="px-6 py-4 whitespace-nowrap text-brand-body text-brand-text/70">
- <div>{customer.phone}</div>
- {customer.email && <div className="text-brand-small">{customer.email}</div>}
- </td>
- <td className="px-6 py-4 whitespace-nowrap text-brand-body text-brand-text/70">
- {customer.orders}
- </td>
- <td className="px-6 py-4 whitespace-nowrap text-brand-body text-brand-text/70">
- ₹{customer.totalSpent.toFixed(2)}
- </td>
- <td className="px-6 py-4 whitespace-nowrap text-right text-brand-body font-medium">
- <Link href={`/customers/${customer.id}`} className="text-brand-primary hover:text-brand-accent inline-flex items-center gap-1 transition-colors">
- View details <ChevronRight className="w-4 h-4"/>
- </Link>
- </td>
- </tr>
- ))}
- {filteredCustomers.length === 0 && (
- <tr>
- <td colSpan={5} className="px-6 py-12 text-center text-brand-text/50">
- No customers found matching your search.
- </td>
- </tr>
- )}
- </tbody>
- </table>
- </div>
- </div>
- </div>
- );
+      <div className="border-global border-brand-border-global bg-white shadow-sm">
+        <div className="border-brand-border-global bg-brand-surface border-b p-4">
+          <div className="relative max-w-md">
+            <Search className="text-brand-text/40 absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2" />
+            <input
+              type="text"
+              placeholder="Search by name or phone..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="rounded-global text-brand-text ring-brand-border-global focus:ring-brand-focus-ring block w-full border-0 bg-white py-2 pr-3 pl-10 shadow-sm ring-1 transition-all ring-inset focus:ring-2"
+            />
+          </div>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="divide-brand-border-global min-w-full divide-y">
+            <thead className="bg-[#f0ece1]">
+              <tr>
+                <th className="text-brand-small text-brand-text px-6 py-3 text-left font-semibold tracking-wider uppercase">
+                  Name
+                </th>
+                <th className="text-brand-small text-brand-text px-6 py-3 text-left font-semibold tracking-wider uppercase">
+                  Contact
+                </th>
+                <th className="text-brand-small text-brand-text px-6 py-3 text-left font-semibold tracking-wider uppercase">
+                  Orders
+                </th>
+                <th className="text-brand-small text-brand-text px-6 py-3 text-left font-semibold tracking-wider uppercase">
+                  Total Spent
+                </th>
+                <th className="relative px-6 py-3">
+                  <span className="sr-only">Actions</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-brand-border-global divide-y bg-white">
+              {filteredCustomers.map((customer) => (
+                <tr key={customer.id} className="hover:bg-brand-surface transition-colors">
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-brand-text font-medium">{customer.name}</div>
+                  </td>
+                  <td className="text-brand-body text-brand-text/70 px-6 py-4 whitespace-nowrap">
+                    <div>{customer.phone}</div>
+                    {customer.email && <div className="text-brand-small">{customer.email}</div>}
+                  </td>
+                  <td className="text-brand-body text-brand-text/70 px-6 py-4 whitespace-nowrap">
+                    {customer.orders}
+                  </td>
+                  <td className="text-brand-body text-brand-text/70 px-6 py-4 whitespace-nowrap">
+                    ₹{customer.totalSpent.toFixed(2)}
+                  </td>
+                  <td className="text-brand-body px-6 py-4 text-right font-medium whitespace-nowrap">
+                    <Link
+                      href={`/customers/${customer.id}`}
+                      className="text-brand-primary hover:text-brand-accent inline-flex items-center gap-1 transition-colors"
+                    >
+                      View details <ChevronRight className="h-4 w-4" />
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+              {filteredCustomers.length === 0 && (
+                <tr>
+                  <td colSpan={5} className="text-brand-text/50 px-6 py-12 text-center">
+                    No customers found matching your search.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
 }
