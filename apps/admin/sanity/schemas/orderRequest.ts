@@ -6,7 +6,7 @@ export const orderRequest = defineType({
   type: "document",
   fields: [
     defineField({ name: "orderNumber", title: "Order Number", type: "string", validation: (r) => r.required() }),
-    defineField({ name: "user", title: "User", type: "reference", to: [{ type: "user" }] }),
+    defineField({ name: "customerRef", title: "Customer", type: "reference", to: [{ type: "customer" }] }),
     defineField({
       name: "customer",
       title: "Customer Details",
@@ -27,6 +27,7 @@ export const orderRequest = defineType({
         fields: [
           { name: "productId", type: "string" },
           { name: "productName", type: "string" },
+          { name: "size", type: "string", title: "Size" },
           { name: "price", type: "number" },
           { name: "quantity", type: "number" },
           { name: "subtotal", type: "number" },
