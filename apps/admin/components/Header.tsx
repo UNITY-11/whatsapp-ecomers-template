@@ -1,6 +1,32 @@
-import { Bell, Search } from "lucide-react";
+"use client";
+
+import { useState, useEffect } from "react";
+import { Bell, Search, Maximize, Minimize } from "lucide-react";
 
 export function Header() {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch((err) => {
+        console.error(`Error attempting to enable fullscreen: ${err.message}`);
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  };
+
   return (
     <header className="flex h-16 shrink-0 items-center gap-x-4 rounded-none border border-[#ddd5c8] bg-[#faf7f2] px-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] sm:gap-x-6 sm:px-6 lg:px-8 relative z-20">
       <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
@@ -23,6 +49,20 @@ export function Header() {
           </div>
         </form>
         <div className="flex items-center gap-x-4 lg:gap-x-6">
+          <button 
+            type="button" 
+            onClick={toggleFullscreen}
+            className="-m-2.5 p-2.5 text-[#1a2e28]/70 hover:text-[#0F4A3A] transition-colors duration-200"
+            title="Toggle Fullscreen"
+          >
+            <span className="sr-only">Toggle fullscreen</span>
+            {isFullscreen ? (
+              <Minimize className="h-5 w-5 hover:scale-110 transition-transform" aria-hidden="true" />
+            ) : (
+              <Maximize className="h-5 w-5 hover:scale-110 transition-transform" aria-hidden="true" />
+            )}
+          </button>
+          
           <button type="button" className="-m-2.5 p-2.5 text-[#1a2e28]/70 hover:text-[#0F4A3A] transition-colors duration-200">
             <span className="sr-only">View notifications</span>
             <Bell className="h-5 w-5 hover:animate-bounce" aria-hidden="true" />
