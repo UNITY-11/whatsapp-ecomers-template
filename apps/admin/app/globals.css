@@ -21,4 +21,25 @@
 
 body {
   color: var(--foreground);
+  scrollbar-width: thin;
+  scrollbar-color: #0F4A3A transparent;
+}
+
+/* Custom Scrollbar for WebKit */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0F4A3A;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #145242;
 }
