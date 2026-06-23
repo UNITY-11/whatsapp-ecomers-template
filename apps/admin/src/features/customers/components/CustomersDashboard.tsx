@@ -3,15 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Plus, Search, Users, ChevronRight } from "lucide-react";
+import { MOCK_CUSTOMERS } from "../data/mock";
+import { Customer } from "../types";
 
-export const MOCK_CUSTOMERS = [
-  { id: "1", name: "John Doe", phone: "+1234567890", email: "john@example.com", orders: 3, totalSpent: 450.00 },
-  { id: "2", name: "Jane Smith", phone: "+9876543210", email: "jane@example.com", orders: 1, totalSpent: 120.50 },
-  { id: "3", name: "Alice Johnson", phone: "+1122334455", email: "alice@example.com", orders: 0, totalSpent: 0 },
-];
-
-export default function CustomersPage() {
-  const [customers, setCustomers] = useState(MOCK_CUSTOMERS);
+export default function CustomersDashboard() {
+  const [customers, setCustomers] = useState<Customer[]>(MOCK_CUSTOMERS);
   const [isAdding, setIsAdding] = useState(false);
   const [search, setSearch] = useState("");
 
@@ -68,7 +64,7 @@ export default function CustomersPage() {
               <input type="tel" name="phone" required placeholder="+1234567890" className="mt-1 block w-full rounded-none border-0 bg-white py-2 px-3 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-[#ddd5c8] focus:ring-2 focus:ring-[#B89A5A]/50 transition-all" />
             </div>
             <div className="sm:col-span-2 flex justify-end gap-3 mt-2">
-              <button type="button" onClick={() => setIsAdding(false)} className="px-4 py-2 text-sm font-medium text-[#1a2e28]/70 hover:text-[#1a2e28]">Cancel</button>
+               <button type="button" onClick={() => setIsAdding(false)} className="px-4 py-2 text-sm font-medium text-[#1a2e28]/70 hover:text-[#1a2e28]">Cancel</button>
               <button type="submit" className="px-6 py-2 bg-[#0F4A3A] text-white text-sm font-semibold hover:bg-[#145242]">Save Customer</button>
             </div>
           </form>

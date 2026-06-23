@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, use } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, MessageCircle, Phone, ShoppingBag, Plus, MoreVertical, Trash2 } from "lucide-react";
-import { MOCK_CUSTOMERS } from "../page";
-import CustomSelect from "../../../components/CustomSelect";
+import { ArrowLeft, MessageCircle, Phone, ShoppingBag, Plus, Trash2 } from "lucide-react";
+import { MOCK_CUSTOMERS } from "../data/mock";
+import CustomSelect from "@/shared/components/CustomSelect";
 
 // Mock Orders
 const MOCK_ORDERS = [
@@ -12,8 +12,7 @@ const MOCK_ORDERS = [
   { id: "ORD-002", customerId: "1", date: "2026-06-22", items: 1, total: 200.00, status: "processing" },
 ];
 
-export default function CustomerDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params);
+export default function CustomerDetail({ id }: { id: string }) {
   const [customer] = useState(() => MOCK_CUSTOMERS.find(c => c.id === id) || { id, name: "Unknown Customer", phone: "", email: "", orders: 0, totalSpent: 0 });
   const [orders, setOrders] = useState(() => MOCK_ORDERS.filter(o => o.customerId === id));
 
