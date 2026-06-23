@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf7f2; /* Light cream */
+  --foreground: #1a2e28; /* Dark text */
 
   /* Customer Theme Variables */
   --brand-primary: #0f4a3a;
@@ -24,7 +24,8 @@
   --global-border-width: 1px;
 
   /* Global Layout & Motion */
-  --global-container-width: 80rem; /* max-w-7xl equivalent */
+  --global-container-width: 80rem;
+  /* max-w-7xl equivalent */
   --global-transition-duration: 300ms;
   --global-focus-ring-color: color-mix(in srgb, var(--brand-accent) 50%, transparent);
 
@@ -37,7 +38,8 @@
   --font-size-small: 0.875rem;
 
   /* Fonts and Shadows */
-  --brand-font-primary: var(--font-heading), Georgia, serif; /* Using existing heading font */
+  --brand-font-primary: var(--font-heading), Georgia, serif;
+  /* Using existing heading font */
   --global-shadow-card: 0 8px 30px rgb(0 0 0 / 0.04);
   --global-shadow-card-hover: 0 8px 30px rgb(0 0 0 / 0.06), 0 0 20px rgb(0 0 0 / 0.1);
   --global-shadow-table: 0 2px 10px rgb(0 0 0 / 0.02);
@@ -68,7 +70,6 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
   --color-brand-primary: var(--brand-primary);
@@ -90,8 +91,6 @@
   --text-brand-h3: var(--font-size-h3);
   --text-brand-body: var(--font-size-body);
   --text-brand-small: var(--font-size-small);
-
-  --font-brand: var(--brand-font-primary);
   --shadow-brand-card: var(--global-shadow-card);
   --shadow-brand-card-hover: var(--global-shadow-card-hover);
   --shadow-brand-table: var(--global-shadow-table);
@@ -105,26 +104,9 @@
   --color-brand-focus-ring: var(--global-focus-ring-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --brand-primary: #f5f0e8;
-    --brand-primary-hover: #ebe4d8;
-    --brand-secondary: #0c1f19;
-    --brand-secondary-hover: #102820;
-    --brand-text: #f5f0e8;
-    --brand-surface: #102820;
-    --brand-input-bg: #1a3830;
-    --brand-border: #1f4a3c;
-    --brand-accent: #b89a5a;
-    --brand-danger: #e07070;
-  }
-}
-
 body {
   color: var(--foreground);
-  font-family: var(--font-brand);
+  font-family: var(--font-sans);
   scrollbar-width: thin;
   scrollbar-color: var(--brand-primary) transparent;
   overflow-x: hidden;
@@ -152,18 +134,17 @@ body {
 
 @layer utilities {
   .brand-gradient {
-    background: linear-gradient(
-      135deg,
-      var(--brand-primary) 0%,
-      var(--brand-primary-hover) 50%,
-      var(--brand-primary) 100%
-    );
+    background: linear-gradient(135deg,
+        var(--brand-primary) 0%,
+        var(--brand-primary-hover) 50%,
+        var(--brand-primary) 100%);
   }
 
   @keyframes marquee {
     0% {
       transform: translateX(0%);
     }
+
     100% {
       transform: translateX(-50%);
     }

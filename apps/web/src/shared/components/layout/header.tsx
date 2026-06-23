@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Heart, Menu, ShoppingBag } from "lucide-react";
+import { Heart, Menu, Search, ShoppingBag, X } from "lucide-react";
 
 import { BrandLogo } from "@/shared/components/shared/brand-logo";
 import { Container } from "@/shared/components/shared/container";
@@ -19,6 +19,7 @@ import { useWishlistStore } from "@/features/wishlist/store/wishlist-store";
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const itemCount = useCartStore((s) => s.getItemCount());
   const setCartOpen = useCartStore((s) => s.setCartOpen);
   const wishlistCount = useWishlistStore((s) => s.items.length);
@@ -31,7 +32,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="border-brand-border-global/60 bg-brand-surface/90 supports-backdrop-filter:bg-brand-surface/75 fixed top-0 z-50 w-full border-b backdrop-blur-xl">
+    <header className="bg-brand-primary text-[#f5f0e8] fixed top-0 z-50 w-full backdrop-blur-md">
       <Container className="px-3 sm:px-6">
         <div className="relative flex h-14 min-w-0 items-center justify-between gap-2 sm:h-16 sm:gap-4">
           {/* Left: Menu & Search */}
@@ -40,7 +41,7 @@ export function Header() {
               <SheetTrigger
                 className={cn(
                   buttonVariants({ variant: "ghost", size: "icon" }),
-                  "rounded-global size-10 sm:size-11"
+                  "rounded-global size-10 sm:size-11 hover:text-[#0f4a3a]"
                 )}
               >
                 <Menu className="size-[18px] stroke-[1.5] sm:size-5" />
@@ -137,26 +138,32 @@ export function Header() {
                 </div>
               </SheetContent>
             </Sheet>
-            <div className="hidden w-48 min-w-0 lg:flex xl:w-64">
-              <SearchBar />
-            </div>
           </div>
 
           {/* Center: Logo */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <Link href="/" className="group flex min-w-0 shrink-0 items-center">
-              <motion.div whileHover={{ opacity: 0.85 }} transition={{ duration: 0.2 }}>
-                <BrandLogo className="h-8 w-auto sm:h-10" />
+          <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
+            <Link href="/" className="group flex min-w-0 shrink-0 items-center justify-center">
+              <motion.div whileHover={{ opacity: 0.85 }} transition={{ duration: 0.2 }} className="flex items-center justify-center">
+                <BrandLogo variant="light" className="text-3xl italic sm:text-4xl" />
               </motion.div>
             </Link>
           </div>
 
           {/* Right: Actions */}
-          <div className="flex flex-1 shrink-0 items-center justify-end">
+          <div className={cn("flex flex-1 shrink-0 items-center justify-end transition-opacity", searchOpen && "opacity-0")}>
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-global relative size-10 sm:size-11"
+              className="rounded-global relative size-10 sm:size-11 hover:text-[#0f4a3a]"
+              onClick={() => setSearchOpen(true)}
+              aria-label="Search"
+            >
+              <Search className="size-[18px] stroke-[1.25] sm:size-5" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-global relative size-10 sm:size-11 hover:text-[#0f4a3a]"
               asChild
             >
               <Link href="/wishlist" aria-label="Wishlist">
@@ -171,7 +178,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-global relative size-10 sm:size-11"
+              className="rounded-global relative size-10 sm:size-11 hover:text-[#0f4a3a]"
               onClick={() => setCartOpen(true)}
               aria-label="Cart"
             >
@@ -183,6 +190,28 @@ export function Header() {
               )}
             </Button>
           </div>
+
+          {/* Search Overlay */}
+          {searchOpen && (
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="absolute inset-0 z-50 flex items-center bg-brand-primary gap-2"
+            >
+              <div className="flex-1 w-full max-w-2xl mx-auto">
+                <SearchBar onNavigate={() => setSearchOpen(false)} />
+              </div>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="shrink-0 hover:text-[#0f4a3a]"
+                onClick={() => setSearchOpen(false)}
+                aria-label="Close search"
+              >
+                <X className="size-5" />
+              </Button>
+            </motion.div>
+          )}
         </div>
       </Container>
     </header>
