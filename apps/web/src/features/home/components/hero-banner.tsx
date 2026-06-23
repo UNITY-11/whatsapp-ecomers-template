@@ -69,7 +69,7 @@ export function HeroBanner({ banners }: { banners: Banner[] }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
 
                   <div className="absolute inset-x-0 bottom-0 flex flex-col items-center p-6 text-center sm:p-10">
-                    <h2 className="text-brand-h2 sm:text-brand-h1 lg:text-brand-h1 font-brand drop-shadow-brand-card mb-4 leading-tight font-medium text-white">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl drop-shadow-brand-card mb-4 leading-tight font-medium text-white">
                       {banner.title}
                     </h2>
                     {banner.description && (

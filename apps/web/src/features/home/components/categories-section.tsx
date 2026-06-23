@@ -14,7 +14,7 @@ export function CategoriesSection({ categories }: { categories: Category[] }) {
   const featured = categories.filter((c) => c.featured).slice(0, 4);
 
   return (
-    <section className="bg-brand-secondary-hover/30 py-14 sm:py-20 md:py-24">
+    <section className="bg-brand-secondary py-14 sm:py-20 md:py-24">
       <Container>
         <div className="mb-10 flex flex-col justify-between gap-4 sm:mb-12 md:mb-14 md:flex-row md:items-center md:gap-8">
           <div className="flex flex-1 flex-col gap-1 sm:gap-2">

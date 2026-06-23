@@ -30,7 +30,7 @@ export function Sidebar() {
     <div className="rounded-global bg-brand-surface border-global border-brand-border-global shadow-brand-card flex h-full w-64 flex-col">
       <div className="flex h-16 shrink-0 items-center px-6">
         <h1 className="text-brand-h2 text-brand-text font-bold tracking-wider">
-          LUXESTORE<span className="text-brand-accent drop-shadow-brand">.</span>
+          CALIRA<span className="text-brand-accent drop-shadow-brand">.</span>
         </h1>
       </div>
       <div className="flex flex-1 flex-col overflow-y-auto">

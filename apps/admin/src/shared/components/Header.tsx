@@ -30,24 +30,11 @@ export function Header() {
   return (
     <header className="rounded-global border-global border-brand-border-global bg-brand-surface shadow-brand-header relative z-20 flex h-16 shrink-0 items-center gap-x-4 px-4 sm:gap-x-6 sm:px-6 lg:px-8">
       <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
-        <form className="relative flex flex-1 items-center" action="#" method="GET">
-          <label htmlFor="search-field" className="sr-only">
-            Search
-          </label>
-          <div className="group relative w-full max-w-lg">
-            <Search
-              className="text-brand-text/50 group-focus-within:text-brand-primary pointer-events-none absolute inset-y-0 left-3 h-full w-5 transition-colors"
-              aria-hidden="true"
-            />
-            <input
-              id="search-field"
-              className="rounded-global bg-brand-input-bg text-brand-text placeholder:text-brand-text/50 focus:ring-brand-focus-ring focus:bg-brand-secondary-hover sm:text-brand-body block h-10 w-full border-0 py-0 pr-3 pl-10 transition-all focus:ring-2"
-              placeholder="Search products, orders..."
-              type="search"
-              name="search"
-            />
-          </div>
-        </form>
+        <div className="flex flex-1 items-center">
+          <h1 className="text-brand-h2 text-brand-text font-bold tracking-wider">
+            CALIRA<span className="text-brand-accent drop-shadow-brand">.</span>
+          </h1>
+        </div>
         <div className="flex items-center gap-x-4 lg:gap-x-6">
           <button
             type="button"

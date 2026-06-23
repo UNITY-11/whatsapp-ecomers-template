@@ -22,7 +22,7 @@ export function ContactFab() {
         rel="noopener noreferrer"
         className={cn(
           fabClass,
-          "bg-brand-primary text-brand-primary-foreground shadow-primary/25 focus-visible:ring-primary"
+          "rounded-full bg-[#0f4a3a] text-[#F5F0E8] shadow-primary/25 focus-visible:ring-primary hover:bg-[#145242]"
         )}
         aria-label={`Chat on WhatsApp at ${CONTACT_PHONE_DISPLAY}`}
       >

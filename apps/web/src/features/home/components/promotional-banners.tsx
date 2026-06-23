@@ -42,7 +42,7 @@ export function PromotionalBanners({ banners }: { banners: Banner[] }) {
                     {banner.subtitle && (
                       <p className="label-caps mb-2 text-white/70">{banner.subtitle}</p>
                     )}
-                    <h3 className="font-brand text-brand-h3 sm:text-brand-h2 md:text-brand-h2 leading-tight font-medium tracking-wide">
+                    <h3 className="text-brand-h3 sm:text-brand-h2 md:text-brand-h2 leading-tight font-medium tracking-wide">
                       {banner.title}
                     </h3>
                   </div>

@@ -56,7 +56,7 @@ export function NewsletterSection() {
             {/* Editorial copy */}
             <div className="flex flex-col justify-center p-8 sm:p-10 md:p-12 lg:p-14">
               <p className="label-caps mb-4 text-[#B89A5A] sm:mb-5">The Calira Edit</p>
-              <h2 className="font-brand text-brand-h2 sm:text-brand-h1 max-w-md leading-[1.1] text-balance text-[#F5F0E8] md:text-[2.75rem]">
+              <h2 className="text-brand-h2 sm:text-brand-h1 max-w-md leading-[1.1] text-balance text-[#F5F0E8] md:text-[2.75rem]">
                 Be first to discover our{""}
                 <span className="text-[#B89A5A] italic">newest dresses</span>
               </h2>
@@ -84,7 +84,7 @@ export function NewsletterSection() {
                   <div className="rounded-global mb-4 inline-flex h-12 w-12 items-center justify-center border border-[#B89A5A]/40 bg-[#B89A5A]/20">
                     <Mail className="h-5 w-5 text-[#B89A5A]" />
                   </div>
-                  <h3 className="font-brand text-brand-h3 sm:text-brand-h2 text-[#F5F0E8]">
+                  <h3 className="text-brand-h3 sm:text-brand-h2 text-[#F5F0E8]">
                     Subscribe
                   </h3>
                   <p className="mt-2 text-xs leading-relaxed text-[#F5F0E8]/60 sm:text-sm">
