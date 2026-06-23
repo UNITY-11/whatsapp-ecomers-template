@@ -67,7 +67,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(generateOrganizationJsonLd()) }}
         />
       </head>
-      <body className="flex min-h-full flex-col font-sans antialiased" suppressHydrationWarning>
+      <body className="flex min-h-full flex-col font-sans antialiased bg-background text-brand-text" suppressHydrationWarning>
         <QueryProvider>
           <SmoothScrolling>
             <Header />
