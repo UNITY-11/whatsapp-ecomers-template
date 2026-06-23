@@ -61,24 +61,24 @@ export default function AddCategoryPage() {
           <div className="flex items-center gap-4 mb-2">
             <Link
               href="/categories"
-              className="p-2 rounded-none text-[#1a2e28]/50 hover:bg-[#ebe4d8] hover:text-[#0F4A3A] transition-colors"
+              className="p-2 rounded-global text-brand-text/50 hover:bg-brand-secondary-hover hover:text-brand-primary transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
             </Link>
-            <h1 className="text-3xl font-bold tracking-tight text-[#1a2e28]">Add Category</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-brand-text">Add Category</h1>
           </div>
-          <p className="text-[#1a2e28]/70 text-lg ml-11">
+          <p className="text-brand-text/70 text-lg ml-11">
             Create a new category to organize your products.
           </p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="rounded-none border border-[#ddd5c8] bg-[#faf7f2] p-8 shadow-sm">
+        <div className="rounded-global border border-brand-border bg-brand-surface p-8 shadow-sm">
           <div className="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
             
             <div className="sm:col-span-full">
-              <label htmlFor="name" className="block text-sm font-medium leading-6 text-[#1a2e28]">
+              <label htmlFor="name" className="block text-sm font-medium leading-6 text-brand-text">
                 Category Name
               </label>
               <div className="mt-2">
@@ -89,33 +89,33 @@ export default function AddCategoryPage() {
                   value={name}
                   onChange={handleNameChange}
                   required
-                  className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all"
+                  className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-sm sm:leading-6 transition-all"
                   placeholder="e.g. Evening Gowns"
                 />
               </div>
             </div>
 
             <div className="sm:col-span-full">
-              <label className="block text-sm font-medium leading-6 text-[#1a2e28]">
+              <label className="block text-sm font-medium leading-6 text-brand-text">
                 Category Image (3:4 Ratio)
               </label>
               <div className="mt-2 flex items-center gap-6">
                 {previewUrl ? (
-                  <div className="relative w-32 aspect-[3/4] rounded-none overflow-hidden border border-[#ddd5c8] shadow-sm group">
+                  <div className="relative w-32 aspect-[3/4] rounded-global overflow-hidden border border-brand-border shadow-sm group">
                     <img src={previewUrl} alt="Preview" className="w-full h-full object-cover" />
                     <button
                       type="button"
                       onClick={clearImage}
                       className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
                     >
-                      <X className="w-8 h-8 text-white bg-black/20 rounded-none p-1" />
+                      <X className="w-8 h-8 text-white bg-black/20 rounded-global p-1" />
                     </button>
                   </div>
                 ) : (
                   <button
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
-                    className="flex flex-col items-center justify-center w-32 aspect-[3/4] rounded-none border-2 border-dashed border-[#ddd5c8] bg-[#e8e0d4]/50 hover:bg-[#ebe4d8] hover:border-[#B89A5A]/50 transition-all text-[#1a2e28]/50 hover:text-[#1a2e28]"
+                    className="flex flex-col items-center justify-center w-32 aspect-[3/4] rounded-global border-2 border-dashed border-brand-border bg-brand-input-bg/50 hover:bg-brand-secondary-hover hover:border-[#B89A5A]/50 transition-all text-brand-text/50 hover:text-brand-text"
                   >
                     <ImagePlus className="w-8 h-8 mb-2" />
                     <span className="text-xs font-medium text-center px-2">Upload<br/>Image</span>
@@ -129,11 +129,11 @@ export default function AddCategoryPage() {
                     ref={fileInputRef}
                     className="hidden"
                   />
-                  <p className="text-xs text-[#1a2e28]/60">
+                  <p className="text-xs text-brand-text/60">
                     Recommended: 1200x1600px. Max size: 5MB.
                   </p>
                   {error && (
-                    <p className="text-xs text-[#b54545] font-medium mt-1">
+                    <p className="text-xs text-brand-danger font-medium mt-1">
                       {error}
                     </p>
                   )}
@@ -147,13 +147,13 @@ export default function AddCategoryPage() {
         <div className="flex items-center justify-end gap-x-4">
           <Link
             href="/categories"
-            className="text-sm font-semibold leading-6 text-[#1a2e28]/70 hover:text-[#1a2e28]"
+            className="text-sm font-semibold leading-6 text-brand-text/70 hover:text-brand-text"
           >
             Cancel
           </Link>
           <button
             type="submit"
-            className="flex items-center gap-2 rounded-none bg-[#0F4A3A] px-6 py-2.5 text-sm font-semibold text-[#F5F0E8] shadow-sm hover:bg-[#145242] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F4A3A] transition-colors"
+            className="flex items-center gap-2 rounded-global bg-brand-primary px-6 py-2.5 text-sm font-semibold text-brand-secondary shadow-sm hover:bg-brand-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-colors"
           >
             <Save className="w-4 h-4" />
             Save Category

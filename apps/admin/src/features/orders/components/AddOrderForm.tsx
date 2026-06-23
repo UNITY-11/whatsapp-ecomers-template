@@ -18,7 +18,7 @@ export default function AddOrderForm() {
   const initialCustomerId = searchParams.get("customerId");
 
   const [customerId, setCustomerId] = useState(initialCustomerId || "");
-  const [items, setItems] = useState([{ id: Date.now(), productId: "", size: "", quantity: 1 }]);
+  const [items, setItems] = useState([{ id: "1", productId: "", size: "", quantity: 1 }]);
 
   const handleAddItem = () => {
     setItems([...items, { id: Date.now(), productId: "", size: "", quantity: 1 }]);
@@ -55,21 +55,21 @@ export default function AddOrderForm() {
   return (
     <div className="flex flex-col gap-8 p-8 max-w-4xl mx-auto w-full pb-24">
       <div className="flex items-center gap-4">
-        <button onClick={() => router.back()} className="p-2 -ml-2 text-[#1a2e28]/50 hover:bg-[#ebe4d8] hover:text-[#0F4A3A] transition-colors">
+        <button onClick={() => router.back()} className="p-2 -ml-2 text-brand-text/50 hover:bg-brand-secondary-hover hover:text-brand-primary transition-colors">
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-[#1a2e28]">Draft New Order</h1>
-          <p className="text-[#1a2e28]/70 mt-1">Create a manual order for a customer.</p>
+          <h1 className="text-3xl font-bold tracking-tight text-brand-text">Draft New Order</h1>
+          <p className="text-brand-text/70 mt-1">Create a manual order for a customer.</p>
         </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
         {/* Customer Section */}
-        <div className="bg-white border border-[#ddd5c8] shadow-sm p-6 space-y-4">
-          <h2 className="text-lg font-semibold text-[#1a2e28] border-b border-[#ddd5c8] pb-2">Customer Details</h2>
+        <div className="bg-white border border-brand-border shadow-sm p-6 space-y-4">
+          <h2 className="text-lg font-semibold text-brand-text border-b border-brand-border pb-2">Customer Details</h2>
           <div>
-            <label className="block text-sm font-medium text-[#1a2e28] mb-1">Select Customer *</label>
+            <label className="block text-sm font-medium text-brand-text mb-1">Select Customer *</label>
             <CustomSelect 
               value={customerId} 
               onChange={setCustomerId}
@@ -80,13 +80,13 @@ export default function AddOrderForm() {
         </div>
 
         {/* Items Section */}
-        <div className="bg-white border border-[#ddd5c8] shadow-sm p-6 space-y-6">
-          <div className="flex items-center justify-between border-b border-[#ddd5c8] pb-2">
-            <h2 className="text-lg font-semibold text-[#1a2e28]">Order Items</h2>
+        <div className="bg-white border border-brand-border shadow-sm p-6 space-y-6">
+          <div className="flex items-center justify-between border-b border-brand-border pb-2">
+            <h2 className="text-lg font-semibold text-brand-text">Order Items</h2>
             <button 
               type="button" 
               onClick={handleAddItem}
-              className="text-[#0F4A3A] text-sm font-medium hover:text-[#B89A5A] flex items-center gap-1"
+              className="text-brand-primary text-sm font-medium hover:text-brand-accent flex items-center gap-1"
             >
               <Plus className="w-4 h-4" /> Add Item
             </button>
@@ -96,9 +96,9 @@ export default function AddOrderForm() {
             {items.map((item) => {
               const selectedProduct = MOCK_PRODUCTS.find(p => p.id === item.productId);
               return (
-                <div key={item.id} className="flex flex-col sm:flex-row gap-4 items-start sm:items-center bg-[#faf7f2] p-4 border border-[#ddd5c8]">
+                <div key={item.id} className="flex flex-col sm:flex-row gap-4 items-start sm:items-center bg-brand-surface p-4 border border-brand-border">
                   <div className="flex-1 w-full">
-                    <label className="block text-xs font-medium text-[#1a2e28]/70 mb-1">Product</label>
+                    <label className="block text-xs font-medium text-brand-text/70 mb-1">Product</label>
                     <CustomSelect 
                       value={item.productId} 
                       onChange={(val) => {
@@ -110,7 +110,7 @@ export default function AddOrderForm() {
                     />
                   </div>
                   <div className="w-full sm:w-32">
-                    <label className="block text-xs font-medium text-[#1a2e28]/70 mb-1">Size</label>
+                    <label className="block text-xs font-medium text-brand-text/70 mb-1">Size</label>
                     <CustomSelect 
                       value={item.size} 
                       onChange={(val) => updateItem(item.id, "size", val)}
@@ -120,19 +120,19 @@ export default function AddOrderForm() {
                     />
                   </div>
                   <div className="w-full sm:w-24">
-                    <label className="block text-xs font-medium text-[#1a2e28]/70 mb-1">Qty</label>
+                    <label className="block text-xs font-medium text-brand-text/70 mb-1">Qty</label>
                     <input 
                       type="number" 
                       min="1" 
                       value={item.quantity} 
                       onChange={(e) => updateItem(item.id, "quantity", parseInt(e.target.value) || 1)}
                       required
-                      className="block w-full rounded-none border-0 bg-white py-1.5 px-2 text-sm text-[#1a2e28] shadow-sm ring-1 ring-inset ring-[#ddd5c8] focus:ring-2 focus:ring-[#B89A5A]/50"
+                      className="block w-full rounded-global border-0 bg-white py-1.5 px-2 text-sm text-brand-text shadow-sm ring-1 ring-inset ring-brand-border focus:ring-2 focus:ring-brand-accent/50"
                     />
                   </div>
                   <div className="w-full sm:w-24 text-right">
-                    <label className="block text-xs font-medium text-[#1a2e28]/70 mb-1">Subtotal</label>
-                    <div className="py-1.5 font-medium text-[#1a2e28]">
+                    <label className="block text-xs font-medium text-brand-text/70 mb-1">Subtotal</label>
+                    <div className="py-1.5 font-medium text-brand-text">
                       ₹{selectedProduct ? (selectedProduct.price * item.quantity).toFixed(2) : "0.00"}
                     </div>
                   </div>
@@ -151,18 +151,18 @@ export default function AddOrderForm() {
             })}
           </div>
 
-          <div className="flex justify-end pt-4 border-t border-[#ddd5c8]">
+          <div className="flex justify-end pt-4 border-t border-brand-border">
             <div className="text-right">
-              <span className="text-sm text-[#1a2e28]/70 mr-4">Grand Total</span>
-              <span className="text-2xl font-bold text-[#0F4A3A]">₹{calculateTotal().toFixed(2)}</span>
+              <span className="text-sm text-brand-text/70 mr-4">Grand Total</span>
+              <span className="text-2xl font-bold text-brand-primary">₹{calculateTotal().toFixed(2)}</span>
             </div>
           </div>
         </div>
 
         {/* Submit */}
         <div className="flex justify-end gap-4">
-          <button type="button" onClick={() => router.back()} className="px-6 py-2.5 text-sm font-semibold text-[#1a2e28]/70 hover:text-[#1a2e28]">Cancel</button>
-          <button type="submit" className="flex items-center gap-2 rounded-none bg-[#0F4A3A] px-8 py-2.5 text-sm font-semibold text-[#F5F0E8] shadow-sm hover:bg-[#145242] transition-colors">
+          <button type="button" onClick={() => router.back()} className="px-6 py-2.5 text-sm font-semibold text-brand-text/70 hover:text-brand-text">Cancel</button>
+          <button type="submit" className="flex items-center gap-2 rounded-global bg-brand-primary px-8 py-2.5 text-sm font-semibold text-brand-secondary shadow-sm hover:bg-brand-primary-hover transition-colors">
             <Save className="w-4 h-4" />
             Save Order
           </button>

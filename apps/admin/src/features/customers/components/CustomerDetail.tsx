@@ -29,14 +29,14 @@ export default function CustomerDetail({ id }: { id: string }) {
   return (
     <div className="flex flex-col gap-8 p-8 max-w-7xl mx-auto w-full pb-24">
       {/* Header & Quick Actions */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 bg-white p-8 border border-[#ddd5c8] shadow-sm">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 bg-white p-8 border border-brand-border shadow-sm">
         <div className="flex items-start gap-4">
-          <Link href="/customers" className="p-2 -ml-2 text-[#1a2e28]/50 hover:bg-[#ebe4d8] hover:text-[#0F4A3A] transition-colors">
+          <Link href="/customers" className="p-2 -ml-2 text-brand-text/50 hover:bg-brand-secondary-hover hover:text-brand-primary transition-colors">
             <ArrowLeft className="w-5 h-5" />
           </Link>
           <div>
-            <h1 className="text-3xl font-bold tracking-tight text-[#1a2e28]">{customer.name}</h1>
-            <p className="text-[#1a2e28]/70 mt-1 flex items-center gap-4">
+            <h1 className="text-3xl font-bold tracking-tight text-brand-text">{customer.name}</h1>
+            <p className="text-brand-text/70 mt-1 flex items-center gap-4">
               <span>{customer.phone}</span>
               {customer.email && <span>• {customer.email}</span>}
             </p>
@@ -46,16 +46,16 @@ export default function CustomerDetail({ id }: { id: string }) {
         <div className="flex flex-wrap items-center gap-3">
           <a 
             href={`tel:${customer.phone}`}
-            className="flex items-center gap-2 rounded-none bg-[#faf7f2] border border-[#ddd5c8] px-4 py-2.5 text-sm font-semibold text-[#1a2e28] hover:bg-[#ebe4d8] transition-colors"
+            className="flex items-center gap-2 rounded-global bg-brand-surface border border-brand-border px-4 py-2.5 text-sm font-semibold text-brand-text hover:bg-brand-secondary-hover transition-colors"
           >
-            <Phone className="w-4 h-4 text-[#0F4A3A]" />
+            <Phone className="w-4 h-4 text-brand-primary" />
             Call
           </a>
           <a 
             href={`https://wa.me/${customer.phone.replace(/[^0-9+]/g, '')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-none bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#1ebd5a] transition-colors"
+            className="flex items-center gap-2 rounded-global bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#1ebd5a] transition-colors"
           >
             <MessageCircle className="w-4 h-4" />
             WhatsApp
@@ -64,15 +64,15 @@ export default function CustomerDetail({ id }: { id: string }) {
       </div>
 
       {/* Orders Section */}
-      <div className="bg-white border border-[#ddd5c8] shadow-sm">
-        <div className="flex items-center justify-between p-6 border-b border-[#ddd5c8] bg-[#faf7f2]">
-          <h2 className="text-xl font-bold text-[#1a2e28] flex items-center gap-2">
-            <ShoppingBag className="w-5 h-5 text-[#B89A5A]" />
+      <div className="bg-white border border-brand-border shadow-sm">
+        <div className="flex items-center justify-between p-6 border-b border-brand-border bg-brand-surface">
+          <h2 className="text-xl font-bold text-brand-text flex items-center gap-2">
+            <ShoppingBag className="w-5 h-5 text-brand-accent" />
             Order History
           </h2>
           <Link
             href={`/orders/add?customerId=${id}`}
-            className="flex items-center gap-2 rounded-none bg-[#0F4A3A] px-4 py-2 text-sm font-semibold text-[#F5F0E8] shadow-sm hover:bg-[#145242] transition-colors"
+            className="flex items-center gap-2 rounded-global bg-brand-primary px-4 py-2 text-sm font-semibold text-brand-secondary shadow-sm hover:bg-brand-primary-hover transition-colors"
           >
             <Plus className="w-4 h-4" />
             Add Order
@@ -80,30 +80,30 @@ export default function CustomerDetail({ id }: { id: string }) {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-[#ddd5c8]">
+          <table className="min-w-full divide-y divide-brand-border">
             <thead className="bg-white">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[#1a2e28] uppercase tracking-wider">Order ID</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[#1a2e28] uppercase tracking-wider">Date</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[#1a2e28] uppercase tracking-wider">Items</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[#1a2e28] uppercase tracking-wider">Total</th>
-                <th className="px-6 py-3 text-left text-xs font-semibold text-[#1a2e28] uppercase tracking-wider">Status</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-brand-text uppercase tracking-wider">Order ID</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-brand-text uppercase tracking-wider">Date</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-brand-text uppercase tracking-wider">Items</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-brand-text uppercase tracking-wider">Total</th>
+                <th className="px-6 py-3 text-left text-xs font-semibold text-brand-text uppercase tracking-wider">Status</th>
                 <th className="px-6 py-3 relative"><span className="sr-only">Actions</span></th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-[#ddd5c8]">
+            <tbody className="bg-white divide-y divide-brand-border">
               {orders.map((order) => (
-                <tr key={order.id} className="hover:bg-[#faf7f2] transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap font-medium text-[#1a2e28]">
+                <tr key={order.id} className="hover:bg-brand-surface transition-colors">
+                  <td className="px-6 py-4 whitespace-nowrap font-medium text-brand-text">
                     {order.id}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-[#1a2e28]/70">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text/70">
                     {order.date}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-[#1a2e28]/70">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text/70">
                     {order.items}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-[#1a2e28]/70">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-brand-text/70">
                     ₹{order.total.toFixed(2)}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -133,7 +133,7 @@ export default function CustomerDetail({ id }: { id: string }) {
               ))}
               {orders.length === 0 && (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-[#1a2e28]/50">
+                  <td colSpan={6} className="px-6 py-12 text-center text-brand-text/50">
                     This customer hasn't placed any orders yet.
                   </td>
                 </tr>

@@ -36,13 +36,13 @@ export default function AddProductForm() {
           <div className="flex items-center gap-4 mb-2">
             <Link
               href="/products"
-              className="p-2 rounded-none text-[#1a2e28]/50 hover:bg-[#ebe4d8] hover:text-[#0F4A3A] transition-colors"
+              className="p-2 rounded-global text-brand-text/50 hover:bg-brand-secondary-hover hover:text-brand-primary transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
             </Link>
-            <h1 className="text-3xl font-bold tracking-tight text-[#1a2e28]">Add New Product</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-brand-text">Add New Product</h1>
           </div>
-          <p className="text-[#1a2e28]/70 text-lg ml-11">
+          <p className="text-brand-text/70 text-lg ml-11">
             Create a new product by filling out all the required details below.
           </p>
         </div>
@@ -51,13 +51,13 @@ export default function AddProductForm() {
       <form className="space-y-8">
         
         {/* Media */}
-        <div className="rounded-none border border-[#ddd5c8] bg-[#faf7f2] p-8 shadow-sm">
-          <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Product Images</h2>
+        <div className="rounded-global border border-brand-border bg-brand-surface p-8 shadow-sm">
+          <h2 className="text-lg font-medium text-brand-text mb-6">Product Images</h2>
           <div className="col-span-full">
-            <label className="block text-sm font-medium leading-6 text-[#1a2e28]">Upload Multiple Images (3:4 Ratio)</label>
+            <label className="block text-sm font-medium leading-6 text-brand-text">Upload Multiple Images (3:4 Ratio)</label>
             <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
               {images.map((img, idx) => (
-                <div key={idx} className="relative aspect-[3/4] group border border-[#ddd5c8]">
+                <div key={idx} className="relative aspect-[3/4] group border border-brand-border">
                   <img src={img} alt={`Preview ${idx}`} className="w-full h-full object-cover" />
                   <button
                     type="button"
@@ -68,10 +68,10 @@ export default function AddProductForm() {
                   </button>
                 </div>
               ))}
-              <label htmlFor="file-upload" className="relative cursor-pointer flex flex-col items-center justify-center aspect-[3/4] rounded-none border-2 border-dashed border-[#ddd5c8] bg-[#e8e0d4]/50 hover:bg-[#ebe4d8] hover:border-[#B89A5A]/50 transition-all text-center p-4">
-                <ImagePlus className="mx-auto h-8 w-8 text-[#1a2e28]/50 mb-2" />
-                <span className="text-sm font-medium text-[#0F4A3A]">Add Images</span>
-                <span className="text-xs text-[#1a2e28]/50 mt-1">PNG, JPG up to 5MB</span>
+              <label htmlFor="file-upload" className="relative cursor-pointer flex flex-col items-center justify-center aspect-[3/4] rounded-global border-2 border-dashed border-brand-border bg-brand-input-bg/50 hover:bg-brand-secondary-hover hover:border-[#B89A5A]/50 transition-all text-center p-4">
+                <ImagePlus className="mx-auto h-8 w-8 text-brand-text/50 mb-2" />
+                <span className="text-sm font-medium text-brand-primary">Add Images</span>
+                <span className="text-xs text-brand-text/50 mt-1">PNG, JPG up to 5MB</span>
                 <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple accept="image/*" onChange={handleImageChange} />
               </label>
             </div>
@@ -79,65 +79,65 @@ export default function AddProductForm() {
         </div>
 
         {/* Basic Information */}
-        <div className="rounded-none border border-[#ddd5c8] bg-[#faf7f2] p-8 shadow-sm">
-          <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Basic Information</h2>
+        <div className="rounded-global border border-brand-border bg-brand-surface p-8 shadow-sm">
+          <h2 className="text-lg font-medium text-brand-text mb-6">Basic Information</h2>
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
             <div className="sm:col-span-2">
-              <label htmlFor="name" className="block text-sm font-medium leading-6 text-[#1a2e28]">Product Name *</label>
+              <label htmlFor="name" className="block text-sm font-medium leading-6 text-brand-text">Product Name *</label>
               <div className="mt-2">
-                <input type="text" name="name" id="name" required className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
+                <input type="text" name="name" id="name" required className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-sm sm:leading-6 transition-all" />
               </div>
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="slug" className="block text-sm font-medium leading-6 text-[#1a2e28]">Slug (URL snippet) *</label>
+              <label htmlFor="slug" className="block text-sm font-medium leading-6 text-brand-text">Slug (URL snippet) *</label>
               <div className="mt-2">
-                <input type="text" name="slug" id="slug" required placeholder="e.g. elegant-evening-gown" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] placeholder:text-[#1a2e28]/40 shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
+                <input type="text" name="slug" id="slug" required placeholder="e.g. elegant-evening-gown" className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text placeholder:text-brand-text/40 shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-sm sm:leading-6 transition-all" />
               </div>
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="description" className="block text-sm font-medium leading-6 text-[#1a2e28]">Description</label>
+              <label htmlFor="description" className="block text-sm font-medium leading-6 text-brand-text">Description</label>
               <div className="mt-2">
-                <textarea id="description" name="description" rows={5} className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all resize-none"></textarea>
+                <textarea id="description" name="description" rows={5} className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-sm sm:leading-6 transition-all resize-none"></textarea>
               </div>
             </div>
           </div>
         </div>
 
         {/* Pricing & Inventory */}
-        <div className="rounded-none border border-[#ddd5c8] bg-[#faf7f2] p-8 shadow-sm">
-          <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Pricing & Inventory</h2>
+        <div className="rounded-global border border-brand-border bg-brand-surface p-8 shadow-sm">
+          <h2 className="text-lg font-medium text-brand-text mb-6">Pricing & Inventory</h2>
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-8">
             <div>
-              <label htmlFor="price" className="block text-sm font-medium leading-6 text-[#1a2e28]">Price (₹) *</label>
+              <label htmlFor="price" className="block text-sm font-medium leading-6 text-brand-text">Price (₹) *</label>
               <div className="mt-2">
-                <input type="number" step="0.01" name="price" id="price" required className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
+                <input type="number" step="0.01" name="price" id="price" required className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-sm sm:leading-6 transition-all" />
               </div>
             </div>
 
             <div>
-              <label htmlFor="salePrice" className="block text-sm font-medium leading-6 text-[#1a2e28]">Sale Price (₹)</label>
+              <label htmlFor="salePrice" className="block text-sm font-medium leading-6 text-brand-text">Sale Price (₹)</label>
               <div className="mt-2">
-                <input type="number" step="0.01" name="salePrice" id="salePrice" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
+                <input type="number" step="0.01" name="salePrice" id="salePrice" className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-sm sm:leading-6 transition-all" />
               </div>
             </div>
 
             <div>
-              <label htmlFor="stock" className="block text-sm font-medium leading-6 text-[#1a2e28]">Global Stock Quantity</label>
+              <label htmlFor="stock" className="block text-sm font-medium leading-6 text-brand-text">Global Stock Quantity</label>
               <div className="mt-2">
-                <input type="number" name="stock" id="stock" defaultValue={0} className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
+                <input type="number" name="stock" id="stock" defaultValue={0} className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-sm sm:leading-6 transition-all" />
               </div>
             </div>
           </div>
         </div>
 
         {/* Organization */}
-        <div className="rounded-none border border-[#ddd5c8] bg-[#faf7f2] p-8 shadow-sm">
-          <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Organization</h2>
+        <div className="rounded-global border border-brand-border bg-brand-surface p-8 shadow-sm">
+          <h2 className="text-lg font-medium text-brand-text mb-6">Organization</h2>
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
             <div>
-              <label className="block text-sm font-medium leading-6 text-[#1a2e28] mb-2">Collection</label>
+              <label className="block text-sm font-medium leading-6 text-brand-text mb-2">Collection</label>
               <CustomSelect
                 name="category"
                 value={category}
@@ -155,20 +155,20 @@ export default function AddProductForm() {
             </div>
 
             <div>
-              <label htmlFor="tags" className="block text-sm font-medium leading-6 text-[#1a2e28]">Tags (Comma separated)</label>
+              <label htmlFor="tags" className="block text-sm font-medium leading-6 text-brand-text">Tags (Comma separated)</label>
               <div className="mt-2">
-                <input type="text" name="tags" id="tags" placeholder="e.g. diamond, elegant, 18k gold" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] placeholder:text-[#1a2e28]/40 shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
+                <input type="text" name="tags" id="tags" placeholder="e.g. diamond, elegant, 18k gold" className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text placeholder:text-brand-text/40 shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-sm sm:leading-6 transition-all" />
               </div>
             </div>
           </div>
         </div>
 
         {/* Status & Visibility */}
-        <div className="rounded-none border border-[#ddd5c8] bg-[#faf7f2] p-8 shadow-sm">
-          <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Status & Visibility</h2>
+        <div className="rounded-global border border-brand-border bg-brand-surface p-8 shadow-sm">
+          <h2 className="text-lg font-medium text-brand-text mb-6">Status & Visibility</h2>
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
             <div>
-              <label className="block text-sm font-medium leading-6 text-[#1a2e28] mb-2">Status</label>
+              <label className="block text-sm font-medium leading-6 text-brand-text mb-2">Status</label>
               <CustomSelect
                 name="status"
                 value={status}
@@ -184,31 +184,31 @@ export default function AddProductForm() {
             <div className="flex flex-col justify-center space-y-4 pt-6">
               <div className="relative flex items-start">
                 <div className="flex h-6 items-center">
-                  <input id="featured" name="featured" type="checkbox" className="h-4 w-4 rounded-none border-[#ddd5c8] bg-[#e8e0d4] text-[#0F4A3A] focus:ring-[#0F4A3A]" />
+                  <input id="featured" name="featured" type="checkbox" className="h-4 w-4 rounded-global border-brand-border bg-brand-input-bg text-brand-primary focus:ring-brand-primary" />
                 </div>
                 <div className="ml-3 text-sm leading-6">
-                  <label htmlFor="featured" className="font-medium text-[#1a2e28]">Featured Product</label>
-                  <p className="text-[#1a2e28]/60">Show this product on the home page featured section.</p>
+                  <label htmlFor="featured" className="font-medium text-brand-text">Featured Product</label>
+                  <p className="text-brand-text/60">Show this product on the home page featured section.</p>
                 </div>
               </div>
 
               <div className="relative flex items-start">
                 <div className="flex h-6 items-center">
-                  <input id="isNewArrival" name="isNewArrival" type="checkbox" className="h-4 w-4 rounded-none border-[#ddd5c8] bg-[#e8e0d4] text-[#0F4A3A] focus:ring-[#0F4A3A]" />
+                  <input id="isNewArrival" name="isNewArrival" type="checkbox" className="h-4 w-4 rounded-global border-brand-border bg-brand-input-bg text-brand-primary focus:ring-brand-primary" />
                 </div>
                 <div className="ml-3 text-sm leading-6">
-                  <label htmlFor="isNewArrival" className="font-medium text-[#1a2e28]">New Arrival</label>
-                  <p className="text-[#1a2e28]/60">Mark this product as a new arrival.</p>
+                  <label htmlFor="isNewArrival" className="font-medium text-brand-text">New Arrival</label>
+                  <p className="text-brand-text/60">Mark this product as a new arrival.</p>
                 </div>
               </div>
 
               <div className="relative flex items-start">
                 <div className="flex h-6 items-center">
-                  <input id="isBestSeller" name="isBestSeller" type="checkbox" className="h-4 w-4 rounded-none border-[#ddd5c8] bg-[#e8e0d4] text-[#0F4A3A] focus:ring-[#0F4A3A]" />
+                  <input id="isBestSeller" name="isBestSeller" type="checkbox" className="h-4 w-4 rounded-global border-brand-border bg-brand-input-bg text-brand-primary focus:ring-brand-primary" />
                 </div>
                 <div className="ml-3 text-sm leading-6">
-                  <label htmlFor="isBestSeller" className="font-medium text-[#1a2e28]">Best Seller</label>
-                  <p className="text-[#1a2e28]/60">Add a Best Seller badge to this product.</p>
+                  <label htmlFor="isBestSeller" className="font-medium text-brand-text">Best Seller</label>
+                  <p className="text-brand-text/60">Add a Best Seller badge to this product.</p>
                 </div>
               </div>
             </div>
@@ -217,28 +217,28 @@ export default function AddProductForm() {
 
 
         {/* SEO */}
-        <div className="rounded-none border border-[#ddd5c8] bg-[#faf7f2] p-8 shadow-sm">
-          <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Search Engine Optimization</h2>
+        <div className="rounded-global border border-brand-border bg-brand-surface p-8 shadow-sm">
+          <h2 className="text-lg font-medium text-brand-text mb-6">Search Engine Optimization</h2>
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
             <div className="sm:col-span-2">
-              <label htmlFor="seoTitle" className="block text-sm font-medium leading-6 text-[#1a2e28]">SEO Title</label>
+              <label htmlFor="seoTitle" className="block text-sm font-medium leading-6 text-brand-text">SEO Title</label>
               <div className="mt-2">
-                <input type="text" name="seoTitle" id="seoTitle" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
+                <input type="text" name="seoTitle" id="seoTitle" className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-sm sm:leading-6 transition-all" />
               </div>
             </div>
 
             <div className="sm:col-span-2">
-              <label htmlFor="seoDescription" className="block text-sm font-medium leading-6 text-[#1a2e28]">SEO Description</label>
+              <label htmlFor="seoDescription" className="block text-sm font-medium leading-6 text-brand-text">SEO Description</label>
               <div className="mt-2">
-                <textarea id="seoDescription" name="seoDescription" rows={3} className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all resize-none"></textarea>
+                <textarea id="seoDescription" name="seoDescription" rows={3} className="block w-full rounded-global border-0 bg-brand-input-bg py-2.5 px-4 text-brand-text shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-brand-accent/50 focus:bg-brand-secondary-hover sm:text-sm sm:leading-6 transition-all resize-none"></textarea>
               </div>
             </div>
           </div>
         </div>
 
         <div className="flex justify-end gap-x-4 pt-6 pb-20">
-          <Link href="/products" className="flex items-center text-sm font-semibold leading-6 text-[#1a2e28]/70 hover:text-[#1a2e28]">Cancel</Link>
-          <button type="submit" className="flex items-center gap-2 rounded-none bg-[#0F4A3A] px-8 py-2.5 text-sm font-semibold text-[#F5F0E8] shadow-sm hover:bg-[#145242] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0F4A3A] transition-colors">
+          <Link href="/products" className="flex items-center text-sm font-semibold leading-6 text-brand-text/70 hover:text-brand-text">Cancel</Link>
+          <button type="submit" className="flex items-center gap-2 rounded-global bg-brand-primary px-8 py-2.5 text-sm font-semibold text-brand-secondary shadow-sm hover:bg-brand-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-colors">
             <Save className="w-4 h-4" />
             Save Product
           </button>
