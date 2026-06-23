@@ -10,19 +10,19 @@ export async function Footer() {
   const settings = await getSettings();
 
   return (
-    <footer className="border-brand-border-global/60 bg-brand-secondary/30 mt-auto border-t">
+    <footer className="bg-brand-primary mt-auto text-[#f5f0e8]">
       <Container className="py-16 md:py-20">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           <div className="lg:col-span-1">
-            <BrandLogo className="mb-4" />
-            <p className="text-brand-text/70 max-w-xs text-sm leading-relaxed">
+            <BrandLogo variant="light" className="mb-4" />
+            <p className="max-w-xs text-sm leading-relaxed text-[#f5f0e8]/70">
               {settings.storeDescription}
             </p>
             <div className="mt-6 flex gap-4">
               {settings.socialLinks?.instagram && (
                 <Link
                   href={settings.socialLinks.instagram}
-                  className="text-brand-text/70 hover:text-accent transition-colors"
+                  className="hover:text-accent text-[#f5f0e8]/70 transition-colors"
                   aria-label="Instagram"
                 >
                   <Link2 className="h-4 w-4" />
@@ -31,7 +31,7 @@ export async function Footer() {
               {settings.socialLinks?.facebook && (
                 <Link
                   href={settings.socialLinks.facebook}
-                  className="text-brand-text/70 hover:text-accent transition-colors"
+                  className="hover:text-accent text-[#f5f0e8]/70 transition-colors"
                   aria-label="Facebook"
                 >
                   <Globe className="h-4 w-4" />
@@ -40,7 +40,7 @@ export async function Footer() {
               {settings.socialLinks?.twitter && (
                 <Link
                   href={settings.socialLinks.twitter}
-                  className="text-brand-text/70 hover:text-accent transition-colors"
+                  className="hover:text-accent text-[#f5f0e8]/70 transition-colors"
                   aria-label="Twitter"
                 >
                   <Link2 className="h-4 w-4" />
@@ -49,7 +49,7 @@ export async function Footer() {
               {settings.socialLinks?.youtube && (
                 <Link
                   href={settings.socialLinks.youtube}
-                  className="text-brand-text/70 hover:text-accent transition-colors"
+                  className="hover:text-accent text-[#f5f0e8]/70 transition-colors"
                   aria-label="YouTube"
                 >
                   <Globe className="h-4 w-4" />
@@ -59,22 +59,19 @@ export async function Footer() {
           </div>
           <div>
             <h4 className="label-caps mb-5">Shop</h4>
-            <ul className="text-brand-text/70 space-y-3 text-sm">
+            <ul className="space-y-3 text-sm text-[#f5f0e8]/70">
               <li>
-                <Link href="/products" className="hover:text-foreground transition-colors">
+                <Link href="/products" className="transition-colors hover:text-white">
                   All Dresses
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/products?sort=newest"
-                  className="hover:text-foreground transition-colors"
-                >
+                <Link href="/products?sort=newest" className="transition-colors hover:text-white">
                   New Arrivals
                 </Link>
               </li>
               <li>
-                <Link href="/categories" className="hover:text-foreground transition-colors">
+                <Link href="/categories" className="transition-colors hover:text-white">
                   Collections
                 </Link>
               </li>
@@ -82,19 +79,19 @@ export async function Footer() {
           </div>
           <div>
             <h4 className="label-caps mb-5">Support</h4>
-            <ul className="text-brand-text/70 space-y-3 text-sm">
+            <ul className="space-y-3 text-sm text-[#f5f0e8]/70">
               <li>
-                <Link href="/contact" className="hover:text-foreground transition-colors">
+                <Link href="/contact" className="transition-colors hover:text-white">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-foreground transition-colors">
+                <Link href="/about" className="transition-colors hover:text-white">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/account/orders" className="hover:text-foreground transition-colors">
+                <Link href="/account/orders" className="transition-colors hover:text-white">
                   Track Order
                 </Link>
               </li>
@@ -102,14 +99,14 @@ export async function Footer() {
           </div>
           <div>
             <h4 className="label-caps mb-5">Contact</h4>
-            <ul className="text-brand-text/70 space-y-3 text-sm leading-relaxed">
+            <ul className="space-y-3 text-sm leading-relaxed text-[#f5f0e8]/70">
               {settings.email && <li>{settings.email}</li>}
               {settings.phone && <li>{settings.phone}</li>}
               {settings.address && <li>{settings.address}</li>}
             </ul>
           </div>
         </div>
-        <div className="border-brand-border-global/60 text-brand-text/70 mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-xs tracking-wide sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#f5f0e8]/20 pt-8 text-xs tracking-wide text-[#f5f0e8]/70 sm:flex-row">
           <p>
             &copy; {new Date().getFullYear()} {settings.storeName || APP_NAME}. All rights reserved.
           </p>
@@ -118,7 +115,7 @@ export async function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="hover:text-foreground tracking-widest uppercase transition-colors"
+                className="tracking-widest uppercase transition-colors hover:text-white"
               >
                 {link.label}
               </Link>
