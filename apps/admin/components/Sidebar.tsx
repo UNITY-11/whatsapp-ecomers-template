@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, ShoppingBag, FolderTree, Settings, LogOut, Star } from "lucide-react";
+import { LayoutDashboard, ShoppingBag, FolderTree, Settings, LogOut, Star, Users, ClipboardList } from "lucide-react";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "Orders", href: "/orders", icon: ClipboardList },
   { name: "Products", href: "/products", icon: ShoppingBag },
   { name: "Categories", href: "/categories", icon: FolderTree },
+  { name: "Customers", href: "/customers", icon: Users },
   { name: "Reviews", href: "/reviews", icon: Star },
   { name: "Settings", href: "/settings", icon: Settings },
 ];
