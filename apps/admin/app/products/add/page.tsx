@@ -3,9 +3,12 @@
 import Link from "next/link";
 import { ArrowLeft, Save, ImagePlus, X } from "lucide-react";
 import { useState } from "react";
+import CustomSelect from "../../../components/CustomSelect";
 
 export default function AddProductPage() {
   const [images, setImages] = useState<string[]>([]);
+  const [category, setCategory] = useState("");
+  const [status, setStatus] = useState("active");
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -134,18 +137,21 @@ export default function AddProductPage() {
           <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Organization</h2>
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
             <div>
-              <label htmlFor="category" className="block text-sm font-medium leading-6 text-[#1a2e28]">Collection</label>
-              <div className="mt-2">
-                <select id="category" name="category" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all">
-                  <option value="">Select a collection</option>
-                  <option value="rings">Rings</option>
-                  <option value="necklaces">Necklaces</option>
-                  <option value="earrings">Earrings</option>
-                  <option value="bracelets">Bracelets</option>
-                  <option value="watches">Watches</option>
-                  <option value="accessories">Accessories</option>
-                </select>
-              </div>
+              <label className="block text-sm font-medium leading-6 text-[#1a2e28] mb-2">Collection</label>
+              <CustomSelect
+                name="category"
+                value={category}
+                onChange={setCategory}
+                placeholder="Select a collection"
+                options={[
+                  { value: "rings", label: "Rings" },
+                  { value: "necklaces", label: "Necklaces" },
+                  { value: "earrings", label: "Earrings" },
+                  { value: "bracelets", label: "Bracelets" },
+                  { value: "watches", label: "Watches" },
+                  { value: "accessories", label: "Accessories" }
+                ]}
+              />
             </div>
 
             <div>
@@ -162,14 +168,17 @@ export default function AddProductPage() {
           <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Status & Visibility</h2>
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
             <div>
-              <label htmlFor="status" className="block text-sm font-medium leading-6 text-[#1a2e28]">Status</label>
-              <div className="mt-2">
-                <select id="status" name="status" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all">
-                  <option value="active">Active</option>
-                  <option value="draft">Draft</option>
-                  <option value="archived">Archived</option>
-                </select>
-              </div>
+              <label className="block text-sm font-medium leading-6 text-[#1a2e28] mb-2">Status</label>
+              <CustomSelect
+                name="status"
+                value={status}
+                onChange={setStatus}
+                options={[
+                  { value: "active", label: "Active" },
+                  { value: "draft", label: "Draft" },
+                  { value: "archived", label: "Archived" }
+                ]}
+              />
             </div>
 
             <div className="flex flex-col justify-center space-y-4 pt-6">
