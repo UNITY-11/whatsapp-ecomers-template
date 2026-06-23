@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { ArrowLeft, Save, ImagePlus, X } from "lucide-react";
 import { useState } from "react";
-import CustomSelect from "../../../components/CustomSelect";
+import CustomSelect from "@/shared/components/CustomSelect";
 
-export default function AddProductPage() {
+export default function AddProductForm() {
   const [images, setImages] = useState<string[]>([]);
   const [category, setCategory] = useState("");
   const [status, setStatus] = useState("active");

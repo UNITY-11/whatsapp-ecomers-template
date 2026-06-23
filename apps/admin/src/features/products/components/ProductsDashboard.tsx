@@ -1,10 +1,8 @@
 import { Plus } from "lucide-react";
 import Link from "next/link";
-import { sanityClient } from "../../lib/sanity";
+import { sanityClient } from "@/shared/lib/sanity";
 
-export const dynamic = "force-dynamic";
-
-export default async function ProductsPage() {
+export default async function ProductsDashboard() {
   let products = [];
   try {
     if (sanityClient.config().projectId !== "placeholder") {
