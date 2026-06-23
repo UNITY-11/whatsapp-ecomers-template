@@ -21,16 +21,16 @@ export default function AddOrderForm() {
   const [items, setItems] = useState([{ id: "1", productId: "", size: "", quantity: 1 }]);
 
   const handleAddItem = () => {
-    setItems([...items, { id: Date.now(), productId: "", size: "", quantity: 1 }]);
+    setItems([...items, { id: crypto.randomUUID(), productId: "", size: "", quantity: 1 }]);
   };
 
-  const handleRemoveItem = (id: number) => {
+  const handleRemoveItem = (id: string) => {
     if (items.length > 1) {
       setItems(items.filter(item => item.id !== id));
     }
   };
 
-  const updateItem = (id: number, field: string, value: string | number) => {
+  const updateItem = (id: string, field: string, value: string | number) => {
     setItems(items.map(item => item.id === id ? { ...item, [field]: value } : item));
   };
 
