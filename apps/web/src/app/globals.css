@@ -4,201 +4,160 @@
 
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Customer Theme Variables */
+  --brand-primary: #0F4A3A;
+  --brand-primary-hover: #145242;
+  --brand-secondary: #F5F0E8;
+  --brand-secondary-hover: #ebe4d8;
+  --brand-text: #1a2e28;
+  --brand-surface: #faf7f2;
+  --brand-input-bg: #e8e0d4;
+  --brand-border: #ddd5c8;
+  --brand-accent: #B89A5A;
+  --brand-danger: #b54545;
+
+  --global-radius: 0px;
+  --global-border-width: 1px;
+
+  /* Global Layout & Motion */
+  --global-container-width: 80rem; /* max-w-7xl equivalent */
+  --global-transition-duration: 300ms;
+  --global-focus-ring-color: color-mix(in srgb, var(--brand-accent) 50%, transparent);
+
+  /* Typography - Fluid responsive sizes */
+  --font-size-base: 1rem;
+  --font-size-h1: clamp(1.875rem, 4vw, 2.25rem);
+  --font-size-h2: clamp(1.5rem, 3vw, 1.875rem);
+  --font-size-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --font-size-body: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+  --font-size-small: 0.875rem;
+
+  /* Fonts and Shadows */
+  --brand-font-primary: var(--font-heading), Georgia, serif; /* Using existing heading font */
+  --global-shadow-card: 0 8px 30px rgb(0 0 0 / 0.04);
+  --global-shadow-card-hover: 0 8px 30px rgb(0 0 0 / 0.06), 0 0 20px rgb(0 0 0 / 0.1);
+  --global-shadow-table: 0 2px 10px rgb(0 0 0 / 0.02);
+  --global-shadow-header: 0 4px 20px rgb(0 0 0 / 0.03);
+  --global-shadow-active: 0 4px 10px rgb(0 0 0 / 0.2);
+  --global-drop-shadow: 0 0 8px rgb(0 0 0 / 0.3);
+  
+  /* Shadcn overrides mapped to FSD */
+  --radius: var(--global-radius);
+  --primary: var(--brand-primary);
+  --primary-foreground: var(--brand-secondary);
+  --secondary: var(--brand-secondary);
+  --secondary-foreground: var(--brand-primary);
+  --accent: var(--brand-accent);
+  --accent-foreground: var(--brand-text);
+  --card: var(--brand-surface);
+  --card-foreground: var(--brand-text);
+  --popover: var(--brand-surface);
+  --popover-foreground: var(--brand-text);
+  --muted: var(--brand-secondary-hover);
+  --muted-foreground: color-mix(in srgb, var(--brand-text) 70%, transparent);
+  --destructive: var(--brand-danger);
+  --border: var(--brand-border);
+  --input: var(--brand-input-bg);
+  --ring: var(--brand-accent);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-heading);
-  --color-brand-green: #0F4A3A;
-  --color-brand-cream: #F5F0E8;
-  --color-brand-gold: #B89A5A;
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-hover: var(--brand-primary-hover);
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-secondary-hover: var(--brand-secondary-hover);
+  --color-brand-text: var(--brand-text);
+  --color-brand-surface: var(--brand-surface);
+  --color-brand-input-bg: var(--brand-input-bg);
+  --color-brand-border: var(--brand-border);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-danger: var(--brand-danger);
+
+  --radius-global: var(--global-radius);
+  --border-width-global: var(--global-border-width);
+
+  --text-brand-h1: var(--font-size-h1);
+  --text-brand-h2: var(--font-size-h2);
+  --text-brand-h3: var(--font-size-h3);
+  --text-brand-body: var(--font-size-body);
+  --text-brand-small: var(--font-size-small);
+
+  --font-brand: var(--brand-font-primary);
+  --shadow-brand-card: var(--global-shadow-card);
+  --shadow-brand-card-hover: var(--global-shadow-card-hover);
+  --shadow-brand-table: var(--global-shadow-table);
+  --shadow-brand-header: var(--global-shadow-header);
+  --shadow-brand-active: var(--global-shadow-active);
+  --drop-shadow-brand: var(--global-drop-shadow);
+
+  /* Layout, Motion, Focus */
+  --container-brand: var(--global-container-width);
+  --default-transition-duration: var(--global-transition-duration);
+  --color-brand-focus-ring: var(--global-focus-ring-color);
 }
 
-/* Calira Couture — forest green, warm cream, antique gold */
-:root {
-  --background: #F5F0E8;
-  --foreground: #1a2e28;
-  --card: #faf7f2;
-  --card-foreground: #1a2e28;
-  --popover: #faf7f2;
-  --popover-foreground: #1a2e28;
-  --primary: #0F4A3A;
-  --primary-foreground: #F5F0E8;
-  --secondary: #ebe4d8;
-  --secondary-foreground: #0F4A3A;
-  --muted: #ebe4d8;
-  --muted-foreground: #5c6b64;
-  --accent: #B89A5A;
-  --accent-foreground: #1a2e28;
-  --destructive: #b54545;
-  --border: #ddd5c8;
-  --input: #e8e0d4;
-  --ring: #B89A5A;
-  --chart-1: #0F4A3A;
-  --chart-2: #B89A5A;
-  --chart-3: #5a7a6e;
-  --chart-4: #8b7355;
-  --chart-5: #c4b59a;
-  --radius: 0.5rem;
-  --sidebar: #0F4A3A;
-  --sidebar-foreground: #F5F0E8;
-  --sidebar-primary: #B89A5A;
-  --sidebar-primary-foreground: #1a2e28;
-  --sidebar-accent: #145242;
-  --sidebar-accent-foreground: #F5F0E8;
-  --sidebar-border: #1a5c48;
-  --sidebar-ring: #B89A5A;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --brand-primary: #F5F0E8;
+    --brand-primary-hover: #ebe4d8;
+    --brand-secondary: #0c1f19;
+    --brand-secondary-hover: #102820;
+    --brand-text: #F5F0E8;
+    --brand-surface: #102820;
+    --brand-input-bg: #1a3830;
+    --brand-border: #1f4a3c;
+    --brand-accent: #B89A5A;
+    --brand-danger: #e07070;
+  }
 }
 
-.dark {
-  --background: #0c1f19;
-  --foreground: #F5F0E8;
-  --card: #102820;
-  --card-foreground: #F5F0E8;
-  --popover: #102820;
-  --popover-foreground: #F5F0E8;
-  --primary: #F5F0E8;
-  --primary-foreground: #0F4A3A;
-  --secondary: #1a3830;
-  --secondary-foreground: #F5F0E8;
-  --muted: #1a3830;
-  --muted-foreground: #a8b8b0;
-  --accent: #B89A5A;
-  --accent-foreground: #0c1f19;
-  --destructive: #e07070;
-  --border: #1f4a3c;
-  --input: #1a3830;
-  --ring: #B89A5A;
-  --sidebar: #081612;
-  --sidebar-foreground: #F5F0E8;
-  --sidebar-primary: #B89A5A;
-  --sidebar-primary-foreground: #081612;
-  --sidebar-accent: #0F4A3A;
-  --sidebar-accent-foreground: #F5F0E8;
-  --sidebar-border: #145242;
-  --sidebar-ring: #B89A5A;
+body {
+  color: var(--foreground);
+  font-family: var(--font-brand);
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand-primary) transparent;
+  overflow-x: hidden;
+  overflow-y: overlay;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+/* Custom Scrollbar for WebKit */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
 
-  body {
-    @apply bg-background text-foreground overflow-x-hidden;
-    overflow-y: overlay;
-  }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-  /* Custom Scrollbar */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary) transparent;
-  }
+::-webkit-scrollbar-thumb {
+  background: var(--brand-primary);
+  border-radius: 10px;
+}
 
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--ring);
-  }
-
-  html {
-    @apply font-sans;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-heading), Georgia, serif;
-    @apply tracking-tight font-medium text-primary;
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary-hover);
 }
 
 @layer utilities {
-  .font-heading {
-    font-family: var(--font-heading), Georgia, serif;
-  }
-
-  .label-caps {
-    @apply text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.2em] sm:tracking-[0.24em] text-muted-foreground font-medium;
-  }
-
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .scrollbar-none {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .scrollbar-none::-webkit-scrollbar {
-    display: none;
-  }
-
   .brand-gradient {
-    background: linear-gradient(135deg, #0F4A3A 0%, #145242 50%, #0F4A3A 100%);
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-primary-hover) 50%, var(--brand-primary) 100%);
   }
 
   @keyframes marquee {
-    0% {
-      transform: translateX(0%);
-    }
-
-    100% {
-      transform: translateX(-50%);
-    }
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
   }
 
   .animate-marquee {
