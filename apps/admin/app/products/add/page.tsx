@@ -1,7 +1,31 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowLeft, Save, ImagePlus } from "lucide-react";
+import { ArrowLeft, Save, ImagePlus, X } from "lucide-react";
+import { useState } from "react";
 
 export default function AddProductPage() {
+  const [images, setImages] = useState<string[]>([]);
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const remainingSlots = 10 - images.length;
+      if (remainingSlots <= 0) {
+        alert("You can only upload up to 10 images.");
+        return;
+      }
+      const filesToAdd = Array.from(e.target.files).slice(0, remainingSlots);
+      if (e.target.files.length > remainingSlots) {
+        alert(`You can only upload up to 10 images. Only ${filesToAdd.length} more images were added.`);
+      }
+      const newImages = filesToAdd.map(file => URL.createObjectURL(file));
+      setImages(prev => [...prev, ...newImages]);
+    }
+  };
+
+  const removeImage = (indexToRemove: number) => {
+    setImages(prev => prev.filter((_, index) => index !== indexToRemove));
+  };
   return (
     <div className="flex flex-col gap-8 p-8 max-w-5xl mx-auto w-full pb-24">
       <div className="flex items-center justify-between">
@@ -23,6 +47,34 @@ export default function AddProductPage() {
 
       <form className="space-y-8">
         
+        {/* Media */}
+        <div className="rounded-none border border-[#ddd5c8] bg-[#faf7f2] p-8 shadow-sm">
+          <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Product Images</h2>
+          <div className="col-span-full">
+            <label className="block text-sm font-medium leading-6 text-[#1a2e28]">Upload Multiple Images (3:4 Ratio)</label>
+            <div className="mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              {images.map((img, idx) => (
+                <div key={idx} className="relative aspect-[3/4] group border border-[#ddd5c8]">
+                  <img src={img} alt={`Preview ${idx}`} className="w-full h-full object-cover" />
+                  <button
+                    type="button"
+                    onClick={() => removeImage(idx)}
+                    className="absolute top-2 right-2 p-1 bg-white/80 hover:bg-white text-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-sm"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              ))}
+              <label htmlFor="file-upload" className="relative cursor-pointer flex flex-col items-center justify-center aspect-[3/4] rounded-none border-2 border-dashed border-[#ddd5c8] bg-[#e8e0d4]/50 hover:bg-[#ebe4d8] hover:border-[#B89A5A]/50 transition-all text-center p-4">
+                <ImagePlus className="mx-auto h-8 w-8 text-[#1a2e28]/50 mb-2" />
+                <span className="text-sm font-medium text-[#0F4A3A]">Add Images</span>
+                <span className="text-xs text-[#1a2e28]/50 mt-1">PNG, JPG up to 5MB</span>
+                <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple accept="image/*" onChange={handleImageChange} />
+              </label>
+            </div>
+          </div>
+        </div>
+
         {/* Basic Information */}
         <div className="rounded-none border border-[#ddd5c8] bg-[#faf7f2] p-8 shadow-sm">
           <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Basic Information</h2>
@@ -34,22 +86,15 @@ export default function AddProductPage() {
               </div>
             </div>
 
-            <div>
+            <div className="sm:col-span-2">
               <label htmlFor="slug" className="block text-sm font-medium leading-6 text-[#1a2e28]">Slug (URL snippet) *</label>
               <div className="mt-2">
                 <input type="text" name="slug" id="slug" required placeholder="e.g. elegant-evening-gown" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] placeholder:text-[#1a2e28]/40 shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
               </div>
             </div>
 
-            <div>
-              <label htmlFor="shortDescription" className="block text-sm font-medium leading-6 text-[#1a2e28]">Short Description</label>
-              <div className="mt-2">
-                <input type="text" name="shortDescription" id="shortDescription" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
-              </div>
-            </div>
-
             <div className="sm:col-span-2">
-              <label htmlFor="description" className="block text-sm font-medium leading-6 text-[#1a2e28]">Full Description</label>
+              <label htmlFor="description" className="block text-sm font-medium leading-6 text-[#1a2e28]">Description</label>
               <div className="mt-2">
                 <textarea id="description" name="description" rows={5} className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all resize-none"></textarea>
               </div>
@@ -62,16 +107,16 @@ export default function AddProductPage() {
           <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Pricing & Inventory</h2>
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-8">
             <div>
-              <label htmlFor="price" className="block text-sm font-medium leading-6 text-[#1a2e28]">Price ($) *</label>
+              <label htmlFor="price" className="block text-sm font-medium leading-6 text-[#1a2e28]">Price (₹) *</label>
               <div className="mt-2">
                 <input type="number" step="0.01" name="price" id="price" required className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
               </div>
             </div>
 
             <div>
-              <label htmlFor="compareAtPrice" className="block text-sm font-medium leading-6 text-[#1a2e28]">Compare at Price ($)</label>
+              <label htmlFor="salePrice" className="block text-sm font-medium leading-6 text-[#1a2e28]">Sale Price (₹)</label>
               <div className="mt-2">
-                <input type="number" step="0.01" name="compareAtPrice" id="compareAtPrice" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
+                <input type="number" step="0.01" name="salePrice" id="salePrice" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
               </div>
             </div>
 
@@ -89,23 +134,24 @@ export default function AddProductPage() {
           <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Organization</h2>
           <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
             <div>
-              <label htmlFor="category" className="block text-sm font-medium leading-6 text-[#1a2e28]">Category Reference ID</label>
+              <label htmlFor="category" className="block text-sm font-medium leading-6 text-[#1a2e28]">Collection</label>
               <div className="mt-2">
-                <input type="text" name="category" id="category" placeholder="Enter Sanity document ID" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] placeholder:text-[#1a2e28]/40 shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
+                <select id="category" name="category" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all">
+                  <option value="">Select a collection</option>
+                  <option value="rings">Rings</option>
+                  <option value="necklaces">Necklaces</option>
+                  <option value="earrings">Earrings</option>
+                  <option value="bracelets">Bracelets</option>
+                  <option value="watches">Watches</option>
+                  <option value="accessories">Accessories</option>
+                </select>
               </div>
             </div>
 
             <div>
-              <label htmlFor="brand" className="block text-sm font-medium leading-6 text-[#1a2e28]">Brand Reference ID</label>
-              <div className="mt-2">
-                <input type="text" name="brand" id="brand" placeholder="Enter Sanity document ID" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] placeholder:text-[#1a2e28]/40 shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
               <label htmlFor="tags" className="block text-sm font-medium leading-6 text-[#1a2e28]">Tags (Comma separated)</label>
               <div className="mt-2">
-                <input type="text" name="tags" id="tags" placeholder="e.g. summer, dress, elegant" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] placeholder:text-[#1a2e28]/40 shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
+                <input type="text" name="tags" id="tags" placeholder="e.g. diamond, elegant, 18k gold" className="block w-full rounded-none border-0 bg-[#e8e0d4] py-2.5 px-4 text-[#1a2e28] placeholder:text-[#1a2e28]/40 shadow-sm ring-1 ring-inset ring-transparent focus:ring-2 focus:ring-inset focus:ring-[#B89A5A]/50 focus:bg-[#ebe4d8] sm:text-sm sm:leading-6 transition-all" />
               </div>
             </div>
           </div>
@@ -160,26 +206,6 @@ export default function AddProductPage() {
           </div>
         </div>
 
-        {/* Media */}
-        <div className="rounded-none border border-[#ddd5c8] bg-[#faf7f2] p-8 shadow-sm">
-          <h2 className="text-lg font-medium text-[#1a2e28] mb-6">Media Images</h2>
-          <div className="col-span-full">
-            <label htmlFor="images" className="block text-sm font-medium leading-6 text-[#1a2e28]">Upload Images (3:4 Ratio Recommended)</label>
-            <div className="mt-2 flex justify-center rounded-none border-2 border-dashed border-[#ddd5c8] bg-[#e8e0d4]/50 hover:bg-[#ebe4d8] hover:border-[#B89A5A]/50 transition-all px-6 py-10">
-              <div className="text-center">
-                <ImagePlus className="mx-auto h-12 w-12 text-[#1a2e28]/50" />
-                <div className="mt-4 flex text-sm leading-6 text-[#1a2e28]/70 justify-center">
-                  <label htmlFor="file-upload" className="relative cursor-pointer rounded-none font-semibold text-[#0F4A3A] hover:text-[#145242] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#0F4A3A] focus-within:ring-offset-2 focus-within:ring-offset-[#faf7f2]">
-                    <span>Upload files</span>
-                    <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple accept="image/*" />
-                  </label>
-                  <p className="pl-1">or drag and drop</p>
-                </div>
-                <p className="text-xs leading-5 text-[#1a2e28]/50">PNG, JPG, WEBP up to 5MB</p>
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* SEO */}
         <div className="rounded-none border border-[#ddd5c8] bg-[#faf7f2] p-8 shadow-sm">
