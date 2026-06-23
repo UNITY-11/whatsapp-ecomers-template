@@ -14,7 +14,7 @@ const INITIAL_MOCK_REVIEWS = [
   { id: "2", productId: "2", reviewer: "John Smith", rating: 4, title: "Great", comment: "Very nice.", date: "2026-06-05" },
 ];
 
-export default function ReviewsPage() {
+export default function ReviewsDashboard() {
   const [view, setView] = useState<"list" | "select-product" | "product-reviews">("list");
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [reviews, setReviews] = useState(INITIAL_MOCK_REVIEWS);
