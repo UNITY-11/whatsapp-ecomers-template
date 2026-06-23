@@ -8,12 +8,10 @@ export const product = defineType({
     defineField({ name: "name", title: "Name", type: "string", validation: (r) => r.required() }),
     defineField({ name: "slug", title: "Slug", type: "slug", options: { source: "name" }, validation: (r) => r.required() }),
     defineField({ name: "description", title: "Description", type: "text" }),
-    defineField({ name: "shortDescription", title: "Short Description", type: "string" }),
     defineField({ name: "price", title: "Price", type: "number", validation: (r) => r.required().min(0) }),
-    defineField({ name: "compareAtPrice", title: "Compare At Price", type: "number" }),
+    defineField({ name: "salePrice", title: "Sale Price", type: "number" }),
     defineField({ name: "images", title: "Images", type: "array", of: [{ type: "image", options: { hotspot: true } }] }),
     defineField({ name: "category", title: "Category", type: "reference", to: [{ type: "category" }] }),
-    defineField({ name: "brand", title: "Brand", type: "reference", to: [{ type: "brand" }] }),
     defineField({
       name: "sizes",
       title: "Available Sizes",
@@ -77,6 +75,22 @@ export const product = defineType({
     defineField({ name: "tags", title: "Tags", type: "array", of: [{ type: "string" }] }),
     defineField({ name: "seoTitle", title: "SEO Title", type: "string" }),
     defineField({ name: "seoDescription", title: "SEO Description", type: "text" }),
+    defineField({
+      name: "reviews",
+      title: "Reviews",
+      type: "array",
+      of: [{
+        type: "object",
+        fields: [
+          { name: "userName", title: "User Name", type: "string" },
+          { name: "rating", title: "Rating", type: "number", validation: (r) => r.required().min(1).max(5) },
+          { name: "title", title: "Title", type: "string" },
+          { name: "comment", title: "Comment", type: "text" },
+          { name: "verified", title: "Verified Purchase", type: "boolean", initialValue: false },
+          { name: "approved", title: "Approved", type: "boolean", initialValue: false },
+        ]
+      }]
+    }),
   ],
   preview: {
     select: { title: "name", media: "images.0" },
