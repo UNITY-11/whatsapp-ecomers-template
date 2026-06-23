@@ -18,9 +18,9 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="flex h-full w-64 flex-col rounded-global bg-brand-surface border-global border-brand-border-global shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+    <div className="flex h-full w-64 flex-col rounded-global bg-brand-surface border-global border-brand-border-global shadow-brand-card">
       <div className="flex h-16 shrink-0 items-center px-6">
-        <h1 className="text-brand-h2 font-bold text-brand-text tracking-wider">LUXESTORE<span className="text-brand-accent drop-shadow-[0_0_8px_rgba(184,154,90,0.3)]">.</span></h1>
+        <h1 className="text-brand-h2 font-bold text-brand-text tracking-wider">LUXESTORE<span className="text-brand-accent drop-shadow-brand">.</span></h1>
       </div>
       <div className="flex flex-1 flex-col overflow-y-auto">
         <nav className="flex-1 space-y-2 px-4 py-4">
@@ -32,7 +32,7 @@ export function Sidebar() {
                 href={item.href}
                 className={`group flex items-center rounded-global px-3 py-2.5 text-brand-body font-medium transition-all duration-300 ease-out hover:translate-x-1 ${
                   isActive
-                    ? "bg-brand-primary text-brand-secondary shadow-[0_4px_10px_rgba(15,74,58,0.2)]"
+                    ? "bg-brand-primary text-brand-secondary shadow-brand-active"
                     : "text-brand-text/70 hover:bg-brand-secondary-hover hover:text-brand-text"
                 }`}
               >

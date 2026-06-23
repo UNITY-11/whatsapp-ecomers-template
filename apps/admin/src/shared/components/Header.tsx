@@ -28,7 +28,7 @@ export function Header() {
   };
 
   return (
-    <header className="flex h-16 shrink-0 items-center gap-x-4 rounded-global border-global border-brand-border-global bg-brand-surface px-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] sm:gap-x-6 sm:px-6 lg:px-8 relative z-20">
+    <header className="flex h-16 shrink-0 items-center gap-x-4 rounded-global border-global border-brand-border-global bg-brand-surface px-4 shadow-brand-header sm:gap-x-6 sm:px-6 lg:px-8 relative z-20">
       <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
         <form className="relative flex flex-1 items-center" action="#" method="GET">
           <label htmlFor="search-field" className="sr-only">

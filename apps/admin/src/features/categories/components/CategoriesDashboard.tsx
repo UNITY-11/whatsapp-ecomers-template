@@ -24,7 +24,7 @@ export default function CategoriesDashboard() {
       <div className="mt-8 flow-root">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-            <div className="overflow-hidden shadow-[0_2px_10px_rgb(0,0,0,0.02)] ring-1 ring-brand-border-global/50 sm:rounded-global bg-white">
+            <div className="overflow-hidden shadow-brand-table ring-1 ring-brand-border-global/50 sm:rounded-global bg-white">
               <table className="min-w-full divide-y divide-brand-border-global/50">
                 <thead>
                   <tr>

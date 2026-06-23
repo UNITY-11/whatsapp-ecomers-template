@@ -9,7 +9,7 @@ export default function AdminDashboard() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-        <div className="group rounded-global border-global border-brand-border-global bg-brand-surface p-6 transition-all duration-300 hover:bg-brand-secondary-hover hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06),0_0_20px_rgba(15,74,58,0.1)] relative overflow-hidden">
+        <div className="group rounded-global border-global border-brand-border-global bg-brand-surface p-6 transition-all duration-300 hover:bg-brand-secondary-hover hover:-translate-y-1 hover:shadow-brand-card-hover relative overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
             <svg className="w-12 h-12 text-brand-text" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
           </div>
@@ -19,7 +19,7 @@ export default function AdminDashboard() {
           <div className="text-4xl font-bold text-brand-text mt-2 relative z-10 group-hover:text-brand-primary transition-colors">12</div>
         </div>
 
-        <div className="group rounded-global border-global border-brand-border-global bg-brand-surface p-6 transition-all duration-300 hover:bg-brand-secondary-hover hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06),0_0_20px_rgba(15,74,58,0.1)] relative overflow-hidden">
+        <div className="group rounded-global border-global border-brand-border-global bg-brand-surface p-6 transition-all duration-300 hover:bg-brand-secondary-hover hover:-translate-y-1 hover:shadow-brand-card-hover relative overflow-hidden">
           <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
             <svg className="w-12 h-12 text-brand-text" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
           </div>
