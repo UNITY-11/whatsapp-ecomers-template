@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -32,9 +34,14 @@ export function ProductCard({
   const router = useRouter();
   const addItem = useCartStore((s) => s.addItem);
   const setCartOpen = useCartStore((s) => s.setCartOpen);
+  const [mounted, setMounted] = useState(false);
   const { toggleItem, isInWishlist } = useWishlistStore();
-  const inWishlist = isInWishlist(product._id);
+  const inWishlist = mounted && isInWishlist(product._id);
   const hasVariants = productHasVariants(product);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const discount = calculateDiscount(product.price, product.compareAtPrice);
   const imageUrl = getProductImageUrl(product);
   const productHref = `/products/${product.slug.current}`;
