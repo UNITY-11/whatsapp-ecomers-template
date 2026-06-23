@@ -1,7 +1,7 @@
 import { Plus } from "lucide-react";
 import Link from "next/link";
 
-export default function CategoriesPage() {
+export default function CategoriesDashboard() {
   return (
     <div className="p-8 max-w-7xl mx-auto">
       <div className="sm:flex sm:items-center">
