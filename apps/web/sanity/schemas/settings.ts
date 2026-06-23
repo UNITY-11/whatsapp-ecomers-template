@@ -26,6 +26,11 @@ export const settings = defineType({
     defineField({ name: "seoTitle", title: "SEO Title", type: "string" }),
     defineField({ name: "seoDescription", title: "SEO Description", type: "text" }),
     defineField({ name: "currency", title: "Currency", type: "string", initialValue: "INR" }),
-    defineField({ name: "currencySymbol", title: "Currency Symbol", type: "string", initialValue: "₹" }),
+    defineField({
+      name: "currencySymbol",
+      title: "Currency Symbol",
+      type: "string",
+      initialValue: "₹",
+    }),
   ],
 });
