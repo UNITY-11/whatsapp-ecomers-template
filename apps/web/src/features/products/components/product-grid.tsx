@@ -2,12 +2,12 @@
 
 import Link from"next/link";
 import { ArrowRight} from"lucide-react";
-import { Container, SectionHeading} from"@/components/shared/container";
+import { Container, SectionHeading} from"@/shared/components/shared/container";
 import { ProductCard} from"@/features/products/components/product-card";
-import { Button} from"@/components/ui/button";
+import { Button} from"@/shared/components/ui/button";
 import { motion} from"framer-motion";
-import { staggerContainer, fadeIn} from"@/components/shared/motion";
-import type { Product} from"@/types";
+import { staggerContainer, fadeIn} from"@/shared/components/shared/motion";
+import type { Product} from"@/shared/types";
 
 interface ProductGridProps {
  products: Product[];

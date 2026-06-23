@@ -1,8 +1,8 @@
-import type { Product, ProductFilters, PaginatedResponse} from"@/types";
-import { isSanityConfigured, sanityClient} from"@/lib/sanity/client";
-import { PRODUCTS_QUERY, PRODUCT_BY_SLUG_QUERY} from"@/lib/sanity/queries";
-import { mockProducts} from"@/lib/mock-data";
-import { ITEMS_PER_PAGE} from"@/lib/constants";
+import type { Product, ProductFilters, PaginatedResponse} from"@/shared/types";
+import { isSanityConfigured, sanityClient} from"@/shared/lib/sanity/client";
+import { PRODUCTS_QUERY, PRODUCT_BY_SLUG_QUERY} from"@/shared/lib/sanity/queries";
+import { mockProducts} from"@/shared/lib/mock-data";
+import { ITEMS_PER_PAGE} from"@/shared/lib/constants";
 
 function filterMockProducts(filters: ProductFilters): Product[] {
  let products = [...mockProducts];

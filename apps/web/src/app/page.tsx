@@ -10,7 +10,7 @@ import { BrandsSection} from"@/features/home/components/brands-section";
 import {
  getBanners, getCategories, getFeaturedProducts,
  getNewArrivals, getBestSellers, getFAQs, getTestimonials,
-} from"@/services/content-service";
+} from"@/shared/services/content-service";
 
 export const revalidate = 3600;
 

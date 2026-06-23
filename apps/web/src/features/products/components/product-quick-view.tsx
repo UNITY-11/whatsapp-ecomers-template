@@ -3,15 +3,15 @@
 import Image from"next/image";
 import Link from"next/link";
 import { ShoppingBag, Heart} from"lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle} from"@/components/ui/dialog";
-import { Button} from"@/components/ui/button";
-import { Badge} from"@/components/ui/badge";
+import { Dialog, DialogContent, DialogHeader, DialogTitle} from"@/shared/components/ui/dialog";
+import { Button} from"@/shared/components/ui/button";
+import { Badge} from"@/shared/components/ui/badge";
 import { useCartStore} from"@/features/cart/store/cart-store";
 import { useWishlistStore} from"@/features/wishlist/store/wishlist-store";
-import { formatPrice, calculateDiscount, getProductImageUrl} from"@/utils/format";
-import { productHasVariants} from"@/lib/dress-variants";
-import { cn} from"@/lib/utils";
-import type { Product} from"@/types";
+import { formatPrice, calculateDiscount, getProductImageUrl} from"@/shared/utils/format";
+import { productHasVariants} from"@/shared/lib/dress-variants";
+import { cn} from"@/shared/lib/utils";
+import type { Product} from"@/shared/types";
 import { toast} from"sonner";
 
 interface ProductQuickViewProps {

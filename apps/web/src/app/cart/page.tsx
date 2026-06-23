@@ -3,11 +3,11 @@
 import Image from"next/image";
 import Link from"next/link";
 import { Minus, Plus, Trash2, ShoppingBag, ArrowLeft} from"lucide-react";
-import { Container} from"@/components/shared/container";
-import { Button} from"@/components/ui/button";
-import { Separator} from"@/components/ui/separator";
+import { Container} from"@/shared/components/shared/container";
+import { Button} from"@/shared/components/ui/button";
+import { Separator} from"@/shared/components/ui/separator";
 import { useCartStore} from"@/features/cart/store/cart-store";
-import { formatPrice} from"@/utils/format";
+import { formatPrice} from"@/shared/utils/format";
 import { motion, AnimatePresence} from"framer-motion";
 
 export default function CartPage() {

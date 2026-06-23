@@ -4,10 +4,10 @@ import Link from"next/link";
 import Image from"next/image";
 import { motion} from"framer-motion";
 import { ArrowRight} from"lucide-react";
-import { Button} from"@/components/ui/button";
-import { Container, SectionHeading} from"@/components/shared/container";
-import { staggerContainer, fadeIn} from"@/components/shared/motion";
-import type { Category} from"@/types";
+import { Button} from"@/shared/components/ui/button";
+import { Container, SectionHeading} from"@/shared/components/shared/container";
+import { staggerContainer, fadeIn} from"@/shared/components/shared/motion";
+import type { Category} from"@/shared/types";
 
 export function CategoriesSection({ categories}: { categories: Category[]}) {
  const featured = categories.filter((c) => c.featured).slice(0, 4);

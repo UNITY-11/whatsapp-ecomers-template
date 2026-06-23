@@ -1,7 +1,7 @@
 import { create} from"zustand";
 import { persist} from"zustand/middleware";
-import type { CartItem} from"@/types";
-import { getCartLineId} from"@/lib/dress-variants";
+import type { CartItem} from"@/shared/types";
+import { getCartLineId} from"@/shared/lib/dress-variants";
 
 interface CartState {
  items: CartItem[];

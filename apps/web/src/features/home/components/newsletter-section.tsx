@@ -3,10 +3,10 @@
 import { useState} from"react";
 import { motion} from"framer-motion";
 import { Mail, Sparkles, Gift, ArrowRight, Check} from"lucide-react";
-import { Container} from"@/components/shared/container";
-import { Input} from"@/components/ui/input";
-import { Button} from"@/components/ui/button";
-import { BRAND_NAME} from"@/lib/constants";
+import { Container} from"@/shared/components/shared/container";
+import { Input} from"@/shared/components/ui/input";
+import { Button} from"@/shared/components/ui/button";
+import { BRAND_NAME} from"@/shared/lib/constants";
 import { toast} from"sonner";
 
 const perks = [

@@ -4,16 +4,16 @@ import { useState} from"react";
 import Image from"next/image";
 import Link from"next/link";
 import { MessageCircle, ArrowLeft} from"lucide-react";
-import { Container} from"@/components/shared/container";
-import { Button} from"@/components/ui/button";
-import { Input} from"@/components/ui/input";
-import { Label} from"@/components/ui/label";
-import { Textarea} from"@/components/ui/textarea";
-import { Separator} from"@/components/ui/separator";
+import { Container} from"@/shared/components/shared/container";
+import { Button} from"@/shared/components/ui/button";
+import { Input} from"@/shared/components/ui/input";
+import { Label} from"@/shared/components/ui/label";
+import { Textarea} from"@/shared/components/ui/textarea";
+import { Separator} from"@/shared/components/ui/separator";
 import { useCartStore} from"@/features/cart/store/cart-store";
 import { createCartOrderAction} from"@/features/cart/actions/order-actions";
-import { formatPrice} from"@/utils/format";
-import { PRODUCT_IMAGE_FALLBACK} from"@/lib/images";
+import { formatPrice} from"@/shared/utils/format";
+import { PRODUCT_IMAGE_FALLBACK} from"@/shared/lib/images";
 import { toast} from"sonner";
 
 export default function CheckoutPage() {

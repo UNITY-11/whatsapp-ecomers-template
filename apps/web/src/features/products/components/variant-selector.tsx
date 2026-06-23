@@ -1,8 +1,8 @@
 "use client";
 
-import { cn} from"@/lib/utils";
-import type { Product, ProductColor} from"@/types";
-import { getProductSizes, getVariantStock} from"@/lib/dress-variants";
+import { cn} from"@/shared/lib/utils";
+import type { Product, ProductColor} from"@/shared/types";
+import { getProductSizes, getVariantStock} from"@/shared/lib/dress-variants";
 
 interface VariantSelectorProps {
  product: Product;

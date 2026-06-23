@@ -3,12 +3,12 @@
 import { useEffect, useState} from"react";
 import Link from"next/link";
 import { Heart} from"lucide-react";
-import { Container} from"@/components/shared/container";
+import { Container} from"@/shared/components/shared/container";
 import { ProductCard} from"@/features/products/components/product-card";
-import { Button} from"@/components/ui/button";
+import { Button} from"@/shared/components/ui/button";
 import { useWishlistStore} from"@/features/wishlist/store/wishlist-store";
-import { mockProducts} from"@/lib/mock-data";
-import type { Product} from"@/types";
+import { mockProducts} from"@/shared/lib/mock-data";
+import type { Product} from"@/shared/types";
 
 export default function WishlistPage() {
  const wishlistIds = useWishlistStore((s) => s.items);

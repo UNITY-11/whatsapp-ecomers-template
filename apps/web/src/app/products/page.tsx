@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, Suspense} from"react";
 import { useSearchParams} from"next/navigation";
 import { Grid3x3, List, SlidersHorizontal} from"lucide-react";
-import { Container, SectionHeading} from"@/components/shared/container";
+import { Container, SectionHeading} from"@/shared/components/shared/container";
 import { ProductCard} from"@/features/products/components/product-card";
 import { ProductQuickView} from"@/features/products/components/product-quick-view";
 import {
@@ -11,16 +11,16 @@ import {
  ActiveFilterChips,
  type ProductFilterState,
 } from"@/features/products/components/product-filters";
-import { Button, buttonVariants} from"@/components/ui/button";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue} from"@/components/ui/select";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from"@/components/ui/sheet";
-import { Skeleton} from"@/components/ui/skeleton";
-import { Badge} from"@/components/ui/badge";
+import { Button, buttonVariants} from"@/shared/components/ui/button";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue} from"@/shared/components/ui/select";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from"@/shared/components/ui/sheet";
+import { Skeleton} from"@/shared/components/ui/skeleton";
+import { Badge} from"@/shared/components/ui/badge";
 import { getProducts} from"@/features/products/services/product-service";
-import { getCategories, getBrands} from"@/services/content-service";
-import { SORT_OPTIONS, ITEMS_PER_PAGE} from"@/lib/constants";
-import type { Product, Category, Brand} from"@/types";
-import { cn} from"@/lib/utils";
+import { getCategories, getBrands} from"@/shared/services/content-service";
+import { SORT_OPTIONS, ITEMS_PER_PAGE} from"@/shared/lib/constants";
+import type { Product, Category, Brand} from"@/shared/types";
+import { cn} from"@/shared/lib/utils";
 
 const DEFAULT_PRICE: [number, number] = [0, 15000];
 

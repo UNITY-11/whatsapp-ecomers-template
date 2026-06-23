@@ -1,18 +1,18 @@
 "use server";
 
-import { isSanityConfigured, sanityWriteClient} from"@/lib/sanity/client";
-import { getSession} from"@/lib/auth";
+import { isSanityConfigured, sanityWriteClient} from"@/shared/lib/sanity/client";
+import { getSession} from"@/shared/lib/auth";
 import {
  generateSingleProductMessage,
  generateCartMessage,
  getWhatsAppUrl,
  cartToOrderItems,
  generateOrderNumber,
-} from"@/utils/whatsapp";
+} from"@/shared/utils/whatsapp";
 import { orderCustomerSchema} from"@/features/cart/validations/order";
-import type { CartItem} from"@/types";
-import { APP_URL} from"@/lib/constants";
-import { mockOrders} from"@/lib/mock-data";
+import type { CartItem} from"@/shared/types";
+import { APP_URL} from"@/shared/lib/constants";
+import { mockOrders} from"@/shared/lib/mock-data";
 
 interface SingleOrderInput {
  productName: string;

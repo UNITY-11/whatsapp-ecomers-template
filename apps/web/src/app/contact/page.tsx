@@ -1,13 +1,13 @@
 import type { Metadata} from"next";
 import Link from"next/link";
 import { Mail, Phone, MapPin, Clock, ArrowUpRight} from"lucide-react";
-import { Container, SectionHeading} from"@/components/shared/container";
-import { WhatsAppIcon} from"@/components/shared/whatsapp-icon";
-import { Button} from"@/components/ui/button";
-import { getSettings} from"@/services/content-service";
-import { BRAND_NAME, CONTACT_PHONE_DISPLAY} from"@/lib/constants";
-import { getTelHref, getWhatsAppHref} from"@/lib/contact";
-import { cn} from"@/lib/utils";
+import { Container, SectionHeading} from"@/shared/components/shared/container";
+import { WhatsAppIcon} from"@/shared/components/shared/whatsapp-icon";
+import { Button} from"@/shared/components/ui/button";
+import { getSettings} from"@/shared/services/content-service";
+import { BRAND_NAME, CONTACT_PHONE_DISPLAY} from"@/shared/lib/constants";
+import { getTelHref, getWhatsAppHref} from"@/shared/lib/contact";
+import { cn} from"@/shared/lib/utils";
 
 export const metadata: Metadata = {
  title:"Contact",

@@ -1,4 +1,4 @@
-import { Container} from"@/components/shared/container";
+import { Container} from"@/shared/components/shared/container";
 
 const BRANDS = [
 "CHANEL",

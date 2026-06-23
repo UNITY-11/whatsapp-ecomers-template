@@ -1,10 +1,10 @@
 import type { Metadata} from"next";
 import { notFound} from"next/navigation";
 import { getProductBySlug} from"@/features/products/services/product-service";
-import { getProductReviews, getRelatedProducts} from"@/services/content-service";
+import { getProductReviews, getRelatedProducts} from"@/shared/services/content-service";
 import { ProductDetail} from"@/features/products/product-detail";
-import { generateProductJsonLd, generateBreadcrumbJsonLd} from"@/utils/seo";
-import { APP_URL} from"@/lib/constants";
+import { generateProductJsonLd, generateBreadcrumbJsonLd} from"@/shared/utils/seo";
+import { APP_URL} from"@/shared/lib/constants";
 
 interface Props {
  params: Promise<{ slug: string}>;

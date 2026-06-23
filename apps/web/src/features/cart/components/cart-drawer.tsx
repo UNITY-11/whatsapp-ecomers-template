@@ -3,11 +3,11 @@
 import Image from"next/image";
 import Link from"next/link";
 import { Minus, Plus, Trash2, ShoppingBag} from"lucide-react";
-import { Button} from"@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter} from"@/components/ui/sheet";
-import { PRODUCT_IMAGE_FALLBACK} from"@/lib/images";
+import { Button} from"@/shared/components/ui/button";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter} from"@/shared/components/ui/sheet";
+import { PRODUCT_IMAGE_FALLBACK} from"@/shared/lib/images";
 import { useCartStore} from"@/features/cart/store/cart-store";
-import { formatPrice} from"@/utils/format";
+import { formatPrice} from"@/shared/utils/format";
 import { motion, AnimatePresence} from"framer-motion";
 
 export function CartDrawer() {

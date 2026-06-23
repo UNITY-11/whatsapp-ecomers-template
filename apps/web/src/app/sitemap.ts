@@ -1,6 +1,6 @@
 import type { MetadataRoute} from"next";
-import { mockProducts} from"@/lib/mock-data";
-import { APP_URL} from"@/lib/constants";
+import { mockProducts} from"@/shared/lib/mock-data";
+import { APP_URL} from"@/shared/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
  const productUrls = mockProducts.map((product) => ({

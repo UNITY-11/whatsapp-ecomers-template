@@ -1,6 +1,6 @@
 import Image from"next/image";
 import Link from"next/link";
-import { Container} from"@/components/shared/container";
+import { Container} from"@/shared/components/shared/container";
 
 export function LastChanceBanner() {
  return (

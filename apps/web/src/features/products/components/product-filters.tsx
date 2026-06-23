@@ -1,11 +1,11 @@
 "use client";
 
 import { Search, X} from"lucide-react";
-import { Input} from"@/components/ui/input";
-import { Button} from"@/components/ui/button";
-import { Slider} from"@/components/ui/slider";
-import { cn} from"@/lib/utils";
-import type { Category, Brand} from"@/types";
+import { Input} from"@/shared/components/ui/input";
+import { Button} from"@/shared/components/ui/button";
+import { Slider} from"@/shared/components/ui/slider";
+import { cn} from"@/shared/lib/utils";
+import type { Category, Brand} from"@/shared/types";
 
 export interface ProductFilterState {
  search: string;

@@ -4,9 +4,9 @@ import { useState, useEffect} from"react";
 import Image from"next/image";
 import Link from"next/link";
 import { ArrowRight} from"lucide-react";
-import { Button} from"@/components/ui/button";
+import { Button} from"@/shared/components/ui/button";
 import { motion} from"framer-motion";
-import type { Banner} from"@/types";
+import type { Banner} from"@/shared/types";
 
 export function HeroBanner({ banners}: { banners: Banner[]}) {
  const heroBanners = banners.filter((b) => b.type ==="hero");

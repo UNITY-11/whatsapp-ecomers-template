@@ -2,9 +2,9 @@
 
 import Image from"next/image";
 import Link from"next/link";
-import { Container} from"@/components/shared/container";
+import { Container} from"@/shared/components/shared/container";
 import { motion} from"framer-motion";
-import type { Banner} from"@/types";
+import type { Banner} from"@/shared/types";
 
 export function PromotionalBanners({ banners}: { banners: Banner[]}) {
  const promos = banners.filter((b) => b.type ==="promotional");

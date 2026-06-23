@@ -1,10 +1,10 @@
 "use client";
 
 import Image from"next/image";
-import { Container, SectionHeading} from"@/components/shared/container";
+import { Container, SectionHeading} from"@/shared/components/shared/container";
 import { motion} from"framer-motion";
-import { staggerContainer, fadeIn} from"@/components/shared/motion";
-import type { Testimonial} from"@/types";
+import { staggerContainer, fadeIn} from"@/shared/components/shared/motion";
+import type { Testimonial} from"@/shared/types";
 
 export function TestimonialsSection({ testimonials}: { testimonials: Testimonial[]}) {
  const featured = testimonials.filter((t) => t.featured).slice(0, 3);

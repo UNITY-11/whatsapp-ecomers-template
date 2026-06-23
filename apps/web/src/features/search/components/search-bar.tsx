@@ -3,13 +3,13 @@
 import { useState, useEffect, useCallback, useRef} from"react";
 import { useRouter} from"next/navigation";
 import { Search, X, Clock} from"lucide-react";
-import { Input} from"@/components/ui/input";
+import { Input} from"@/shared/components/ui/input";
 import { useSearchStore} from"@/features/search/store/search-store";
 import { searchProducts} from"@/features/products/services/product-service";
-import { formatPrice, getProductImageUrl} from"@/utils/format";
-import type { Product} from"@/types";
+import { formatPrice, getProductImageUrl} from"@/shared/utils/format";
+import type { Product} from"@/shared/types";
 import Image from"next/image";
-import { cn} from"@/lib/utils";
+import { cn} from"@/shared/lib/utils";
 
 interface SearchBarProps {
  /** Use in-flow results (mobile sidebar) — avoids popover clipping inside sheets */

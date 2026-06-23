@@ -1,15 +1,15 @@
 import type { Metadata} from"next";
 import { Cormorant_Garamond, DM_Sans} from"next/font/google";
 import"./globals.css";
-import { Header} from"@/components/layout/header";
-import { Footer} from"@/components/layout/footer";
+import { Header} from"@/shared/components/layout/header";
+import { Footer} from"@/shared/components/layout/footer";
 import { CartDrawer} from"@/features/cart/components/cart-drawer";
-import { ContactFab} from"@/components/shared/contact-fab";
-import { SmoothScrolling} from"@/components/layout/smooth-scrolling";
-import { QueryProvider} from"@/providers/query-provider";
-import { Toaster} from"@/components/ui/sonner";
-import { APP_NAME, APP_URL, BRAND_NAME, BRAND_TAGLINE} from"@/lib/constants";
-import { generateOrganizationJsonLd} from"@/utils/seo";
+import { ContactFab} from"@/shared/components/shared/contact-fab";
+import { SmoothScrolling} from"@/shared/components/layout/smooth-scrolling";
+import { QueryProvider} from"@/shared/providers/query-provider";
+import { Toaster} from"@/shared/components/ui/sonner";
+import { APP_NAME, APP_URL, BRAND_NAME, BRAND_TAGLINE} from"@/shared/lib/constants";
+import { generateOrganizationJsonLd} from"@/shared/utils/seo";
 
 const cormorant = Cormorant_Garamond({
  subsets: ["latin"],

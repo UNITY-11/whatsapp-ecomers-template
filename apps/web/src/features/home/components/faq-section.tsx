@@ -1,9 +1,9 @@
 "use client";
 
-import { Container, SectionHeading} from"@/components/shared/container";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger} from"@/components/ui/accordion";
-import { MotionWrapper} from"@/components/shared/motion";
-import type { FAQ} from"@/types";
+import { Container, SectionHeading} from"@/shared/components/shared/container";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger} from"@/shared/components/ui/accordion";
+import { MotionWrapper} from"@/shared/components/shared/motion";
+import type { FAQ} from"@/shared/types";
 
 export function FAQSection({ faqs}: { faqs: FAQ[]}) {
  return (

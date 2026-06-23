@@ -1,5 +1,5 @@
-import { Container} from"@/components/shared/container";
-import { getCategories} from"@/services/content-service";
+import { Container} from"@/shared/components/shared/container";
+import { getCategories} from"@/shared/services/content-service";
 import Link from"next/link";
 import Image from"next/image";
 

@@ -1,5 +1,5 @@
-import { Container} from"@/components/shared/container";
-import { getSettings} from"@/services/content-service";
+import { Container} from"@/shared/components/shared/container";
+import { getSettings} from"@/shared/services/content-service";
 
 export default async function AboutPage() {
  const settings = await getSettings();

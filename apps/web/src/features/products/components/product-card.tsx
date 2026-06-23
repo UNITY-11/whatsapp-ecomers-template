@@ -5,14 +5,14 @@ import Link from"next/link";
 import { useRouter} from"next/navigation";
 import { motion} from"framer-motion";
 import { Heart, ShoppingBag, Eye} from"lucide-react";
-import { Button} from"@/components/ui/button";
-import { Badge} from"@/components/ui/badge";
+import { Button} from"@/shared/components/ui/button";
+import { Badge} from"@/shared/components/ui/badge";
 import { useCartStore} from"@/features/cart/store/cart-store";
 import { useWishlistStore} from"@/features/wishlist/store/wishlist-store";
-import { formatPrice, calculateDiscount, getProductImageUrl} from"@/utils/format";
-import { productHasVariants} from"@/lib/dress-variants";
-import type { Product} from"@/types";
-import { cn} from"@/lib/utils";
+import { formatPrice, calculateDiscount, getProductImageUrl} from"@/shared/utils/format";
+import { productHasVariants} from"@/shared/lib/dress-variants";
+import type { Product} from"@/shared/types";
+import { cn} from"@/shared/lib/utils";
 import { toast} from"sonner";
 
 interface ProductCardProps {
