@@ -18,16 +18,13 @@ export function CategoriesSection({ categories }: { categories: Category[] }) {
       <Container>
         <div className="mb-10 flex flex-col justify-between gap-4 sm:mb-12 md:mb-14 md:flex-row md:items-center md:gap-8">
           <div className="flex flex-1 flex-col gap-1 sm:gap-2">
-            <h2 className="font-brand text-brand-h2 sm:text-brand-h2 md:text-brand-h1 leading-none whitespace-nowrap lg:text-[2.5rem]">
+            <h2 className="font-brand text-brand-h2 sm:text-brand-h2 md:text-brand-h1 text-brand-primary leading-none whitespace-nowrap uppercase lg:text-[2.5rem]">
               Shop by Category
             </h2>
-            <p className="text-brand-text/70 md:text-brand-h3 max-w-xl text-sm leading-snug sm:text-base">
-              Explore our curated collections
-            </p>
           </div>
           <Button
             variant="outline"
-            className="border-brand-primary text-brand-primary hover:bg-brand-primary/5 hover:text-brand-primary hover:border-brand-primary w-full shrink-0 rounded-none sm:w-auto"
+            className="border-brand-primary text-brand-primary hover:bg-brand-primary/5 hover:text-brand-primary hover:border-brand-primary w-full shrink-0 rounded-none bg-transparent sm:w-auto"
             asChild
           >
             <Link href="/products">

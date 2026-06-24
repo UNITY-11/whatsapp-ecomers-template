@@ -26,14 +26,9 @@ export function ProductGrid({ products, title, subtitle, label, viewAllHref }: P
       <Container>
         <div className="mb-10 flex flex-col justify-between gap-4 sm:mb-12 md:mb-14 md:flex-row md:items-center md:gap-8">
           <div className="flex flex-1 flex-col gap-1 sm:gap-2">
-            <h2 className="font-brand text-brand-h2 sm:text-brand-h2 md:text-brand-h1 leading-none whitespace-nowrap lg:text-[2.5rem]">
+            <h2 className="font-brand text-brand-h2 sm:text-brand-h2 md:text-brand-h1 text-brand-primary leading-none whitespace-nowrap uppercase lg:text-[2.5rem]">
               {title}
             </h2>
-            {subtitle && (
-              <p className="text-brand-text/70 md:text-brand-h3 max-w-xl text-sm leading-snug sm:text-base">
-                {subtitle}
-              </p>
-            )}
           </div>
           {viewAllHref && (
             <Button

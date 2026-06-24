@@ -29,7 +29,7 @@ export function SectionHeading({
   return (
     <div className={cn("mb-12 md:mb-14", align === "center" && "text-center", className)}>
       {label && <p className={cn("label-caps mb-3", align === "center" && "mx-auto")}>{label}</p>}
-      <h2 className="font-brand text-brand-h2 sm:text-brand-h2 md:text-brand-h1 leading-[1.15] text-balance lg:text-[2.75rem]">
+      <h2 className="font-brand text-brand-h2 sm:text-brand-h2 md:text-brand-h1 text-brand-primary leading-[1.15] text-balance uppercase lg:text-[2.75rem]">
         {title}
       </h2>
       {subtitle && (
