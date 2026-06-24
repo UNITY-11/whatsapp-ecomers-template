@@ -69,13 +69,17 @@ export function HeroBanner({ banners }: { banners: Banner[] }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
 
                   <div className="absolute inset-x-0 bottom-0 flex flex-col items-center p-6 text-center sm:p-10">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl drop-shadow-brand-card mb-4 leading-tight font-medium text-white">
+                    <h2 className="drop-shadow-brand-card mb-4 text-3xl leading-tight font-medium text-white sm:text-4xl lg:text-5xl">
                       {banner.title}
                     </h2>
-                    {banner.description && (
-                      <p className="sm:text-brand-h3 mb-8 line-clamp-2 text-sm font-light text-white/80">
-                        {banner.description}
-                      </p>
+                    {banner.href && banner.cta && (
+                      <Button
+                        variant="outline"
+                        className="w-full rounded-none border-white text-white hover:bg-white hover:text-black sm:w-auto"
+                        asChild
+                      >
+                        <Link href={banner.href}>{banner.cta}</Link>
+                      </Button>
                     )}
                   </div>
                 </div>

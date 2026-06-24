@@ -14,11 +14,7 @@ export function FAQSection({ faqs }: { faqs: FAQ[] }) {
   return (
     <section className="bg-brand-secondary-hover/30 py-14 sm:py-20 md:py-24">
       <Container className="max-w-3xl">
-        <SectionHeading
-          title="Frequently Asked Questions"
-          subtitle="Everything you need to know about shopping with us."
-          label="Help"
-        />
+        <SectionHeading title="Frequently Asked Questions" label="Help" />
         <MotionWrapper>
           <Accordion className="divide-border/60 w-full divide-y">
             {faqs.map((faq) => (

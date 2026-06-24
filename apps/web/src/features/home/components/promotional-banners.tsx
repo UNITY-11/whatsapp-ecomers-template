@@ -39,12 +39,11 @@ export function PromotionalBanners({ banners }: { banners: Banner[] }) {
                 <div className="absolute inset-0 bg-black/35 transition-colors group-hover:bg-black/45" />
                 <div className="absolute inset-0 flex items-center justify-center p-8 text-center text-white">
                   <div>
-                    {banner.subtitle && (
-                      <p className="label-caps mb-2 text-white/70">{banner.subtitle}</p>
+                    {banner.title && (
+                      <h3 className="text-brand-h3 sm:text-brand-h2 md:text-brand-h2 leading-tight font-medium tracking-wide">
+                        {banner.title}
+                      </h3>
                     )}
-                    <h3 className="text-brand-h3 sm:text-brand-h2 md:text-brand-h2 leading-tight font-medium tracking-wide">
-                      {banner.title}
-                    </h3>
                   </div>
                 </div>
               </Link>

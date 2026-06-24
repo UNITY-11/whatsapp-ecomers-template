@@ -60,10 +60,6 @@ export function NewsletterSection() {
                 Be first to discover our{""}
                 <span className="text-[#B89A5A] italic">newest dresses</span>
               </h2>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-[#F5F0E8]/75 sm:mt-5 sm:text-base">
-                Join {BRAND_NAME}&apos;s inner circle for collection previews, fit guides, and
-                invitations to private styling sessions.
-              </p>
 
               <ul className="mt-8 space-y-3.5 sm:mt-10">
                 {perks.map(({ icon: Icon, text }) => (
@@ -84,9 +80,7 @@ export function NewsletterSection() {
                   <div className="rounded-global mb-4 inline-flex h-12 w-12 items-center justify-center border border-[#B89A5A]/40 bg-[#B89A5A]/20">
                     <Mail className="h-5 w-5 text-[#B89A5A]" />
                   </div>
-                  <h3 className="text-brand-h3 sm:text-brand-h2 text-[#F5F0E8]">
-                    Subscribe
-                  </h3>
+                  <h3 className="text-brand-h3 sm:text-brand-h2 text-[#F5F0E8]">Subscribe</h3>
                   <p className="mt-2 text-xs leading-relaxed text-[#F5F0E8]/60 sm:text-sm">
                     One thoughtful email per week. Unsubscribe anytime.
                   </p>

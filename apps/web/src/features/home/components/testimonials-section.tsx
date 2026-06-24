@@ -13,11 +13,7 @@ export function TestimonialsSection({ testimonials }: { testimonials: Testimonia
   return (
     <section className="py-14 sm:py-20 md:py-24">
       <Container>
-        <SectionHeading
-          title="What Our Customers Say"
-          subtitle="Trusted by thousands who value quality and craftsmanship."
-          label="Testimonials"
-        />
+        <SectionHeading title="What Our Customers Say" label="Testimonials" />
         <motion.div
           className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8"
           variants={staggerContainer}

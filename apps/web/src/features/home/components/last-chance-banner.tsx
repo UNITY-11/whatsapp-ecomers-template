@@ -23,9 +23,6 @@ export function LastChanceBanner() {
             <h2 className="text-brand-h2 md:text-brand-h1 text-background mb-2 font-sans tracking-tight lg:text-6xl">
               Last chance!
             </h2>
-            <p className="md:text-brand-h3 lg:text-brand-h3 text-background/80 mb-4 text-base font-light">
-              Few sizes left
-            </p>
             <h3 className="text-brand-h1 md:text-brand-h1 text-background mb-6 leading-none font-bold tracking-tight lg:text-[4.5rem]">
               UPTO 30% OFF*
             </h3>
