@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -98,7 +97,7 @@ export function ProductCard({
         <div className="flex min-w-0 flex-1 flex-col">
           <Link href={productHref} className="min-w-0 flex-1">
             {product.brand && <p className="label-caps truncate">{product.brand.name}</p>}
-            <h3 className="sm:text-brand-h3 mt-1 line-clamp-1 text-base font-medium">
+            <h3 className="sm:text-brand-h3 font-brand mt-1 line-clamp-1 text-base font-bold">
               {product.name}
             </h3>
             <div className="mt-2 flex items-baseline gap-2">
@@ -178,7 +177,7 @@ export function ProductCard({
 
       <Link href={productHref} className="mt-2 block space-y-1 px-0.5 sm:mt-3">
         {product.brand && <p className="label-caps truncate">{product.brand.name}</p>}
-        <h3 className="text-foreground/90 line-clamp-1 text-sm leading-snug font-medium sm:text-base">
+        <h3 className="text-foreground/90 font-brand line-clamp-1 text-sm leading-snug font-bold sm:text-base">
           {product.name}
         </h3>
         <div className="flex items-baseline gap-2 pt-0.5">
