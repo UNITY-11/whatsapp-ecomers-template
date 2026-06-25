@@ -74,7 +74,12 @@ export function VariantSelector({
             {selectedSize}
           </span>
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div
+          className="grid gap-2"
+          style={{
+            gridTemplateColumns: `repeat(${sizes.length > 5 ? Math.ceil(sizes.length / 2) : sizes.length}, minmax(0, 1fr))`,
+          }}
+        >
           {sizes.map((size) => {
             const stock = selectedColor
               ? getVariantStock(product, size, selectedColor)
@@ -88,7 +93,7 @@ export function VariantSelector({
                 disabled={!available}
                 onClick={() => onSizeChange(size)}
                 className={cn(
-                  "h-10 min-w-[2.75rem] rounded-none border px-8 text-sm font-medium transition-colors",
+                  "flex h-10 w-full items-center justify-center rounded-none border px-0 text-sm font-medium transition-colors",
                   isSelected
                     ? "border-brand-primary bg-brand-primary text-brand-surface"
                     : "border-brand-primary/60 text-brand-primary hover:bg-brand-primary/5 bg-transparent",
