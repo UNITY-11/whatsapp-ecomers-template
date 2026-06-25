@@ -18,7 +18,7 @@ export function BrandLogo({
     <span className={cn("flex flex-col gap-0.5 leading-none", className)}>
       <span
         className={cn(
-          "font-bold tracking-wider uppercase",
+          "font-brand mb-1 font-bold",
           variant === "light" ? "text-white" : "text-[#1a2e28]",
           nameClassName
         )}
