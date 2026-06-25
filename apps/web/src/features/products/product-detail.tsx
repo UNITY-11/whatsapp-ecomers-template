@@ -206,12 +206,48 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
         </div>
 
         <div className="lg:sticky lg:top-24 lg:col-span-2">
-          {product.category && (
-            <p className="label-caps text-accent mb-2">{product.category.name}</p>
-          )}
-          <h1 className="font-brand text-brand-h2 sm:text-brand-h2 md:text-brand-h1 text-brand-primary mb-2 leading-tight font-medium">
-            {product.name}
-          </h1>
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              {product.category && (
+                <p className="label-caps text-accent mb-2">{product.category.name}</p>
+              )}
+              <h1 className="font-brand text-brand-h2 sm:text-brand-h2 md:text-brand-h1 text-brand-primary mb-2 leading-tight font-medium">
+                {product.name}
+              </h1>
+            </div>
+
+            <div className="flex shrink-0 items-center gap-1">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-brand-text/70 hover:text-brand-primary h-9 w-9 rounded-full"
+                onClick={() => {
+                  toggleItem(product._id);
+                  toast.success(inWishlist ? "Removed" : "Saved to wishlist");
+                }}
+                aria-label="Wishlist"
+              >
+                <Heart className={`h-5 w-5 ${inWishlist ? "fill-accent text-accent" : ""}`} />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-brand-text/70 hover:text-brand-primary h-9 w-9 rounded-full"
+                onClick={handleShare}
+                aria-label="Share"
+              >
+                <Share2 className="h-5 w-5" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-brand-text/70 hover:text-brand-primary h-9 w-9 rounded-full"
+                aria-label="Size Guide"
+              >
+                <Ruler className="h-5 w-5" />
+              </Button>
+            </div>
+          </div>
           {avgRating && (
             <div className="mb-4 flex items-center gap-2">
               <div className="flex">
@@ -331,27 +367,6 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
               disabled={variantStock === 0}
             >
               Buy Now
-            </Button>
-          </div>
-
-          <div className="mb-6 flex flex-wrap gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              className="rounded-none"
-              onClick={() => {
-                toggleItem(product._id);
-                toast.success(inWishlist ? "Removed" : "Saved to wishlist");
-              }}
-            >
-              <Heart className={`mr-1 h-4 w-4 ${inWishlist ? "fill-accent text-accent" : ""}`} />{" "}
-              Wishlist
-            </Button>
-            <Button variant="outline" size="sm" className="rounded-none" onClick={handleShare}>
-              <Share2 className="mr-1 h-4 w-4" /> Share
-            </Button>
-            <Button variant="ghost" size="sm" className="text-brand-text/70 rounded-none">
-              <Ruler className="mr-1 h-4 w-4" /> Size Guide
             </Button>
           </div>
 
