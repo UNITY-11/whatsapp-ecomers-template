@@ -14,6 +14,52 @@ import {
 } from "@/shared/utils/whatsapp";
 import { orderCustomerSchema } from "@/features/cart/validations/order";
 
+async function resolveCustomerUser(customer: {
+  name: string;
+  phone: string;
+  address: string;
+  landmark?: string;
+  district: string;
+  state: string;
+  pincode: string;
+}) {
+  if (!isSanityConfigured) return undefined;
+
+  try {
+    const existingUser = await sanityWriteClient.fetch(`*[_type == "user" && phone == $phone][0]`, {
+      phone: customer.phone,
+    });
+
+    if (existingUser) {
+      return existingUser._id;
+    }
+
+    const newUser = await sanityWriteClient.create({
+      _type: "user",
+      name: customer.name,
+      phone: customer.phone,
+      role: "customer",
+      addresses: [
+        {
+          _key: Math.random().toString(36).slice(2),
+          label: "Home",
+          street: customer.address + (customer.landmark ? `, ${customer.landmark}` : ""),
+          city: customer.district,
+          state: customer.state,
+          zip: customer.pincode,
+          country: "India",
+          isDefault: true,
+        },
+      ],
+    });
+
+    return newUser._id;
+  } catch (error) {
+    console.error("Error resolving customer user:", error);
+    return undefined;
+  }
+}
+
 interface SingleOrderInput {
   productName: string;
   price: number;
@@ -51,10 +97,18 @@ export async function createSingleOrderAction(input: SingleOrderInput) {
   const orderNumber = generateOrderNumber();
   const session = await getSession();
 
+  let userId = session?.id;
+  if (isSanityConfigured) {
+    const resolvedUserId = await resolveCustomerUser(customerParsed.data);
+    if (resolvedUserId) {
+      userId = resolvedUserId;
+    }
+  }
+
   const orderData = {
     _type: "orderRequest" as const,
     orderNumber,
-    user: session ? { _type: "reference" as const, _ref: session.id } : undefined,
+    user: userId ? { _type: "reference" as const, _ref: userId } : undefined,
     customer: customerParsed.data,
     items: [
       {
@@ -117,6 +171,15 @@ export async function createCartOrderAction(
   const message = generateCartMessage(items, customerParsed.data);
   const orderNumber = generateOrderNumber();
   const session = await getSession();
+
+  let userId = session?.id;
+  if (isSanityConfigured) {
+    const resolvedUserId = await resolveCustomerUser(customerParsed.data);
+    if (resolvedUserId) {
+      userId = resolvedUserId;
+    }
+  }
+
   const orderItems = cartToOrderItems(items);
   const totalItems = items.reduce((sum, i) => sum + i.quantity, 0);
   const grandTotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
@@ -124,7 +187,7 @@ export async function createCartOrderAction(
   const orderData = {
     _type: "orderRequest" as const,
     orderNumber,
-    user: session ? { _type: "reference" as const, _ref: session.id } : undefined,
+    user: userId ? { _type: "reference" as const, _ref: userId } : undefined,
     customer: customerParsed.data,
     items: orderItems,
     totalItems,
