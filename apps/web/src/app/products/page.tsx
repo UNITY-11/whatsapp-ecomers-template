@@ -192,7 +192,11 @@ function ProductsContent() {
                   <SelectTrigger size="sm" className="h-9 min-w-0 flex-1 sm:w-[11rem] sm:flex-none">
                     <SelectValue placeholder="Sort by" />
                   </SelectTrigger>
-                  <SelectContent align="start" alignItemWithTrigger={false} className="bg-brand-surface">
+                  <SelectContent
+                    align="start"
+                    alignItemWithTrigger={false}
+                    className="bg-brand-surface"
+                  >
                     <SelectGroup>
                       <SelectLabel>Order</SelectLabel>
                       {SORT_OPTIONS.map((o) => (
