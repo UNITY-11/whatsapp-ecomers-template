@@ -152,25 +152,13 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
 
   return (
     <Container className="py-6 sm:py-8">
-      <nav className="text-brand-text/70 mb-4 flex flex-wrap items-center gap-x-1 gap-y-1 text-xs sm:mb-6 sm:text-sm">
-        <Link href="/" className="hover:text-brand-primary shrink-0">
-          Home
-        </Link>
-        <span>/</span>
-        <Link href="/products" className="hover:text-brand-primary shrink-0">
-          Dresses
-        </Link>
-        <span>/</span>
-        <span className="text-foreground min-w-0 truncate">{product.name}</span>
-      </nav>
-
       <div className="grid items-start gap-6 sm:gap-8 lg:grid-cols-5 lg:gap-12">
         <div className="space-y-4 lg:col-span-3">
-          <div className="grid grid-cols-2 gap-2 sm:gap-3">
+          <div className="-mx-4 flex snap-x snap-mandatory [scrollbar-width:none] gap-1 overflow-x-auto [-ms-overflow-style:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-3 [&::-webkit-scrollbar]:hidden">
             {images.map((img, i) => (
               <div
                 key={i}
-                className="bg-brand-secondary-hover group relative aspect-[3/4] w-full cursor-zoom-in overflow-hidden rounded-none"
+                className="bg-brand-secondary-hover group relative aspect-[3/4] w-full shrink-0 cursor-zoom-in snap-center overflow-hidden rounded-none sm:w-full"
                 onClick={() => {
                   setSelectedImage(i);
                   setZoomOpen(true);
@@ -290,10 +278,10 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
             </Button>
           </div>
 
-          <div className="bg-brand-surface/95 border-brand-border-global/60 sticky bottom-0 z-20 -mx-4 mb-4 flex flex-col gap-3 border-t px-4 py-3 backdrop-blur-sm sm:static sm:mx-0 sm:flex-row sm:border-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:py-0 sm:backdrop-blur-none">
+          <div className="mb-6 flex flex-col gap-3">
             <Button
               size="lg"
-              className="h-11 w-full rounded-none text-white sm:flex-1"
+              className="h-11 w-full rounded-none"
               onClick={handleAddToCart}
               disabled={variantStock === 0}
             >
@@ -302,11 +290,32 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
             <Button
               size="lg"
               variant="outline"
-              className="border-brand-primary text-brand-primary hover:bg-brand-primary/5 h-11 w-full rounded-none sm:flex-1"
-              onClick={() => setWhatsappOpen(true)}
+              className="border-brand-primary text-brand-primary hover:bg-brand-primary/5 h-11 w-full rounded-none"
+              onClick={() => {
+                if (hasVariants && (!selectedSize || !selectedColor)) {
+                  toast.error("Please select size and colour");
+                  return;
+                }
+                if (variantStock <= 0) {
+                  toast.error("This combination is out of stock");
+                  return;
+                }
+                addItem({
+                  productId: product._id,
+                  name: product.name,
+                  price: product.price,
+                  imageUrl,
+                  slug: product.slug.current,
+                  stock: variantStock,
+                  quantity,
+                  size: selectedSize || undefined,
+                  color: selectedColor || undefined,
+                });
+                window.location.href = "/checkout";
+              }}
               disabled={variantStock === 0}
             >
-              <MessageCircle className="mr-2 h-4 w-4" /> Order via WhatsApp
+              Buy Now
             </Button>
           </div>
 

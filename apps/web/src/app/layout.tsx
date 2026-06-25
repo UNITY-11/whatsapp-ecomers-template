@@ -71,7 +71,7 @@ export default function RootLayout({
         <QueryProvider>
           <SmoothScrolling>
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pt-14 sm:pt-16">{children}</main>
             <Footer />
             <CartDrawer />
             <ContactFab />

@@ -16,9 +16,9 @@ export function CategoriesSection({ categories }: { categories: Category[] }) {
   return (
     <section className="bg-brand-secondary py-14 sm:py-20 md:py-24">
       <Container>
-        <div className="mb-10 flex flex-col justify-between gap-4 sm:mb-12 md:mb-14 md:flex-row md:items-center md:gap-8">
+        <div className="mb-10 flex flex-col items-center justify-between gap-4 text-center sm:mb-12 md:mb-14 md:flex-row md:gap-8 md:text-left">
           <div className="flex flex-1 flex-col gap-1 sm:gap-2">
-            <h2 className="font-brand text-brand-h2 sm:text-brand-h2 md:text-brand-h1 text-brand-primary leading-none whitespace-nowrap uppercase lg:text-[2.5rem]">
+            <h2 className="font-brand text-brand-h2 sm:text-brand-h2 md:text-brand-h1 text-brand-primary leading-none uppercase lg:text-[2.5rem]">
               Shop by Category
             </h2>
           </div>

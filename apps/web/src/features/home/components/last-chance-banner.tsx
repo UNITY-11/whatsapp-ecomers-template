@@ -19,11 +19,11 @@ export function LastChanceBanner() {
           </div>
 
           {/* Text Container */}
-          <div className="flex w-full flex-col justify-center p-6 md:w-1/2 md:p-10 lg:p-16">
-            <h2 className="text-brand-h2 md:text-brand-h1 text-background mb-2 font-sans tracking-tight lg:text-6xl">
+          <div className="flex w-full flex-col items-center justify-center p-6 text-center md:w-1/2 md:items-start md:p-10 md:text-left lg:p-16">
+            <h2 className="text-brand-h2 md:text-brand-h1 text-background font-brand mb-2 tracking-tight lg:text-6xl">
               Last chance!
             </h2>
-            <h3 className="text-brand-h1 md:text-brand-h1 text-background mb-6 leading-none font-bold tracking-tight lg:text-[4.5rem]">
+            <h3 className="text-brand-h1 md:text-brand-h1 text-background font-brand mb-6 leading-none tracking-tight lg:text-[4.5rem]">
               UPTO 30% OFF*
             </h3>
             <Link
