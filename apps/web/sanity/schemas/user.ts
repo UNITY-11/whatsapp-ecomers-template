@@ -10,7 +10,6 @@ export const user = defineType({
       name: "email",
       title: "Email",
       type: "string",
-      validation: (r) => r.required().email(),
     }),
     defineField({ name: "password", title: "Password Hash", type: "string" }),
     defineField({ name: "phone", title: "Phone", type: "string" }),

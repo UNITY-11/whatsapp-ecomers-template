@@ -19,8 +19,11 @@ export const orderRequest = defineType({
       fields: [
         { name: "name", type: "string" },
         { name: "phone", type: "string" },
-        { name: "email", type: "string" },
         { name: "address", type: "text" },
+        { name: "landmark", type: "string" },
+        { name: "district", type: "string" },
+        { name: "state", type: "string" },
+        { name: "pincode", type: "string" },
       ],
     }),
     defineField({
@@ -61,5 +64,5 @@ export const orderRequest = defineType({
     defineField({ name: "whatsappMessage", title: "WhatsApp Message", type: "text" }),
     defineField({ name: "notes", title: "Admin Notes", type: "text" }),
   ],
-  preview: { select: { title: "orderNumber", subtitle: "status" } },
+  preview: { select: { title: "orderNumber", subtitle: "customer.name" } },
 });
