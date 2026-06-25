@@ -82,7 +82,7 @@ export default function CheckoutPage() {
 
       <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
         <div className="order-last space-y-6 md:order-first">
-          <div className="rounded-global border-brand-border-global/50 border bg-white p-5 shadow-sm sm:p-7">
+          <div className="rounded-global border-brand-border-global/50 border p-5 sm:p-7">
             <h2 className="text-brand-h3 mb-6 font-semibold">Customer Details</h2>
             <div className="space-y-5">
               <div className="grid gap-5 sm:grid-cols-2">
