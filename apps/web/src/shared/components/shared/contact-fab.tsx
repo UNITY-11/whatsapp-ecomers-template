@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { Phone } from "lucide-react";
 
 import { WhatsAppIcon } from "@/shared/components/shared/whatsapp-icon";
@@ -11,6 +14,13 @@ const fabClass = cn(
 );
 
 export function ContactFab() {
+  const pathname = usePathname();
+
+  // Hide on product detail pages (e.g. /products/slug-name)
+  if (pathname.startsWith("/products/")) {
+    return null;
+  }
+
   return (
     <div
       className="fixed right-4 bottom-6 z-40 flex flex-col gap-3 pb-[env(safe-area-inset-bottom)] sm:right-6"
@@ -22,7 +32,7 @@ export function ContactFab() {
         rel="noopener noreferrer"
         className={cn(
           fabClass,
-          "rounded-full bg-[#0f4a3a] text-[#F5F0E8] shadow-primary/25 focus-visible:ring-primary hover:bg-[#145242]"
+          "shadow-primary/25 focus-visible:ring-primary rounded-full bg-[#0f4a3a] text-[#F5F0E8] hover:bg-[#145242]"
         )}
         aria-label={`Chat on WhatsApp at ${CONTACT_PHONE_DISPLAY}`}
       >

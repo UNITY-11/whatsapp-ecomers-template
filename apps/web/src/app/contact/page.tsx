@@ -122,7 +122,7 @@ export default async function ContactPage() {
             </p>
             <div className="space-y-3">
               <Button
-                className="rounded-global h-11 w-full border-0 bg-[#25D366] text-white hover:bg-[#20bd5a]"
+                className="rounded-global text-brand-surface h-11 w-full border-0 bg-[#25D366] hover:bg-[#20bd5a]"
                 asChild
               >
                 <a href={whatsappHref} target="_blank" rel="noopener noreferrer">

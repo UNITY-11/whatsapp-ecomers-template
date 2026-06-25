@@ -34,7 +34,7 @@ export function HeroBanner({ banners }: { banners: Banner[] }) {
   if (totalOriginal === 0) return null;
 
   return (
-    <section className="relative flex h-[calc(75vh-3.5rem)] sm:h-[calc(100vh-4rem)] w-full flex-col justify-center overflow-hidden bg-[#0F4A3A]">
+    <section className="relative flex h-[calc(75vh-3.5rem)] w-full flex-col justify-center overflow-hidden bg-[#0F4A3A] sm:h-[calc(100vh-4rem)]">
       <div className="brand-gradient absolute inset-0 opacity-80" />
 
       <div className="relative z-10 h-full w-full">

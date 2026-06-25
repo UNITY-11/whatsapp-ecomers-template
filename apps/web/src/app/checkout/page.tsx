@@ -137,7 +137,7 @@ export default function CheckoutPage() {
             <span>{formatPrice(getTotal())}</span>
           </div>
           <Button
-            className="w-full bg-green-600 hover:bg-green-700"
+            className="text-brand-surface w-full bg-[#25D366] hover:bg-[#20bd5a]"
             size="lg"
             onClick={handleOrder}
             disabled={ordering}

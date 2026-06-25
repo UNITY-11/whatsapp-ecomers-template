@@ -32,7 +32,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="bg-brand-primary text-[#f5f0e8] fixed top-0 z-50 w-full backdrop-blur-md">
+    <header className="bg-brand-primary fixed top-0 z-50 w-full text-[#f5f0e8] backdrop-blur-md">
       <Container className="px-3 sm:px-6">
         <div className="relative flex h-14 min-w-0 items-center justify-between gap-2 sm:h-16 sm:gap-4">
           {/* Left: Menu & Search */}
@@ -41,16 +41,16 @@ export function Header() {
               <SheetTrigger
                 className={cn(
                   buttonVariants({ variant: "ghost", size: "icon" }),
-                  "rounded-global size-10 sm:size-11 hover:text-[#0f4a3a]"
+                  "rounded-global size-10 hover:text-[#0f4a3a] sm:size-11"
                 )}
               >
                 <Menu className="size-[18px] stroke-[1.5] sm:size-5" />
               </SheetTrigger>
               <SheetContent
                 side="left"
-                className="border-brand-border-global/60 flex w-full max-w-[min(100vw,20rem)] flex-col overflow-y-auto border-r p-4 sm:max-w-xs sm:p-6"
+                className="border-brand-border-global/60 bg-brand-primary text-brand-surface flex w-full max-w-full flex-col overflow-y-auto border-r p-4 sm:max-w-xs sm:p-6"
               >
-                <div className="mt-4 flex flex-1 flex-col gap-6 pb-4 sm:mt-8 sm:gap-8">
+                <div className="mt-10 flex flex-1 flex-col gap-6 pb-4 sm:mt-12 sm:gap-8">
                   <SearchBar inlineResults onNavigate={() => setMobileOpen(false)} />
                   <nav className="flex flex-col gap-4 sm:gap-5">
                     {NAV_LINKS.map((link) => (
@@ -58,7 +58,7 @@ export function Header() {
                         key={link.href}
                         href={link.href}
                         onClick={() => setMobileOpen(false)}
-                        className="font-brand text-brand-h2 sm:text-brand-h2 text-brand-primary border-brand-border-global/60 hover:text-accent border-b pb-3 font-medium tracking-tight transition-colors"
+                        className="font-brand text-brand-h2 sm:text-brand-h2 text-brand-surface border-brand-surface/20 hover:text-accent border-b pb-3 font-medium tracking-tight transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -70,7 +70,7 @@ export function Header() {
                       href="https://facebook.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-global bg-brand-secondary text-brand-text-foreground hover:bg-brand-primary hover:text-brand-primary-foreground p-2.5 transition-colors"
+                      className="rounded-global bg-brand-secondary text-brand-primary hover:bg-brand-surface hover:text-brand-primary p-2.5 transition-colors"
                       aria-label="Facebook"
                     >
                       <svg
@@ -92,7 +92,7 @@ export function Header() {
                       href="https://instagram.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-global bg-brand-secondary text-brand-text-foreground hover:bg-brand-primary hover:text-brand-primary-foreground p-2.5 transition-colors"
+                      className="rounded-global bg-brand-secondary text-brand-primary hover:bg-brand-surface hover:text-brand-primary p-2.5 transition-colors"
                       aria-label="Instagram"
                     >
                       <svg
@@ -116,7 +116,7 @@ export function Header() {
                       href="https://x.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-global bg-brand-secondary text-brand-text-foreground hover:bg-brand-primary hover:text-brand-primary-foreground p-2.5 transition-colors"
+                      className="rounded-global bg-brand-secondary text-brand-primary hover:bg-brand-surface hover:text-brand-primary p-2.5 transition-colors"
                       aria-label="X (Twitter)"
                     >
                       <svg
@@ -143,18 +143,27 @@ export function Header() {
           {/* Center: Logo */}
           <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
             <Link href="/" className="group flex min-w-0 shrink-0 items-center justify-center">
-              <motion.div whileHover={{ opacity: 0.85 }} transition={{ duration: 0.2 }} className="flex items-center justify-center">
+              <motion.div
+                whileHover={{ opacity: 0.85 }}
+                transition={{ duration: 0.2 }}
+                className="flex items-center justify-center"
+              >
                 <BrandLogo variant="light" className="text-3xl italic sm:text-4xl" />
               </motion.div>
             </Link>
           </div>
 
           {/* Right: Actions */}
-          <div className={cn("flex flex-1 shrink-0 items-center justify-end transition-opacity", searchOpen && "opacity-0")}>
+          <div
+            className={cn(
+              "flex flex-1 shrink-0 items-center justify-end transition-opacity",
+              searchOpen && "opacity-0"
+            )}
+          >
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-global relative size-10 sm:size-11 hover:text-[#0f4a3a]"
+              className="rounded-global relative size-10 hover:text-[#0f4a3a] sm:size-11"
               onClick={() => setSearchOpen(true)}
               aria-label="Search"
             >
@@ -163,7 +172,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-global relative size-10 sm:size-11 hover:text-[#0f4a3a]"
+              className="rounded-global relative size-10 hover:text-[#0f4a3a] sm:size-11"
               asChild
             >
               <Link href="/wishlist" aria-label="Wishlist">
@@ -178,7 +187,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-global relative size-10 sm:size-11 hover:text-[#0f4a3a]"
+              className="rounded-global relative size-10 hover:text-[#0f4a3a] sm:size-11"
               onClick={() => setCartOpen(true)}
               aria-label="Cart"
             >
@@ -193,17 +202,17 @@ export function Header() {
 
           {/* Search Overlay */}
           {searchOpen && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="absolute inset-0 z-50 flex items-center bg-brand-primary gap-2"
+              className="bg-brand-primary absolute inset-0 z-50 flex items-center gap-2"
             >
-              <div className="flex-1 w-full max-w-2xl mx-auto">
+              <div className="mx-auto w-full max-w-2xl flex-1">
                 <SearchBar onNavigate={() => setSearchOpen(false)} />
               </div>
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 className="shrink-0 hover:text-[#0f4a3a]"
                 onClick={() => setSearchOpen(false)}
                 aria-label="Close search"
