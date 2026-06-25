@@ -5,7 +5,6 @@ import {
   getFAQs,
   getFeaturedProducts,
   getNewArrivals,
-  getTestimonials,
 } from "@/shared/services/content-service";
 import { BrandsSection } from "@/features/home/components/brands-section";
 import { CategoriesSection } from "@/features/home/components/categories-section";
@@ -14,22 +13,19 @@ import { FeaturesMarquee } from "@/features/home/components/features-marquee";
 import { HeroBanner } from "@/features/home/components/hero-banner";
 import { LastChanceBanner } from "@/features/home/components/last-chance-banner";
 import { NewsletterSection } from "@/features/home/components/newsletter-section";
-import { TestimonialsSection } from "@/features/home/components/testimonials-section";
 import { ProductGrid } from "@/features/products/components/product-grid";
 
 export const revalidate = 3600;
 
 export default async function HomePage() {
-  const [banners, categories, featured, newArrivals, bestSellers, faqs, testimonials] =
-    await Promise.all([
-      getBanners(),
-      getCategories(),
-      getFeaturedProducts(),
-      getNewArrivals(),
-      getBestSellers(),
-      getFAQs(),
-      getTestimonials(),
-    ]);
+  const [banners, categories, featured, newArrivals, bestSellers, faqs] = await Promise.all([
+    getBanners(),
+    getCategories(),
+    getFeaturedProducts(),
+    getNewArrivals(),
+    getBestSellers(),
+    getFAQs(),
+  ]);
 
   return (
     <>
@@ -59,7 +55,6 @@ export default async function HomePage() {
         viewAllHref="/products?sort=popular"
       />
       <LastChanceBanner />
-      <TestimonialsSection testimonials={testimonials} />
       <FAQSection faqs={faqs} />
       <NewsletterSection />
     </>
