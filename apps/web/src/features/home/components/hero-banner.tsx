@@ -72,13 +72,13 @@ export function HeroBanner({ banners }: { banners: Banner[] }) {
                     <h2 className="drop-shadow-brand-card mb-4 text-3xl leading-tight font-medium text-white sm:text-4xl lg:text-5xl">
                       {banner.title}
                     </h2>
-                    {banner.href && banner.cta && (
+                    {banner.link && banner.buttonText && (
                       <Button
                         variant="outline"
                         className="w-full rounded-none border-white text-white hover:bg-white hover:text-black sm:w-auto"
                         asChild
                       >
-                        <Link href={banner.href}>{banner.cta}</Link>
+                        <Link href={banner.link}>{banner.buttonText}</Link>
                       </Button>
                     )}
                   </div>
