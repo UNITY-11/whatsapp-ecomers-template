@@ -56,7 +56,15 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
   const [zoomOpen, setZoomOpen] = useState(false);
   const [whatsappOpen, setWhatsappOpen] = useState(false);
   const [ordering, setOrdering] = useState(false);
-  const [customer, setCustomer] = useState({ name: "", phone: "", address: "" });
+  const [customer, setCustomer] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    landmark: "",
+    district: "",
+    state: "",
+    pincode: "",
+  });
 
   const addItem = useCartStore((s) => s.addItem);
   const setCartOpen = useCartStore((s) => s.setCartOpen);
@@ -115,8 +123,15 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
       toast.error("Please select size and colour");
       return;
     }
-    if (!customer.name || !customer.phone || !customer.address) {
-      toast.error("Please fill in all customer details");
+    if (
+      !customer.name ||
+      !customer.phone ||
+      !customer.address ||
+      !customer.district ||
+      !customer.state ||
+      !customer.pincode
+    ) {
+      toast.error("Please fill in all required customer details");
       return;
     }
     setOrdering(true);
@@ -370,26 +385,40 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
             {reviews.map((review) => (
               <div
                 key={review._id}
-                className="border-brand-border-global/50 rounded-global bg-brand-secondary/20 border p-5"
+                className="border-brand-border-global/50 rounded-global bg-brand-secondary/20 flex flex-row gap-4 border p-4 sm:gap-5 sm:p-5"
               >
-                <div className="mb-3 flex items-center justify-between">
-                  <div className="flex">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`h-3.5 w-3.5 ${i < review.rating ? "fill-yellow-500 text-yellow-500" : "text-gray-300"}`}
-                      />
-                    ))}
-                  </div>
-                  {review.verified && (
-                    <Badge variant="outline" className="rounded-global h-5 px-2 py-0 text-[10px]">
-                      Verified
-                    </Badge>
-                  )}
+                <div className="bg-brand-secondary relative w-24 shrink-0 overflow-hidden rounded sm:w-28">
+                  <Image src={imageUrl} alt={product.name} fill className="object-cover" />
                 </div>
 
-                {review.title && <h4 className="mb-1 text-sm font-semibold">{review.title}</h4>}
-                <p className="text-brand-text/70 text-sm leading-relaxed">{review.comment}</p>
+                <div className="flex min-w-0 flex-1 flex-col justify-center">
+                  <div className="mb-2 flex items-center justify-between">
+                    <div className="flex">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`h-3.5 w-3.5 ${i < review.rating ? "fill-yellow-500 text-yellow-500" : "text-gray-300"}`}
+                        />
+                      ))}
+                    </div>
+                    {review.verified && (
+                      <Badge variant="outline" className="rounded-global h-5 px-2 py-0 text-[10px]">
+                        Verified
+                      </Badge>
+                    )}
+                  </div>
+
+                  {review.title && <h4 className="mb-1 text-sm font-semibold">{review.title}</h4>}
+                  <p className="text-brand-text/70 mb-3 text-sm leading-relaxed">
+                    {review.comment}
+                  </p>
+
+                  <div className="border-brand-border-global/50 mt-auto border-t pt-2">
+                    <p className="text-brand-text/70 truncate text-[10px]">
+                      Purchased: {product.name}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -449,10 +478,46 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
                 />
               </div>
               <div>
-                <Label>Delivery Address</Label>
+                <Label>Delivery Address *</Label>
                 <Textarea
                   value={customer.address}
                   onChange={(e) => setCustomer({ ...customer, address: e.target.value })}
+                  className="rounded-global"
+                  rows={2}
+                />
+              </div>
+              <div>
+                <Label>Landmark</Label>
+                <Input
+                  value={customer.landmark}
+                  onChange={(e) => setCustomer({ ...customer, landmark: e.target.value })}
+                  className="rounded-global"
+                  placeholder="Optional"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <Label>District *</Label>
+                  <Input
+                    value={customer.district}
+                    onChange={(e) => setCustomer({ ...customer, district: e.target.value })}
+                    className="rounded-global"
+                  />
+                </div>
+                <div>
+                  <Label>State *</Label>
+                  <Input
+                    value={customer.state}
+                    onChange={(e) => setCustomer({ ...customer, state: e.target.value })}
+                    className="rounded-global"
+                  />
+                </div>
+              </div>
+              <div>
+                <Label>Pincode *</Label>
+                <Input
+                  value={customer.pincode}
+                  onChange={(e) => setCustomer({ ...customer, pincode: e.target.value })}
                   className="rounded-global"
                 />
               </div>
