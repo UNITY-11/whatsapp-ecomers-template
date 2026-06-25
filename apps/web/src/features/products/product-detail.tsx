@@ -24,7 +24,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/shared/compo
 import { Input } from "@/shared/components/ui/input";
 import { Label } from "@/shared/components/ui/label";
 import { Separator } from "@/shared/components/ui/separator";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/shared/components/ui/tabs";
 import { Textarea } from "@/shared/components/ui/textarea";
 import { getProductSizes, getVariantStock, productHasVariants } from "@/shared/lib/dress-variants";
 import { cn } from "@/shared/lib/utils";
@@ -171,7 +170,7 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
             {images.map((img, i) => (
               <div
                 key={i}
-                className="bg-brand-secondary-hover ring-border/40 group relative aspect-[3/4] w-full cursor-zoom-in overflow-hidden rounded-none ring-1"
+                className="bg-brand-secondary-hover group relative aspect-[3/4] w-full cursor-zoom-in overflow-hidden rounded-none"
                 onClick={() => {
                   setSelectedImage(i);
                   setZoomOpen(true);
@@ -216,7 +215,7 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star
                     key={i}
-                    className={`h-4 w-4 ${i < Math.round(avgRating) ? "fill-accent text-accent" : "text-muted"}`}
+                    className={`h-4 w-4 ${i < Math.round(avgRating) ? "fill-yellow-500 text-yellow-500" : "text-gray-300"}`}
                   />
                 ))}
               </div>
@@ -294,7 +293,7 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
           <div className="bg-brand-surface/95 border-brand-border-global/60 sticky bottom-0 z-20 -mx-4 mb-4 flex flex-col gap-3 border-t px-4 py-3 backdrop-blur-sm sm:static sm:mx-0 sm:flex-row sm:border-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:py-0 sm:backdrop-blur-none">
             <Button
               size="lg"
-              className="h-11 w-full rounded-none sm:flex-1"
+              className="h-11 w-full rounded-none text-white sm:flex-1"
               onClick={handleAddToCart}
               disabled={variantStock === 0}
             >
@@ -349,88 +348,52 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
 
       <Separator className="bg-border/60 my-12" />
 
-      <Tabs defaultValue="description" className="w-full">
-        <TabsList className="bg-brand-secondary/50 rounded-global flex h-auto w-full items-center overflow-hidden p-1.5">
-          <TabsTrigger
-            value="description"
-            className="rounded-global py-4 text-xs sm:py-5 sm:text-sm"
-          >
-            Description
-          </TabsTrigger>
-          <TabsTrigger
-            value="specifications"
-            className="rounded-global border-brand-border-global/40 border-r border-l py-4 text-xs sm:py-5 sm:text-sm"
-          >
-            Fabric & Fit
-          </TabsTrigger>
-          <TabsTrigger value="reviews" className="rounded-global py-4 text-xs sm:py-5 sm:text-sm">
-            Reviews ({reviews.length})
-          </TabsTrigger>
-        </TabsList>
-        <TabsContent value="description" className="prose mt-6 max-w-none">
-          <p className="text-brand-text/70 leading-relaxed">{product.description}</p>
-        </TabsContent>
-        <TabsContent value="specifications" className="mt-6">
-          {product.specifications && product.specifications.length > 0 ? (
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {product.specifications.map((spec, i) => (
-                <div
-                  key={i}
-                  className="border-brand-border-global/50 flex justify-between border-b pb-2"
-                >
-                  <span className="text-brand-primary font-medium">{spec.key}</span>
-                  <span className="text-brand-text/70">{spec.value}</span>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-brand-text/70">Contact us for detailed measurements.</p>
-          )}
-        </TabsContent>
-        <TabsContent value="reviews" className="mt-6">
-          {reviews.length === 0 ? (
-            <p className="text-brand-text/70">
-              No reviews yet. Be the first to share your experience.
-            </p>
-          ) : (
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
-              {reviews.map((review) => (
-                <div
-                  key={review._id}
-                  className="border-brand-border-global/50 rounded-global bg-brand-secondary/20 border p-5"
-                >
-                  <div className="mb-3 flex items-center justify-between">
-                    <div className="flex">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-3.5 w-3.5 ${i < review.rating ? "fill-accent text-accent" : "text-muted"}`}
-                        />
-                      ))}
-                    </div>
-                    {review.verified && (
-                      <Badge variant="outline" className="rounded-global h-5 px-2 py-0 text-[10px]">
-                        Verified
-                      </Badge>
-                    )}
+      <div className="w-full">
+        <h2 className="font-brand text-brand-h3 sm:text-brand-h3 text-brand-primary mb-6">
+          Reviews ({reviews.length})
+        </h2>
+        {reviews.length === 0 ? (
+          <p className="text-brand-text/70">
+            No reviews yet. Be the first to share your experience.
+          </p>
+        ) : (
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
+            {reviews.map((review) => (
+              <div
+                key={review._id}
+                className="border-brand-border-global/50 rounded-global bg-brand-secondary/20 border p-5"
+              >
+                <div className="mb-3 flex items-center justify-between">
+                  <div className="flex">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`h-3.5 w-3.5 ${i < review.rating ? "fill-yellow-500 text-yellow-500" : "text-gray-300"}`}
+                      />
+                    ))}
                   </div>
-                  <div className="mb-2">
-                    <span className="text-foreground text-sm font-medium">{review.userName}</span>
-                  </div>
-                  {review.title && <h4 className="mb-1 text-sm font-semibold">{review.title}</h4>}
-                  <p className="text-brand-text/70 text-sm leading-relaxed">{review.comment}</p>
+                  {review.verified && (
+                    <Badge variant="outline" className="rounded-global h-5 px-2 py-0 text-[10px]">
+                      Verified
+                    </Badge>
+                  )}
                 </div>
-              ))}
-            </div>
-          )}
-        </TabsContent>
-      </Tabs>
+                <div className="mb-2">
+                  <span className="text-foreground text-sm font-medium">{review.userName}</span>
+                </div>
+                {review.title && <h4 className="mb-1 text-sm font-semibold">{review.title}</h4>}
+                <p className="text-brand-text/70 text-sm leading-relaxed">{review.comment}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
       {relatedProducts.length > 0 && (
         <div className="mt-16">
           <p className="label-caps mb-2 text-center">You may also love</p>
           <h2 className="font-brand text-brand-h2 sm:text-brand-h2 text-brand-primary mb-8 text-center">
-            Complete the Look
+            Similar Products
           </h2>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {relatedProducts.map((p) => (

@@ -27,7 +27,7 @@ export function CategoriesSection({ categories }: { categories: Category[] }) {
             className="border-brand-primary text-brand-primary hover:bg-brand-primary/5 hover:text-brand-primary hover:border-brand-primary w-full shrink-0 rounded-none bg-transparent sm:w-auto"
             asChild
           >
-            <Link href="/products">
+            <Link href="/categories">
               View All <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
             </Link>
           </Button>

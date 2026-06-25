@@ -88,7 +88,7 @@ export function ProductFilters({
             className={cn(
               "rounded-global border px-3 py-1.5 text-xs font-medium transition-colors",
               !filters.category
-                ? "bg-brand-primary text-brand-primary-foreground border-brand-primary"
+                ? "bg-brand-primary border-brand-primary text-white"
                 : "bg-brand-surface border-brand-border-global/80 text-brand-text/70 hover:border-brand-primary/40"
             )}
           >
@@ -102,7 +102,7 @@ export function ProductFilters({
               className={cn(
                 "rounded-global border px-3 py-1.5 text-xs font-medium whitespace-nowrap transition-colors",
                 filters.category === c.slug.current
-                  ? "bg-brand-primary text-brand-primary-foreground border-brand-primary"
+                  ? "bg-brand-primary border-brand-primary text-white"
                   : "bg-brand-surface border-brand-border-global/80 text-brand-text/70 hover:border-brand-primary/40"
               )}
             >
@@ -120,7 +120,7 @@ export function ProductFilters({
             className={cn(
               "rounded-global border px-3 py-1.5 text-xs font-medium transition-colors",
               !filters.brand
-                ? "bg-brand-primary text-brand-primary-foreground border-brand-primary"
+                ? "bg-brand-primary border-brand-primary text-white"
                 : "bg-brand-surface border-brand-border-global/80 text-brand-text/70 hover:border-brand-primary/40"
             )}
           >
@@ -134,7 +134,7 @@ export function ProductFilters({
               className={cn(
                 "rounded-global border px-3 py-1.5 text-xs font-medium whitespace-nowrap transition-colors",
                 filters.brand === b.slug.current
-                  ? "bg-brand-primary text-brand-primary-foreground border-brand-primary"
+                  ? "bg-brand-primary border-brand-primary text-white"
                   : "bg-brand-surface border-brand-border-global/80 text-brand-text/70 hover:border-brand-primary/40"
               )}
             >

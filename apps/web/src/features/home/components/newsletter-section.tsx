@@ -58,7 +58,7 @@ export function NewsletterSection() {
               <p className="label-caps mb-4 text-[#B89A5A] sm:mb-5">The Calira Edit</p>
               <h2 className="text-brand-h2 sm:text-brand-h1 max-w-md leading-[1.1] text-balance text-[#F5F0E8] md:text-[2.75rem]">
                 Be first to discover our{""}
-                <span className="text-[#B89A5A] italic">newest dresses</span>
+                <span className="text-[#B89A5A] italic text-brand">newest dresses</span>
               </h2>
 
               <ul className="mt-8 space-y-3.5 sm:mt-10">

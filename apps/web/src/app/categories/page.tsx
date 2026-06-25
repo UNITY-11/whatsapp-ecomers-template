@@ -9,30 +9,35 @@ export default async function CategoriesPage() {
 
   return (
     <Container className="py-8 sm:py-20">
-      <h1 className="text-brand-h1 mb-8 font-bold">All Categories</h1>
+      <h1 className="font-brand text-brand-h1 text-brand-primary mb-8 font-medium">
+        All Categories
+      </h1>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {categories.map((cat) => (
-          <Link key={cat._id} href={`/products?category=${cat.slug.current}`} className="group">
+          <Link
+            key={cat._id}
+            href={`/products?category=${cat.slug.current}`}
+            className="group block"
+          >
             <div className="bg-brand-secondary-hover relative aspect-[3/4] overflow-hidden rounded-none">
               {cat.imageUrl && (
                 <Image
                   src={cat.imageUrl}
                   alt={cat.name}
                   fill
-                  className="object-cover transition-transform group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               )}
-              <div className="absolute inset-0 flex items-end bg-black/30 p-4">
-                <div className="w-full text-white">
-                  <h3 className="drop-shadow-brand-card text-brand-h2 font-semibold text-white">
-                    {cat.name}
-                  </h3>
-                  {cat.productCount && (
-                    <p className="drop-shadow-brand-card mt-0.5 text-xs text-white/90">
-                      {cat.productCount} products
-                    </p>
-                  )}
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent transition-all group-hover:from-black/60" />
+              <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                <h3 className="font-brand md:text-brand-h3 text-sm leading-tight font-medium tracking-wide text-white sm:text-base">
+                  {cat.name}
+                </h3>
+                {cat.productCount && (
+                  <p className="mt-1 text-[10px] tracking-[0.15em] uppercase opacity-75">
+                    {cat.productCount} pieces
+                  </p>
+                )}
               </div>
             </div>
           </Link>

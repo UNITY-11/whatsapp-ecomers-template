@@ -192,7 +192,7 @@ function ProductsContent() {
                   <SelectTrigger size="sm" className="h-9 min-w-0 flex-1 sm:w-[11rem] sm:flex-none">
                     <SelectValue placeholder="Sort by" />
                   </SelectTrigger>
-                  <SelectContent align="start" alignItemWithTrigger={false}>
+                  <SelectContent align="start" alignItemWithTrigger={false} className="bg-brand-surface">
                     <SelectGroup>
                       <SelectLabel>Order</SelectLabel>
                       {SORT_OPTIONS.map((o) => (
@@ -239,7 +239,7 @@ function ProductsContent() {
             <div
               className={cn(
                 "grid gap-3 sm:gap-5",
-                viewMode === "grid" ? "grid-cols-2 md:grid-cols-3" : "grid-cols-1"
+                viewMode === "grid" ? "grid-cols-2 md:grid-cols-3" : "grid-cols-1 md:grid-cols-2"
               )}
             >
               {Array.from({ length: 6 }).map((_, i) => (
@@ -263,7 +263,7 @@ function ProductsContent() {
             <div
               className={cn(
                 "grid gap-3 sm:gap-5",
-                viewMode === "grid" ? "grid-cols-2 md:grid-cols-3" : "grid-cols-1"
+                viewMode === "grid" ? "grid-cols-2 md:grid-cols-3" : "grid-cols-1 md:grid-cols-2"
               )}
             >
               {products.map((product) => (

@@ -83,10 +83,7 @@ export function ProductCard({
   if (layout === "list") {
     return (
       <article
-        className={cn(
-          "group border-brand-border-global/60 bg-brand-surface flex gap-4 rounded-none border p-3 sm:p-4",
-          className
-        )}
+        className={cn("group bg-brand-surface flex gap-4 rounded-none p-3 sm:p-4", className)}
       >
         <Link
           href={productHref}
@@ -164,12 +161,12 @@ export function ProductCard({
           />
         </Link>
         {discount > 0 && (
-          <Badge className="rounded-global bg-accent text-brand-text absolute top-2 left-2 z-[2] border-0 px-2 text-[9px] tracking-wider uppercase sm:text-[10px]">
+          <Badge className="rounded-global absolute top-2 left-2 z-[2] border-0 bg-red-600 px-2 text-[9px] tracking-wider text-white uppercase shadow-sm sm:text-[10px]">
             -{discount}%
           </Badge>
         )}
         {product.isNewArrival && !discount && (
-          <Badge className="rounded-global bg-brand-primary text-brand-primary-foreground absolute top-2 left-2 z-[2] border-0 px-2 text-[9px] tracking-wider uppercase sm:text-[10px]">
+          <Badge className="rounded-global bg-brand-primary absolute top-2 left-2 z-[2] border-0 px-2 text-[9px] tracking-wider text-white uppercase shadow-sm sm:text-[10px]">
             New
           </Badge>
         )}
