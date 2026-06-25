@@ -6,7 +6,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-import { Button } from "@/shared/components/ui/button";
 import type { Banner } from "@/shared/types";
 
 export function HeroBanner({ banners }: { banners: Banner[] }) {
@@ -48,12 +47,8 @@ export function HeroBanner({ banners }: { banners: Banner[] }) {
               } as React.CSSProperties
             }
           >
-            {extendedBanners.map((banner, i) => (
-              <div
-                key={i}
-                className="h-full shrink-0"
-                style={{ width: `${100 / (mounted ? visibleCount : 3)}vw` }} // Use vw so it scales relative to viewport
-              >
+            {extendedBanners.map((banner, i) => {
+              const content = (
                 <div className="group relative h-full w-full overflow-hidden shadow-2xl">
                   <Image
                     src={
@@ -69,22 +64,34 @@ export function HeroBanner({ banners }: { banners: Banner[] }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
 
                   <div className="absolute inset-x-0 bottom-0 flex flex-col items-center p-6 text-center sm:p-10">
-                    <h2 className="drop-shadow-brand-card mb-4 text-3xl leading-tight font-medium text-white sm:text-4xl lg:text-5xl">
+                    <h2 className="drop-shadow-brand-card font-brand mb-4 text-3xl leading-tight font-medium text-white sm:text-4xl lg:text-5xl">
                       {banner.title}
                     </h2>
-                    {banner.link && banner.buttonText && (
-                      <Button
-                        variant="outline"
-                        className="w-full rounded-none border-white text-white hover:bg-white hover:text-black sm:w-auto"
-                        asChild
-                      >
-                        <Link href={banner.link}>{banner.buttonText}</Link>
-                      </Button>
+                    {banner.description && (
+                      <p className="max-w-2xl text-sm text-white/90 drop-shadow-md sm:text-base">
+                        {banner.description}
+                      </p>
                     )}
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+
+              return (
+                <div
+                  key={i}
+                  className="h-full shrink-0"
+                  style={{ width: `${100 / (mounted ? visibleCount : 3)}vw` }} // Use vw so it scales relative to viewport
+                >
+                  {banner.link ? (
+                    <Link href={banner.link} className="block h-full w-full">
+                      {content}
+                    </Link>
+                  ) : (
+                    content
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

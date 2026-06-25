@@ -68,7 +68,7 @@ export const mockCategories: Category[] = [
     featured: true,
     order: 1,
     productCount: 8,
-    imageUrl: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600",
+    imageUrl: "/images/cat_evening_gowns.png",
   },
   {
     _id: "cat-2",
@@ -78,7 +78,7 @@ export const mockCategories: Category[] = [
     featured: true,
     order: 2,
     productCount: 10,
-    imageUrl: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600",
+    imageUrl: "/images/cat_midi_dresses.png",
   },
   {
     _id: "cat-3",
@@ -88,7 +88,7 @@ export const mockCategories: Category[] = [
     featured: true,
     order: 3,
     productCount: 7,
-    imageUrl: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600",
+    imageUrl: "/images/cat_maxi_dresses.png",
   },
   {
     _id: "cat-4",
@@ -98,7 +98,7 @@ export const mockCategories: Category[] = [
     featured: true,
     order: 4,
     productCount: 6,
-    imageUrl: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=600",
+    imageUrl: "/images/cat_cocktail_dresses.png",
   },
   {
     _id: "cat-5",
@@ -108,7 +108,7 @@ export const mockCategories: Category[] = [
     featured: true,
     order: 5,
     productCount: 5,
-    imageUrl: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600",
+    imageUrl: "/images/cat_wedding_guest.png",
   },
   {
     _id: "cat-6",
@@ -118,7 +118,7 @@ export const mockCategories: Category[] = [
     featured: false,
     order: 6,
     productCount: 6,
-    imageUrl: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600",
+    imageUrl: "/images/cat_party_wear.png",
   },
 ];
 
@@ -160,7 +160,8 @@ export const mockProducts: Product[] = [
     featured: true,
     isNewArrival: true,
     isBestSeller: true,
-    imageUrl: "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677715-Green-GREEN-1000016677715_01-2100.jpg",
+    imageUrl:
+      "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677715-Green-GREEN-1000016677715_01-2100.jpg",
     category: mockCategories[1],
     brand: mockBrands[0],
     sizes,
@@ -193,12 +194,21 @@ export const mockProducts: Product[] = [
     status: "active",
     featured: true,
     isBestSeller: true,
-    imageUrl: "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677741-Green-GREEN-1000016677741_01-2100.jpg",
+    imageUrl:
+      "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677741-Green-GREEN-1000016677741_01-2100.jpg",
     images: [
-      image("https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677741-Green-GREEN-1000016677741_01-2100.jpg"),
-      image("https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677715-Green-GREEN-1000016677715_01-2100.jpg"),
-      image("https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677754-Multi-MULTI-1000016677754_01-2100.jpg"),
-      image("https://media.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016550747-White-OFFWHITE-1000016550747_01-2100.jpg"),
+      image(
+        "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677741-Green-GREEN-1000016677741_01-2100.jpg"
+      ),
+      image(
+        "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677715-Green-GREEN-1000016677715_01-2100.jpg"
+      ),
+      image(
+        "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677754-Multi-MULTI-1000016677754_01-2100.jpg"
+      ),
+      image(
+        "https://media.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016550747-White-OFFWHITE-1000016550747_01-2100.jpg"
+      ),
     ],
     category: mockCategories[0],
     brand: mockBrands[1],
@@ -230,7 +240,8 @@ export const mockProducts: Product[] = [
     status: "active",
     featured: true,
     isNewArrival: true,
-    imageUrl: "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677754-Multi-MULTI-1000016677754_01-2100.jpg",
+    imageUrl:
+      "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677754-Multi-MULTI-1000016677754_01-2100.jpg",
     category: mockCategories[2],
     brand: mockBrands[2],
     sizes,
@@ -261,7 +272,8 @@ export const mockProducts: Product[] = [
     status: "active",
     isBestSeller: true,
     featured: true,
-    imageUrl: "https://media.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016550747-White-OFFWHITE-1000016550747_01-2100.jpg",
+    imageUrl:
+      "https://media.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016550747-White-OFFWHITE-1000016550747_01-2100.jpg",
     category: mockCategories[3],
     brand: mockBrands[0],
     sizes,
@@ -285,7 +297,8 @@ export const mockProducts: Product[] = [
     stock: 16,
     status: "active",
     featured: true,
-    imageUrl: "https://media.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000015677659-Green-OLIVE-1000015677659_01-2100.jpg",
+    imageUrl:
+      "https://media.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000015677659-Green-OLIVE-1000015677659_01-2100.jpg",
     category: mockCategories[5],
     brand: mockBrands[1],
     sizes,
@@ -307,7 +320,8 @@ export const mockProducts: Product[] = [
     status: "active",
     isNewArrival: true,
     featured: true,
-    imageUrl: "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016547883-Yellow-YELLOW-1000016547883_01-2100.jpg",
+    imageUrl:
+      "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016547883-Yellow-YELLOW-1000016547883_01-2100.jpg",
     category: mockCategories[4],
     brand: mockBrands[2],
     sizes,
@@ -333,7 +347,8 @@ export const mockProducts: Product[] = [
     status: "active",
     isBestSeller: true,
     featured: true,
-    imageUrl: "https://media.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016577977-Black-BLACK-1000016577977_01-2100.jpg",
+    imageUrl:
+      "https://media.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016577977-Black-BLACK-1000016577977_01-2100.jpg",
     category: mockCategories[4],
     brand: mockBrands[0],
     sizes,
@@ -352,7 +367,8 @@ export const mockProducts: Product[] = [
     price: 5999,
     stock: 22,
     status: "active",
-    imageUrl: "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677715-Green-GREEN-1000016677715_01-2100.jpg",
+    imageUrl:
+      "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677715-Green-GREEN-1000016677715_01-2100.jpg",
     category: mockCategories[2],
     brand: mockBrands[2],
     sizes: [...DRESS_SIZES],
@@ -373,7 +389,8 @@ export const mockProducts: Product[] = [
     stock: 10,
     status: "active",
     featured: true,
-    imageUrl: "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677741-Green-GREEN-1000016677741_01-2100.jpg",
+    imageUrl:
+      "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677741-Green-GREEN-1000016677741_01-2100.jpg",
     category: mockCategories[3],
     brand: mockBrands[1],
     sizes,
@@ -393,7 +410,8 @@ export const mockProducts: Product[] = [
     stock: 28,
     status: "active",
     isNewArrival: true,
-    imageUrl: "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677754-Multi-MULTI-1000016677754_01-2100.jpg",
+    imageUrl:
+      "https://media-ea.landmarkshops.in/cdn-cgi/image/h=831,w=615,q=85,fit=cover/max-new/1000016677754-Multi-MULTI-1000016677754_01-2100.jpg",
     category: mockCategories[1],
     brand: mockBrands[2],
     sizes,
@@ -414,7 +432,7 @@ export const mockBanners: Banner[] = [
     title: "The New Season",
     subtitle: "Spring / Summer 2026",
     description: "Discover flowing silks, delicate lace, and dresses made for golden-hour moments.",
-    imageUrl: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=1600",
+    imageUrl: "/images/hero_spring_summer.png",
     link: "/products",
     buttonText: "Shop Dresses",
     type: "hero",
@@ -426,7 +444,7 @@ export const mockBanners: Banner[] = [
     title: "Evening Edit",
     subtitle: "After Dark",
     description: "Gowns and cocktail dresses crafted for nights you will remember.",
-    imageUrl: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=1600",
+    imageUrl: "/images/hero_evening_edit.png",
     link: "/products?category=evening-gowns",
     buttonText: "View Collection",
     type: "hero",
@@ -438,7 +456,7 @@ export const mockBanners: Banner[] = [
     title: "Complimentary Styling",
     subtitle: "Via WhatsApp",
     description: "Order your perfect size and colour — our stylists confirm fit before dispatch.",
-    imageUrl: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=1200",
+    imageUrl: "/images/hero_styling.png",
     type: "promotional",
     active: true,
     order: 1,
@@ -448,7 +466,7 @@ export const mockBanners: Banner[] = [
     title: "Autumn Elegance",
     subtitle: "New Arrivals",
     description: "Rich jewel tones and structured silhouettes for the new season.",
-    imageUrl: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1600",
+    imageUrl: "/images/hero_autumn_elegance.png",
     link: "/products?sort=newest",
     buttonText: "Discover More",
     type: "hero",
