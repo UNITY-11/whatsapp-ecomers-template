@@ -90,8 +90,8 @@ export function VariantSelector({
                 className={cn(
                   "h-10 min-w-[2.75rem] rounded-none border px-8 text-sm font-medium transition-colors",
                   isSelected
-                    ? "border-emerald-800 bg-emerald-800 text-white"
-                    : "border-emerald-600 bg-transparent text-emerald-800 hover:bg-emerald-50",
+                    ? "border-brand-primary bg-brand-primary text-brand-surface"
+                    : "border-brand-primary/60 text-brand-primary hover:bg-brand-primary/5 bg-transparent",
                   !available && "cursor-not-allowed line-through opacity-40"
                 )}
               >
