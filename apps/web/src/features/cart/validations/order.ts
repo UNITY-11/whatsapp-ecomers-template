@@ -4,7 +4,10 @@ export const orderCustomerSchema = z.object({
   name: z.string().min(2, "Name is required"),
   phone: z.string().min(10, "Valid phone number is required"),
   address: z.string().min(5, "Address is required"),
-  email: z.string().email("Invalid email").optional().or(z.literal("")),
+  landmark: z.string().optional().or(z.literal("")),
+  district: z.string().min(2, "District is required"),
+  state: z.string().min(2, "State is required"),
+  pincode: z.string().min(6, "Valid pincode is required"),
 });
 
 export const reviewSchema = z.object({

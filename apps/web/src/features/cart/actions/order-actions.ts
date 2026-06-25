@@ -21,7 +21,15 @@ interface SingleOrderInput {
   slug: string;
   size?: string;
   color?: string;
-  customer: { name: string; phone: string; address: string; email?: string };
+  customer: {
+    name: string;
+    phone: string;
+    address: string;
+    landmark?: string;
+    district: string;
+    state: string;
+    pincode: string;
+  };
 }
 
 export async function createSingleOrderAction(input: SingleOrderInput) {
@@ -89,7 +97,15 @@ export async function createSingleOrderAction(input: SingleOrderInput) {
 
 export async function createCartOrderAction(
   items: CartItem[],
-  customer: { name: string; phone: string; address: string; email?: string }
+  customer: {
+    name: string;
+    phone: string;
+    address: string;
+    landmark?: string;
+    district: string;
+    state: string;
+    pincode: string;
+  }
 ) {
   if (items.length === 0) return { error: "Cart is empty" };
 

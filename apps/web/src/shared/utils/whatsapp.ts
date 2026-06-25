@@ -5,7 +5,10 @@ interface CustomerDetails {
   name: string;
   phone: string;
   address: string;
-  email?: string;
+  landmark?: string;
+  district: string;
+  state: string;
+  pincode: string;
 }
 
 function variantLine(size?: string, color?: string) {
@@ -47,6 +50,9 @@ ${customer.phone}
 
 Address:
 ${customer.address}
+${customer.landmark ? `Landmark: ${customer.landmark}\n` : ""}District: ${customer.district}
+State: ${customer.state}
+Pincode: ${customer.pincode}
 
 Please confirm size availability and delivery.
 
@@ -87,6 +93,9 @@ ${customer.phone}
 
 Address:
 ${customer.address}
+${customer.landmark ? `Landmark: ${customer.landmark}\n` : ""}District: ${customer.district}
+State: ${customer.state}
+Pincode: ${customer.pincode}
 
 Please confirm availability and delivery details.
 

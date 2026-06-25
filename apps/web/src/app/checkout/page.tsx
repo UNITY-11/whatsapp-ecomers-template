@@ -19,7 +19,15 @@ import { useCartStore } from "@/features/cart/store/cart-store";
 
 export default function CheckoutPage() {
   const { items, getTotal, getItemCount, clearCart } = useCartStore();
-  const [customer, setCustomer] = useState({ name: "", phone: "", address: "", email: "" });
+  const [customer, setCustomer] = useState({
+    name: "",
+    phone: "",
+    address: "",
+    landmark: "",
+    district: "",
+    state: "",
+    pincode: "",
+  });
   const [ordering, setOrdering] = useState(false);
 
   if (items.length === 0) {
@@ -34,7 +42,14 @@ export default function CheckoutPage() {
   }
 
   const handleOrder = async () => {
-    if (!customer.name || !customer.phone || !customer.address) {
+    if (
+      !customer.name ||
+      !customer.phone ||
+      !customer.address ||
+      !customer.district ||
+      !customer.state ||
+      !customer.pincode
+    ) {
       toast.error("Please fill in all required fields");
       return;
     }
@@ -67,40 +82,82 @@ export default function CheckoutPage() {
 
       <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
         <div className="order-last space-y-6 md:order-first">
-          <div>
-            <h2 className="text-brand-h3 mb-4 font-semibold">Customer Details</h2>
-            <div className="space-y-4">
-              <div>
-                <Label>Name *</Label>
-                <Input
-                  value={customer.name}
-                  onChange={(e) => setCustomer({ ...customer, name: e.target.value })}
-                />
+          <div className="rounded-global border-brand-border-global/50 border bg-white p-5 shadow-sm sm:p-7">
+            <h2 className="text-brand-h3 mb-6 font-semibold">Customer Details</h2>
+            <div className="space-y-5">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div className="space-y-1.5">
+                  <Label>Name *</Label>
+                  <Input
+                    value={customer.name}
+                    onChange={(e) => setCustomer({ ...customer, name: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label>Phone *</Label>
+                  <Input
+                    value={customer.phone}
+                    onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
+                  />
+                </div>
               </div>
-              <div>
-                <Label>Phone *</Label>
-                <Input
-                  value={customer.phone}
-                  onChange={(e) => setCustomer({ ...customer, phone: e.target.value })}
-                />
-              </div>
-              <div>
-                <Label>Email</Label>
-                <Input
-                  type="email"
-                  value={customer.email}
-                  onChange={(e) => setCustomer({ ...customer, email: e.target.value })}
-                />
-              </div>
-              <div>
+
+              <div className="space-y-1.5">
                 <Label>Delivery Address *</Label>
                 <Textarea
                   value={customer.address}
                   onChange={(e) => setCustomer({ ...customer, address: e.target.value })}
-                  rows={3}
+                  rows={2}
                 />
               </div>
+
+              <div className="space-y-1.5">
+                <Label>Landmark</Label>
+                <Input
+                  value={customer.landmark}
+                  onChange={(e) => setCustomer({ ...customer, landmark: e.target.value })}
+                  placeholder="Optional"
+                />
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-3">
+                <div className="space-y-1.5">
+                  <Label>District *</Label>
+                  <Input
+                    value={customer.district}
+                    onChange={(e) => setCustomer({ ...customer, district: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label>State *</Label>
+                  <Input
+                    value={customer.state}
+                    onChange={(e) => setCustomer({ ...customer, state: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <Label>Pincode *</Label>
+                  <Input
+                    value={customer.pincode}
+                    onChange={(e) => setCustomer({ ...customer, pincode: e.target.value })}
+                  />
+                </div>
+              </div>
             </div>
+          </div>
+          <div className="mt-6">
+            <Button
+              className="text-brand-surface bg-brand-primary hover:bg-brand-primary/90 w-full"
+              size="lg"
+              onClick={handleOrder}
+              disabled={ordering}
+            >
+              <MessageCircle className="mr-2 h-4 w-4" />
+              {ordering ? "Processing..." : "Place Order via WhatsApp"}
+            </Button>
+            <p className="text-brand-text/70 mt-3 text-center text-xs">
+              Your order will be saved and you&apos;ll be redirected to WhatsApp to confirm.
+            </p>
           </div>
         </div>
 
@@ -136,18 +193,6 @@ export default function CheckoutPage() {
             <span>Grand Total</span>
             <span>{formatPrice(getTotal())}</span>
           </div>
-          <Button
-            className="text-brand-surface w-full bg-[#25D366] hover:bg-[#20bd5a]"
-            size="lg"
-            onClick={handleOrder}
-            disabled={ordering}
-          >
-            <MessageCircle className="mr-2 h-4 w-4" />
-            {ordering ? "Processing..." : "Place Order via WhatsApp"}
-          </Button>
-          <p className="text-brand-text/70 mt-3 text-center text-xs">
-            Your order will be saved and you&apos;ll be redirected to WhatsApp to confirm.
-          </p>
         </div>
       </div>
     </Container>
