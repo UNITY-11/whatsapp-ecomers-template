@@ -177,11 +177,11 @@ export function SearchBar({ inlineResults = false, onNavigate, className }: Sear
       className={cn("relative w-full min-w-0", inlineResults && "shrink-0", className)}
     >
       <div className="relative w-full">
-        <Search className="text-brand-text/70 pointer-events-none absolute top-1/2 left-3 z-10 h-4 w-4 -translate-y-1/2" />
+        <Search className="text-brand-surface/70 pointer-events-none absolute top-1/2 left-3 z-10 h-4 w-4 -translate-y-1/2" />
         <Input
           type="search"
           placeholder="Search products..."
-          className="bg-brand-text/10 border-brand-text/20 text-brand-text placeholder:text-brand-text/60 focus-visible:bg-brand-text/15 h-10 w-full rounded-none pr-9 pl-9 text-sm transition-colors"
+          className="bg-brand-surface/10 border-brand-surface/20 text-brand-surface placeholder:text-brand-surface/60 focus-visible:bg-brand-surface/15 h-10 w-full rounded-none pr-9 pl-9 text-sm transition-colors"
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
@@ -199,7 +199,7 @@ export function SearchBar({ inlineResults = false, onNavigate, className }: Sear
             className="absolute top-1/2 right-3 z-10 -translate-y-1/2 p-0.5 hover:opacity-70"
             aria-label="Clear search"
           >
-            <X className="text-brand-text/70 h-4 w-4" />
+            <X className="text-brand-surface/70 h-4 w-4" />
           </button>
         )}
       </div>

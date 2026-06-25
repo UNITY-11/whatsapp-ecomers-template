@@ -70,7 +70,7 @@ export function Header() {
                       href="https://facebook.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-global bg-brand-secondary text-brand-primary hover:bg-brand-surface hover:text-brand-primary p-2.5 transition-colors"
+                      className="rounded-global text-brand-surface hover:bg-brand-surface/10 p-2.5 transition-colors"
                       aria-label="Facebook"
                     >
                       <svg
@@ -92,7 +92,7 @@ export function Header() {
                       href="https://instagram.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-global bg-brand-secondary text-brand-primary hover:bg-brand-surface hover:text-brand-primary p-2.5 transition-colors"
+                      className="rounded-global text-brand-surface hover:bg-brand-surface/10 p-2.5 transition-colors"
                       aria-label="Instagram"
                     >
                       <svg
@@ -116,7 +116,7 @@ export function Header() {
                       href="https://x.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-global bg-brand-secondary text-brand-primary hover:bg-brand-surface hover:text-brand-primary p-2.5 transition-colors"
+                      className="rounded-global text-brand-surface hover:bg-brand-surface/10 p-2.5 transition-colors"
                       aria-label="X (Twitter)"
                     >
                       <svg
