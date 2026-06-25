@@ -387,9 +387,7 @@ export function ProductDetail({ product, reviews, relatedProducts }: ProductDeta
                     </Badge>
                   )}
                 </div>
-                <div className="mb-2">
-                  <span className="text-foreground text-sm font-medium">{review.userName}</span>
-                </div>
+
                 {review.title && <h4 className="mb-1 text-sm font-semibold">{review.title}</h4>}
                 <p className="text-brand-text/70 text-sm leading-relaxed">{review.comment}</p>
               </div>
