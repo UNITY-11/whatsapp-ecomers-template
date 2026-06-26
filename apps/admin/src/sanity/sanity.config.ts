@@ -7,8 +7,8 @@ import { schemaTypes } from "./schemas";
 export default defineConfig({
   name: "luxestore",
   title: "LuxeStore CMS",
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "placeholder",
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
+  projectId: process.env["NEXT_PUBLIC_SANITY_PROJECT_ID"] || "placeholder",
+  dataset: process.env["NEXT_PUBLIC_SANITY_DATASET"] || "production",
   basePath: "/",
   plugins: [structureTool(), visionTool()],
   schema: {
