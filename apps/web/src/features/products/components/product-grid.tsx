@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -18,7 +19,13 @@ interface ProductGridProps {
   viewAllHref?: string;
 }
 
-export function ProductGrid({ products, title, subtitle, label, viewAllHref }: ProductGridProps) {
+export const ProductGrid = React.memo(function ProductGrid({
+  products,
+  title,
+  subtitle,
+  label,
+  viewAllHref,
+}: ProductGridProps) {
   if (products.length === 0) return null;
 
   return (
@@ -58,4 +65,4 @@ export function ProductGrid({ products, title, subtitle, label, viewAllHref }: P
       </Container>
     </section>
   );
-}
+});
