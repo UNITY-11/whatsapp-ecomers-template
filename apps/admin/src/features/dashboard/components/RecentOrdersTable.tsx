@@ -6,6 +6,14 @@ interface RecentOrdersTableProps {
   orders: Order[];
 }
 
+const STATUS_STYLES: Record<string, string> = {
+  delivered: "bg-green-500/10 text-green-500",
+  processing: "bg-purple-500/10 text-purple-500",
+  shipped: "bg-indigo-500/10 text-indigo-500",
+  cancelled: "bg-red-500/10 text-red-500",
+  pending: "bg-yellow-500/10 text-yellow-500",
+};
+
 export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
   return (
     <div className="rounded-global border-global border-brand-border-global bg-brand-surface overflow-hidden">
@@ -46,15 +54,7 @@ export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
                   <td className="px-6 py-4">
                     <span
                       className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium capitalize ${
-                        order.status === "delivered"
-                          ? "bg-green-500/10 text-green-500"
-                          : order.status === "processing"
-                            ? "bg-purple-500/10 text-purple-500"
-                            : order.status === "shipped"
-                              ? "bg-indigo-500/10 text-indigo-500"
-                              : order.status === "cancelled"
-                                ? "bg-red-500/10 text-red-500"
-                                : "bg-yellow-500/10 text-yellow-500"
+                        STATUS_STYLES[order.status] || STATUS_STYLES.pending
                       }`}
                     >
                       {order.status}
