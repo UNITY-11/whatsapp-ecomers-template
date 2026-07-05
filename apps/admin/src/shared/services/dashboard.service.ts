@@ -27,37 +27,31 @@ const STATUS_COLORS: Record<string, string> = {
 export async function getDashboardStats(): Promise<DashboardStats> {
   // If Sanity isn't configured, return aggregated mock data
   if (!isSanityConfigured) {
-    const totalRevenue = MOCK_ALL_ORDERS.reduce((acc, order) => {
-      // Only count non-cancelled towards revenue
-      if (order.status !== "cancelled") {
-        return acc + order.total;
-      }
-      return acc;
-    }, 0);
-
+    let totalRevenue = 0;
     const totalOrders = MOCK_ALL_ORDERS.length;
     const activeCustomers = MOCK_CUSTOMERS.length;
     const totalProducts = 12; // fallback
 
-    // Aggregate sales data by date (simple grouping for mock data)
     const salesMap = new Map<string, number>();
+    const statusMap = new Map<string, number>();
+
     MOCK_ALL_ORDERS.forEach((order) => {
+      // 1. Order status
+      const currentStatusCount = statusMap.get(order.status) || 0;
+      statusMap.set(order.status, currentStatusCount + 1);
+
+      // 2. Revenue and sales map (only non-cancelled)
       if (order.status !== "cancelled") {
-        const existing = salesMap.get(order.date) || 0;
-        salesMap.set(order.date, existing + order.total);
+        totalRevenue += order.total;
+
+        const currentSales = salesMap.get(order.date) || 0;
+        salesMap.set(order.date, currentSales + order.total);
       }
     });
 
     const salesData = Array.from(salesMap.entries())
       .map(([name, total]) => ({ name, total }))
       .sort((a, b) => new Date(a.name).getTime() - new Date(b.name).getTime());
-
-    // Aggregate order status
-    const statusMap = new Map<string, number>();
-    MOCK_ALL_ORDERS.forEach((order) => {
-      const existing = statusMap.get(order.status) || 0;
-      statusMap.set(order.status, existing + 1);
-    });
 
     const orderStatusData = Array.from(statusMap.entries()).map(([name, value]) => ({
       name: name.charAt(0).toUpperCase() + name.slice(1),
