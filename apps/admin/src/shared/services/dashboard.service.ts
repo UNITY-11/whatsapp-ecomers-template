@@ -17,11 +17,11 @@ const isSanityConfigured = projectId && projectId !== "placeholder";
 
 // Using tailwind variable equivalents or raw colors for Recharts pie chart
 const STATUS_COLORS: Record<string, string> = {
-  pending: "#eab308", // yellow-500
-  processing: "#a855f7", // purple-500
-  shipped: "#6366f1", // indigo-500
-  delivered: "#22c55e", // green-500
-  cancelled: "#ef4444", // red-500
+  pending: "#b89a5a", // brand-accent
+  processing: "#1a2e28", // brand-text (dark green)
+  shipped: "#145242", // brand-primary-hover
+  delivered: "#0f4a3a", // brand-primary
+  cancelled: "#b54545", // brand-danger
 };
 
 export async function getDashboardStats(): Promise<DashboardStats> {

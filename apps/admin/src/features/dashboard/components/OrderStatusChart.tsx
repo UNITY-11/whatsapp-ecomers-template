@@ -27,6 +27,8 @@ export function OrderStatusChart({ data }: OrderStatusChartProps) {
                   outerRadius={80}
                   paddingAngle={5}
                   dataKey="value"
+                  cornerRadius={4}
+                  stroke="none"
                 >
                   {data.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.fill || "#8884d8"} stroke="none" />

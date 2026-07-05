@@ -28,40 +28,58 @@ export function SalesChart({ data }: SalesChartProps) {
             <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="colorTotal" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#0f4a3a" stopOpacity={0.3} />
+                  <stop offset="5%" stopColor="#0f4a3a" stopOpacity={0.4} />
+                  <stop offset="50%" stopColor="#b89a5a" stopOpacity={0.15} />
                   <stop offset="95%" stopColor="#0f4a3a" stopOpacity={0} />
                 </linearGradient>
+                <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow
+                    dx="0"
+                    dy="4"
+                    stdDeviation="4"
+                    floodColor="#0f4a3a"
+                    floodOpacity="0.15"
+                  />
+                </filter>
               </defs>
               <XAxis
                 dataKey="name"
-                stroke="#6b7280"
+                stroke="#1a2e28"
+                strokeOpacity={0.5}
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
+                tickMargin={10}
               />
               <YAxis
-                stroke="#6b7280"
+                stroke="#1a2e28"
+                strokeOpacity={0.5}
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
                 tickFormatter={(value) => `₹${value}`}
+                tickMargin={10}
               />
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#374151" />
+              <CartesianGrid strokeDasharray="4 4" vertical={false} stroke="#ddd5c8" />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: "var(--color-brand-surface, #1f2937)",
-                  borderColor: "var(--color-brand-border-global, #374151)",
-                  color: "#f3f4f6",
-                  borderRadius: "8px",
+                  backgroundColor: "#ffffff",
+                  borderColor: "#ddd5c8",
+                  color: "#1a2e28",
+                  borderRadius: "12px",
+                  boxShadow: "0 4px 20px rgb(0 0 0 / 0.05)",
+                  padding: "12px",
                 }}
-                itemStyle={{ color: "#f3f4f6" }}
+                itemStyle={{ color: "#0f4a3a", fontWeight: 600 }}
               />
               <Area
                 type="monotone"
                 dataKey="total"
                 stroke="#0f4a3a"
+                strokeWidth={3}
                 fillOpacity={1}
                 fill="url(#colorTotal)"
+                style={{ filter: "url(#shadow)" }}
               />
             </AreaChart>
           </ResponsiveContainer>
