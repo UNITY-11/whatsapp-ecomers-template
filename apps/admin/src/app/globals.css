@@ -16,7 +16,7 @@
   --brand-accent: #b89a5a;
   --brand-danger: #b54545;
 
-  --global-radius: 0px;
+  --global-radius: 1rem;
   --global-border-width: 1px;
 
   /* Global Layout & Motion */
@@ -92,25 +92,10 @@
 body {
   color: var(--foreground);
   font-family: var(--font-brand);
-  scrollbar-width: thin;
-  scrollbar-color: var(--brand-primary) transparent;
+  scrollbar-width: none; /* Firefox */
 }
 
-/* Custom Scrollbar for WebKit */
+/* Custom Scrollbar for WebKit (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--brand-primary);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-primary-hover);
+  display: none;
 }
