@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -24,15 +24,15 @@ interface ProductCardProps {
   layout?: "grid" | "list";
 }
 
-export function ProductCard({
+export const ProductCard = React.memo(function ProductCard({
   product,
   onQuickView,
   className,
   layout = "grid",
 }: ProductCardProps) {
   const router = useRouter();
-  const addItem = useCartStore((s) => s.addItem);
-  const setCartOpen = useCartStore((s) => s.setCartOpen);
+  const addItem = useCartStore((s: ReturnType<typeof useCartStore.getState>) => s.addItem);
+  const setCartOpen = useCartStore((s: ReturnType<typeof useCartStore.getState>) => s.setCartOpen);
   const [mounted, setMounted] = useState(false);
   const { toggleItem, isInWishlist } = useWishlistStore();
   const inWishlist = mounted && isInWishlist(product._id);
@@ -204,4 +204,4 @@ export function ProductCard({
       </button>
     </motion.article>
   );
-}
+});
