@@ -1,12 +1,15 @@
 "use client";
 
+import React from "react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 
 interface OrderStatusChartProps {
   data: { name: string; value: number; fill?: string }[];
 }
 
-export function OrderStatusChart({ data }: OrderStatusChartProps) {
+export const OrderStatusChart = React.memo(function OrderStatusChart({
+  data,
+}: OrderStatusChartProps) {
   return (
     <div className="rounded-global border-global border-brand-border-global bg-brand-surface p-6">
       <h3 className="text-brand-text mb-6 text-lg font-semibold tracking-tight">Order Status</h3>
@@ -58,4 +61,4 @@ export function OrderStatusChart({ data }: OrderStatusChartProps) {
       </div>
     </div>
   );
-}
+});

@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import {
   Area,
   AreaChart,
@@ -14,7 +15,7 @@ interface SalesChartProps {
   data: { name: string; total: number }[];
 }
 
-export function SalesChart({ data }: SalesChartProps) {
+export const SalesChart = React.memo(function SalesChart({ data }: SalesChartProps) {
   return (
     <div className="rounded-global border-global border-brand-border-global bg-brand-surface p-6">
       <h3 className="text-brand-text mb-6 text-lg font-semibold tracking-tight">Sales Overview</h3>
@@ -87,4 +88,4 @@ export function SalesChart({ data }: SalesChartProps) {
       </div>
     </div>
   );
-}
+});
