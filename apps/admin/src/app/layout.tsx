@@ -8,8 +8,8 @@ import { Sidebar } from "@/shared/components/Sidebar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "LuxeStore Admin Panel",
-  description: "Manage your store",
+  title: "Calira Couture Admin Panel",
+  description: "Manage your Calira Couture store",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
