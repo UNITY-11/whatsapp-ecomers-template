@@ -9,7 +9,7 @@ import { getTelHref, getWhatsAppHref } from "@/shared/lib/contact";
 import { cn } from "@/shared/lib/utils";
 
 const fabClass = cn(
-  "flex size-12 items-center justify-center rounded-global shadow-lg transition-transform",
+  "flex size-12 items-center justify-center rounded-full shadow-lg transition-transform",
   "hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
 );
 
