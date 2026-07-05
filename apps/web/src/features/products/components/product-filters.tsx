@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { Search, X } from "lucide-react";
 
 import { Button } from "@/shared/components/ui/button";
@@ -34,7 +35,7 @@ function FilterSection({ title, children }: { title: string; children: React.Rea
   );
 }
 
-export function ProductFilters({
+export const ProductFilters = React.memo(function ProductFilters({
   filters,
   categories,
   brands,
@@ -174,7 +175,7 @@ export function ProductFilters({
       )}
     </div>
   );
-}
+});
 
 export function ActiveFilterChips({
   filters,
