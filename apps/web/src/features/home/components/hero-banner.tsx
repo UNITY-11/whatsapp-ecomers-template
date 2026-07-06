@@ -73,7 +73,7 @@ function MobileHeroSlider({ banners }: { banners: Banner[] }) {
               alt={banner.title}
               fill
               className="object-cover"
-              priority={i <= 2}
+              priority={i === 1}
               sizes="(max-width: 640px) 100vw, 50vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
@@ -182,7 +182,7 @@ export function HeroBanner({ banners }: { banners: Banner[] }) {
                       alt={banner.title}
                       fill
                       className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                      priority={i < totalOriginal + 3}
+                      priority={i < 3}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />

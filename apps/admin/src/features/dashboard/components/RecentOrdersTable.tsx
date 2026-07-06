@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 
 import { Order } from "@/features/orders/types";
@@ -14,7 +15,9 @@ const STATUS_STYLES: Record<string, string> = {
   pending: "bg-yellow-500/10 text-yellow-500",
 };
 
-export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
+export const RecentOrdersTable = React.memo(function RecentOrdersTable({
+  orders,
+}: RecentOrdersTableProps) {
   return (
     <div className="rounded-global border-global border-brand-border-global bg-brand-surface overflow-hidden">
       <div className="border-brand-border-global flex items-center justify-between border-b p-6">
@@ -71,4 +74,4 @@ export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
       </div>
     </div>
   );
-}
+});

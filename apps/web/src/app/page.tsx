@@ -6,14 +6,16 @@ import {
   getFeaturedProducts,
   getNewArrivals,
 } from "@/shared/services/content-service";
-import { BrandsSection } from "@/features/home/components/brands-section";
+import dynamic from "next/dynamic";
 import { CategoriesSection } from "@/features/home/components/categories-section";
-import { FAQSection } from "@/features/home/components/faq-section";
 import { FeaturesMarquee } from "@/features/home/components/features-marquee";
 import { HeroBanner } from "@/features/home/components/hero-banner";
-import { LastChanceBanner } from "@/features/home/components/last-chance-banner";
-import { NewsletterSection } from "@/features/home/components/newsletter-section";
 import { ProductGrid } from "@/features/products/components/product-grid";
+
+const BrandsSection = dynamic(() => import("@/features/home/components/brands-section").then(m => m.BrandsSection));
+const FAQSection = dynamic(() => import("@/features/home/components/faq-section").then(m => m.FAQSection));
+const LastChanceBanner = dynamic(() => import("@/features/home/components/last-chance-banner").then(m => m.LastChanceBanner));
+const NewsletterSection = dynamic(() => import("@/features/home/components/newsletter-section").then(m => m.NewsletterSection));
 
 export const revalidate = 3600;
 

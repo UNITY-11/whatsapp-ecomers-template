@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 interface MetricCardProps {
   title: string;
@@ -10,7 +10,12 @@ interface MetricCardProps {
   };
 }
 
-export function MetricCard({ title, value, icon, trend }: MetricCardProps) {
+export const MetricCard = React.memo(function MetricCard({
+  title,
+  value,
+  icon,
+  trend,
+}: MetricCardProps) {
   return (
     <div className="group rounded-global border-global border-brand-border-global bg-brand-surface hover:bg-brand-secondary-hover hover:shadow-brand-card-hover relative overflow-hidden p-6 transition-all hover:-translate-y-1">
       <div className="absolute top-0 right-0 p-4 opacity-5 transition-opacity group-hover:opacity-10">
@@ -33,4 +38,4 @@ export function MetricCard({ title, value, icon, trend }: MetricCardProps) {
       )}
     </div>
   );
-}
+});

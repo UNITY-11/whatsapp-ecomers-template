@@ -1,10 +1,24 @@
+import dynamic from "next/dynamic";
 import { IndianRupee, Package, ShoppingCart, Users } from "lucide-react";
 
 import { getDashboardStats } from "@/shared/services/dashboard.service";
 import { MetricCard } from "@/features/dashboard/components/MetricCard";
-import { OrderStatusChart } from "@/features/dashboard/components/OrderStatusChart";
 import { RecentOrdersTable } from "@/features/dashboard/components/RecentOrdersTable";
-import { SalesChart } from "@/features/dashboard/components/SalesChart";
+
+const SalesChart = dynamic(
+  () => import("@/features/dashboard/components/SalesChart").then((mod) => mod.SalesChart),
+  {
+    loading: () => <div className="h-[400px] w-full animate-pulse rounded-2xl bg-[#0F4A3A]/5" />,
+  }
+);
+
+const OrderStatusChart = dynamic(
+  () =>
+    import("@/features/dashboard/components/OrderStatusChart").then((mod) => mod.OrderStatusChart),
+  {
+    loading: () => <div className="h-[400px] w-full animate-pulse rounded-2xl bg-[#0F4A3A]/5" />,
+  }
+);
 
 export default async function AdminDashboard() {
   const stats = await getDashboardStats();
